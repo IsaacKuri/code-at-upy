@@ -1,0 +1,1483 @@
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"I2C_PM.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.I2C_SaveConfig,"ax",%progbits
+  20              		.align	2
+  21              		.global	I2C_SaveConfig
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	I2C_SaveConfig, %function
+  25              	I2C_SaveConfig:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC5\\I2C_PM.c"
+   1:Generated_Source\PSoC5/I2C_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/I2C_PM.c **** * File Name: I2C_PM.c
+   3:Generated_Source\PSoC5/I2C_PM.c **** * Version 3.50
+   4:Generated_Source\PSoC5/I2C_PM.c **** *
+   5:Generated_Source\PSoC5/I2C_PM.c **** * Description:
+   6:Generated_Source\PSoC5/I2C_PM.c **** *  This file provides low power mode APIs for the I2C component.
+   7:Generated_Source\PSoC5/I2C_PM.c **** *
+   8:Generated_Source\PSoC5/I2C_PM.c **** ********************************************************************************
+   9:Generated_Source\PSoC5/I2C_PM.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation. All rights reserved.
+  10:Generated_Source\PSoC5/I2C_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  11:Generated_Source\PSoC5/I2C_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  12:Generated_Source\PSoC5/I2C_PM.c **** * the software package with which this file was provided.
+  13:Generated_Source\PSoC5/I2C_PM.c **** *******************************************************************************/
+  14:Generated_Source\PSoC5/I2C_PM.c **** 
+  15:Generated_Source\PSoC5/I2C_PM.c **** #include "I2C_PVT.h"
+  16:Generated_Source\PSoC5/I2C_PM.c **** 
+  17:Generated_Source\PSoC5/I2C_PM.c **** I2C_BACKUP_STRUCT I2C_backup =
+  18:Generated_Source\PSoC5/I2C_PM.c **** {
+  19:Generated_Source\PSoC5/I2C_PM.c ****     I2C_DISABLE,
+  20:Generated_Source\PSoC5/I2C_PM.c **** 
+  21:Generated_Source\PSoC5/I2C_PM.c **** #if (I2C_FF_IMPLEMENTED)
+  22:Generated_Source\PSoC5/I2C_PM.c ****     I2C_DEFAULT_XCFG,
+  23:Generated_Source\PSoC5/I2C_PM.c ****     I2C_DEFAULT_CFG,
+  24:Generated_Source\PSoC5/I2C_PM.c ****     I2C_DEFAULT_ADDR,
+  25:Generated_Source\PSoC5/I2C_PM.c ****     LO8(I2C_DEFAULT_DIVIDE_FACTOR),
+  26:Generated_Source\PSoC5/I2C_PM.c ****     HI8(I2C_DEFAULT_DIVIDE_FACTOR),
+  27:Generated_Source\PSoC5/I2C_PM.c **** #else  /* (I2C_UDB_IMPLEMENTED) */
+  28:Generated_Source\PSoC5/I2C_PM.c ****     I2C_DEFAULT_CFG,
+  29:Generated_Source\PSoC5/I2C_PM.c **** #endif /* (I2C_FF_IMPLEMENTED) */
+  30:Generated_Source\PSoC5/I2C_PM.c **** 
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 2
+
+
+  31:Generated_Source\PSoC5/I2C_PM.c **** #if (I2C_TIMEOUT_ENABLED)
+  32:Generated_Source\PSoC5/I2C_PM.c ****     I2C_DEFAULT_TMOUT_PERIOD,
+  33:Generated_Source\PSoC5/I2C_PM.c ****     I2C_DEFAULT_TMOUT_INTR_MASK,
+  34:Generated_Source\PSoC5/I2C_PM.c **** #endif /* (I2C_TIMEOUT_ENABLED) */
+  35:Generated_Source\PSoC5/I2C_PM.c **** };
+  36:Generated_Source\PSoC5/I2C_PM.c **** 
+  37:Generated_Source\PSoC5/I2C_PM.c **** #if ((I2C_FF_IMPLEMENTED) && (I2C_WAKEUP_ENABLED))
+  38:Generated_Source\PSoC5/I2C_PM.c ****     volatile uint8 I2C_wakeupSource;
+  39:Generated_Source\PSoC5/I2C_PM.c **** #endif /* ((I2C_FF_IMPLEMENTED) && (I2C_WAKEUP_ENABLED)) */
+  40:Generated_Source\PSoC5/I2C_PM.c **** 
+  41:Generated_Source\PSoC5/I2C_PM.c **** 
+  42:Generated_Source\PSoC5/I2C_PM.c **** /*******************************************************************************
+  43:Generated_Source\PSoC5/I2C_PM.c **** * Function Name: I2C_SaveConfig
+  44:Generated_Source\PSoC5/I2C_PM.c **** ********************************************************************************
+  45:Generated_Source\PSoC5/I2C_PM.c **** *
+  46:Generated_Source\PSoC5/I2C_PM.c **** * Summary:
+  47:Generated_Source\PSoC5/I2C_PM.c **** *  The Enable wakeup from Sleep Mode selection influences this function
+  48:Generated_Source\PSoC5/I2C_PM.c **** *  implementation:
+  49:Generated_Source\PSoC5/I2C_PM.c **** *   Unchecked: Stores the component non-retention configuration registers.
+  50:Generated_Source\PSoC5/I2C_PM.c **** *   Checked:   Disables the master, if it was enabled before, and enables
+  51:Generated_Source\PSoC5/I2C_PM.c **** *              backup regulator of the I2C hardware. If a transaction intended
+  52:Generated_Source\PSoC5/I2C_PM.c **** *              for component executes during this function call, it waits until
+  53:Generated_Source\PSoC5/I2C_PM.c **** *              the current transaction is completed and I2C hardware is ready
+  54:Generated_Source\PSoC5/I2C_PM.c **** *              to enter sleep mode. All subsequent I2C traffic is NAKed until
+  55:Generated_Source\PSoC5/I2C_PM.c **** *              the device is put into sleep mode.
+  56:Generated_Source\PSoC5/I2C_PM.c **** *
+  57:Generated_Source\PSoC5/I2C_PM.c **** * Parameters:
+  58:Generated_Source\PSoC5/I2C_PM.c **** *  None.
+  59:Generated_Source\PSoC5/I2C_PM.c **** *
+  60:Generated_Source\PSoC5/I2C_PM.c **** * Return:
+  61:Generated_Source\PSoC5/I2C_PM.c **** *  None.
+  62:Generated_Source\PSoC5/I2C_PM.c **** *
+  63:Generated_Source\PSoC5/I2C_PM.c **** * Global Variables:
+  64:Generated_Source\PSoC5/I2C_PM.c **** *  I2C_backup - The global variable used to save the component
+  65:Generated_Source\PSoC5/I2C_PM.c **** *                            configuration and non-retention registers before
+  66:Generated_Source\PSoC5/I2C_PM.c **** *                            entering the sleep mode.
+  67:Generated_Source\PSoC5/I2C_PM.c **** *
+  68:Generated_Source\PSoC5/I2C_PM.c **** * Reentrant:
+  69:Generated_Source\PSoC5/I2C_PM.c **** *  No.
+  70:Generated_Source\PSoC5/I2C_PM.c **** *
+  71:Generated_Source\PSoC5/I2C_PM.c **** *******************************************************************************/
+  72:Generated_Source\PSoC5/I2C_PM.c **** void I2C_SaveConfig(void) 
+  73:Generated_Source\PSoC5/I2C_PM.c **** {
+  28              		.loc 1 73 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  74:Generated_Source\PSoC5/I2C_PM.c **** #if (I2C_FF_IMPLEMENTED)
+  75:Generated_Source\PSoC5/I2C_PM.c ****     #if (I2C_WAKEUP_ENABLED)
+  76:Generated_Source\PSoC5/I2C_PM.c ****         uint8 intState;
+  77:Generated_Source\PSoC5/I2C_PM.c ****     #endif /* (I2C_WAKEUP_ENABLED) */
+  78:Generated_Source\PSoC5/I2C_PM.c **** 
+  79:Generated_Source\PSoC5/I2C_PM.c ****     /* Store registers before enter low power mode */
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 3
+
+
+  80:Generated_Source\PSoC5/I2C_PM.c ****     I2C_backup.cfg     = I2C_CFG_REG;
+  36              		.loc 1 80 0
+  37 0002 194A     		ldr	r2, .L4
+  38 0004 1178     		ldrb	r1, [r2]	@ zero_extendqisi2
+  39 0006 194B     		ldr	r3, .L4+4
+  40 0008 9970     		strb	r1, [r3, #2]
+  81:Generated_Source\PSoC5/I2C_PM.c ****     I2C_backup.xcfg    = I2C_XCFG_REG;
+  41              		.loc 1 81 0
+  42 000a 194C     		ldr	r4, .L4+8
+  43 000c 2178     		ldrb	r1, [r4]	@ zero_extendqisi2
+  44 000e 5970     		strb	r1, [r3, #1]
+  82:Generated_Source\PSoC5/I2C_PM.c ****     I2C_backup.addr    = I2C_ADDR_REG;
+  45              		.loc 1 82 0
+  46 0010 1849     		ldr	r1, .L4+12
+  47 0012 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
+  48 0014 D970     		strb	r1, [r3, #3]
+  83:Generated_Source\PSoC5/I2C_PM.c ****     I2C_backup.clkDiv1 = I2C_CLKDIV1_REG;
+  49              		.loc 1 83 0
+  50 0016 1849     		ldr	r1, .L4+16
+  51 0018 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
+  52 001a 1971     		strb	r1, [r3, #4]
+  84:Generated_Source\PSoC5/I2C_PM.c ****     I2C_backup.clkDiv2 = I2C_CLKDIV2_REG;
+  53              		.loc 1 84 0
+  54 001c 1749     		ldr	r1, .L4+20
+  55 001e 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
+  56 0020 5971     		strb	r1, [r3, #5]
+  85:Generated_Source\PSoC5/I2C_PM.c **** 
+  86:Generated_Source\PSoC5/I2C_PM.c **** #if (I2C_WAKEUP_ENABLED)
+  87:Generated_Source\PSoC5/I2C_PM.c ****     /* Disable master */
+  88:Generated_Source\PSoC5/I2C_PM.c ****     I2C_CFG_REG &= (uint8) ~I2C_ENABLE_MASTER;
+  57              		.loc 1 88 0
+  58 0022 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  59 0024 DBB2     		uxtb	r3, r3
+  60 0026 1370     		strb	r3, [r2]
+  89:Generated_Source\PSoC5/I2C_PM.c **** 
+  90:Generated_Source\PSoC5/I2C_PM.c ****     /* Enable backup regulator to keep block powered in low power mode */
+  91:Generated_Source\PSoC5/I2C_PM.c ****     intState = CyEnterCriticalSection();
+  61              		.loc 1 91 0
+  62 0028 FFF7FEFF 		bl	CyEnterCriticalSection
+  63              	.LVL0:
+  92:Generated_Source\PSoC5/I2C_PM.c ****     I2C_PWRSYS_CR1_REG |= I2C_PWRSYS_CR1_I2C_REG_BACKUP;
+  64              		.loc 1 92 0
+  65 002c 144A     		ldr	r2, .L4+24
+  66 002e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  67 0030 43F00403 		orr	r3, r3, #4
+  68 0034 1370     		strb	r3, [r2]
+  93:Generated_Source\PSoC5/I2C_PM.c ****     CyExitCriticalSection(intState);
+  69              		.loc 1 93 0
+  70 0036 FFF7FEFF 		bl	CyExitCriticalSection
+  71              	.LVL1:
+  94:Generated_Source\PSoC5/I2C_PM.c **** 
+  95:Generated_Source\PSoC5/I2C_PM.c ****     /* 1) Set force NACK to ignore I2C transactions;
+  96:Generated_Source\PSoC5/I2C_PM.c ****     *  2) Wait unti I2C is ready go to Sleep; !!
+  97:Generated_Source\PSoC5/I2C_PM.c ****     *  3) These bits are cleared on wake up.
+  98:Generated_Source\PSoC5/I2C_PM.c ****     */
+  99:Generated_Source\PSoC5/I2C_PM.c ****     /* Wait when block is ready for sleep */
+ 100:Generated_Source\PSoC5/I2C_PM.c ****     I2C_XCFG_REG |= I2C_XCFG_FORCE_NACK;
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 4
+
+
+  72              		.loc 1 100 0
+  73 003a 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+  74 003c 43F01003 		orr	r3, r3, #16
+  75 0040 2370     		strb	r3, [r4]
+  76              	.L2:
+ 101:Generated_Source\PSoC5/I2C_PM.c ****     while (0u == (I2C_XCFG_REG & I2C_XCFG_RDY_TO_SLEEP))
+  77              		.loc 1 101 0 discriminator 1
+  78 0042 0B4B     		ldr	r3, .L4+8
+  79 0044 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  80 0046 13F0200F 		tst	r3, #32
+  81 004a FAD0     		beq	.L2
+ 102:Generated_Source\PSoC5/I2C_PM.c ****     {
+ 103:Generated_Source\PSoC5/I2C_PM.c ****     }
+ 104:Generated_Source\PSoC5/I2C_PM.c **** 
+ 105:Generated_Source\PSoC5/I2C_PM.c ****     /* Setup wakeup interrupt */
+ 106:Generated_Source\PSoC5/I2C_PM.c ****     I2C_DisableInt();
+  82              		.loc 1 106 0
+  83 004c 4FF40044 		mov	r4, #32768
+  84 0050 0C4B     		ldr	r3, .L4+28
+  85 0052 1C60     		str	r4, [r3]
+ 107:Generated_Source\PSoC5/I2C_PM.c ****     (void) CyIntSetVector(I2C_ISR_NUMBER, &I2C_WAKEUP_ISR);
+  86              		.loc 1 107 0
+  87 0054 0C49     		ldr	r1, .L4+32
+  88 0056 0F20     		movs	r0, #15
+  89 0058 FFF7FEFF 		bl	CyIntSetVector
+  90              	.LVL2:
+ 108:Generated_Source\PSoC5/I2C_PM.c ****     I2C_wakeupSource = 0u;
+  91              		.loc 1 108 0
+  92 005c 0022     		movs	r2, #0
+  93 005e 0B4B     		ldr	r3, .L4+36
+  94 0060 1A70     		strb	r2, [r3]
+ 109:Generated_Source\PSoC5/I2C_PM.c ****     I2C_EnableInt();
+  95              		.loc 1 109 0
+  96 0062 0B4B     		ldr	r3, .L4+40
+  97 0064 1C60     		str	r4, [r3]
+  98 0066 10BD     		pop	{r4, pc}
+  99              	.L5:
+ 100              		.align	2
+ 101              	.L4:
+ 102 0068 D6490040 		.word	1073760726
+ 103 006c 00000000 		.word	.LANCHOR0
+ 104 0070 C8490040 		.word	1073760712
+ 105 0074 CA490040 		.word	1073760714
+ 106 0078 DB490040 		.word	1073760731
+ 107 007c DC490040 		.word	1073760732
+ 108 0080 31430040 		.word	1073759025
+ 109 0084 80E100E0 		.word	-536813184
+ 110 0088 00000000 		.word	I2C_WAKEUP_ISR
+ 111 008c 00000000 		.word	I2C_wakeupSource
+ 112 0090 00E100E0 		.word	-536813312
+ 113              		.cfi_endproc
+ 114              	.LFE0:
+ 115              		.size	I2C_SaveConfig, .-I2C_SaveConfig
+ 116              		.section	.text.I2C_Sleep,"ax",%progbits
+ 117              		.align	2
+ 118              		.global	I2C_Sleep
+ 119              		.thumb
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 5
+
+
+ 120              		.thumb_func
+ 121              		.type	I2C_Sleep, %function
+ 122              	I2C_Sleep:
+ 123              	.LFB1:
+ 110:Generated_Source\PSoC5/I2C_PM.c **** #endif /* (I2C_WAKEUP_ENABLED) */
+ 111:Generated_Source\PSoC5/I2C_PM.c **** 
+ 112:Generated_Source\PSoC5/I2C_PM.c **** #else
+ 113:Generated_Source\PSoC5/I2C_PM.c ****     /* Store only address match bit */
+ 114:Generated_Source\PSoC5/I2C_PM.c ****     I2C_backup.control = (I2C_CFG_REG & I2C_CTRL_ANY_ADDRESS_MASK);
+ 115:Generated_Source\PSoC5/I2C_PM.c **** #endif /* (I2C_FF_IMPLEMENTED) */
+ 116:Generated_Source\PSoC5/I2C_PM.c **** 
+ 117:Generated_Source\PSoC5/I2C_PM.c **** #if (I2C_TIMEOUT_ENABLED)
+ 118:Generated_Source\PSoC5/I2C_PM.c ****     I2C_TimeoutSaveConfig();
+ 119:Generated_Source\PSoC5/I2C_PM.c **** #endif /* (I2C_TIMEOUT_ENABLED) */
+ 120:Generated_Source\PSoC5/I2C_PM.c **** }
+ 121:Generated_Source\PSoC5/I2C_PM.c **** 
+ 122:Generated_Source\PSoC5/I2C_PM.c **** 
+ 123:Generated_Source\PSoC5/I2C_PM.c **** /*******************************************************************************
+ 124:Generated_Source\PSoC5/I2C_PM.c **** * Function Name: I2C_Sleep
+ 125:Generated_Source\PSoC5/I2C_PM.c **** ********************************************************************************
+ 126:Generated_Source\PSoC5/I2C_PM.c **** *
+ 127:Generated_Source\PSoC5/I2C_PM.c **** * Summary:
+ 128:Generated_Source\PSoC5/I2C_PM.c **** *  This is the preferred method to prepare the component before device enters
+ 129:Generated_Source\PSoC5/I2C_PM.c **** *  sleep mode. The Enable wakeup from Sleep Mode selection influences this
+ 130:Generated_Source\PSoC5/I2C_PM.c **** *  function implementation:
+ 131:Generated_Source\PSoC5/I2C_PM.c **** *   Unchecked: Checks current I2C component state, saves it, and disables the
+ 132:Generated_Source\PSoC5/I2C_PM.c **** *              component by calling I2C_Stop() if it is currently enabled.
+ 133:Generated_Source\PSoC5/I2C_PM.c **** *              I2C_SaveConfig() is then called to save the component
+ 134:Generated_Source\PSoC5/I2C_PM.c **** *              non-retention configuration registers.
+ 135:Generated_Source\PSoC5/I2C_PM.c **** *   Checked:   If a transaction intended for component executes during this
+ 136:Generated_Source\PSoC5/I2C_PM.c **** *              function call, it waits until the current transaction is
+ 137:Generated_Source\PSoC5/I2C_PM.c **** *              completed. All subsequent I2C traffic intended for component
+ 138:Generated_Source\PSoC5/I2C_PM.c **** *              is NAKed until the device is put to sleep mode. The address
+ 139:Generated_Source\PSoC5/I2C_PM.c **** *              match event wakes up the device.
+ 140:Generated_Source\PSoC5/I2C_PM.c **** *
+ 141:Generated_Source\PSoC5/I2C_PM.c **** * Parameters:
+ 142:Generated_Source\PSoC5/I2C_PM.c **** *  None.
+ 143:Generated_Source\PSoC5/I2C_PM.c **** *
+ 144:Generated_Source\PSoC5/I2C_PM.c **** * Return:
+ 145:Generated_Source\PSoC5/I2C_PM.c **** *  None.
+ 146:Generated_Source\PSoC5/I2C_PM.c **** *
+ 147:Generated_Source\PSoC5/I2C_PM.c **** * Reentrant:
+ 148:Generated_Source\PSoC5/I2C_PM.c **** *  No.
+ 149:Generated_Source\PSoC5/I2C_PM.c **** *
+ 150:Generated_Source\PSoC5/I2C_PM.c **** *******************************************************************************/
+ 151:Generated_Source\PSoC5/I2C_PM.c **** void I2C_Sleep(void) 
+ 152:Generated_Source\PSoC5/I2C_PM.c **** {
+ 124              		.loc 1 152 0
+ 125              		.cfi_startproc
+ 126              		@ args = 0, pretend = 0, frame = 0
+ 127              		@ frame_needed = 0, uses_anonymous_args = 0
+ 128 0000 08B5     		push	{r3, lr}
+ 129              		.cfi_def_cfa_offset 8
+ 130              		.cfi_offset 3, -8
+ 131              		.cfi_offset 14, -4
+ 153:Generated_Source\PSoC5/I2C_PM.c **** #if (I2C_WAKEUP_ENABLED)
+ 154:Generated_Source\PSoC5/I2C_PM.c ****     /* Do not enable block after exit low power mode if it is wakeup source */
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 6
+
+
+ 155:Generated_Source\PSoC5/I2C_PM.c ****     I2C_backup.enableState = I2C_DISABLE;
+ 132              		.loc 1 155 0
+ 133 0002 0022     		movs	r2, #0
+ 134 0004 024B     		ldr	r3, .L8
+ 135 0006 1A70     		strb	r2, [r3]
+ 156:Generated_Source\PSoC5/I2C_PM.c **** 
+ 157:Generated_Source\PSoC5/I2C_PM.c ****     #if (I2C_TIMEOUT_ENABLED)
+ 158:Generated_Source\PSoC5/I2C_PM.c ****         I2C_TimeoutStop();
+ 159:Generated_Source\PSoC5/I2C_PM.c ****     #endif /* (I2C_TIMEOUT_ENABLED) */
+ 160:Generated_Source\PSoC5/I2C_PM.c **** 
+ 161:Generated_Source\PSoC5/I2C_PM.c **** #else
+ 162:Generated_Source\PSoC5/I2C_PM.c ****     /* Store enable state */
+ 163:Generated_Source\PSoC5/I2C_PM.c ****     I2C_backup.enableState = (uint8) I2C_IS_ENABLED;
+ 164:Generated_Source\PSoC5/I2C_PM.c **** 
+ 165:Generated_Source\PSoC5/I2C_PM.c ****     if (0u != I2C_backup.enableState)
+ 166:Generated_Source\PSoC5/I2C_PM.c ****     {
+ 167:Generated_Source\PSoC5/I2C_PM.c ****         I2C_Stop();
+ 168:Generated_Source\PSoC5/I2C_PM.c ****     }
+ 169:Generated_Source\PSoC5/I2C_PM.c **** #endif /* (I2C_WAKEUP_ENABLED) */
+ 170:Generated_Source\PSoC5/I2C_PM.c **** 
+ 171:Generated_Source\PSoC5/I2C_PM.c ****     I2C_SaveConfig();
+ 136              		.loc 1 171 0
+ 137 0008 FFF7FEFF 		bl	I2C_SaveConfig
+ 138              	.LVL3:
+ 139 000c 08BD     		pop	{r3, pc}
+ 140              	.L9:
+ 141 000e 00BF     		.align	2
+ 142              	.L8:
+ 143 0010 00000000 		.word	.LANCHOR0
+ 144              		.cfi_endproc
+ 145              	.LFE1:
+ 146              		.size	I2C_Sleep, .-I2C_Sleep
+ 147              		.section	.text.I2C_RestoreConfig,"ax",%progbits
+ 148              		.align	2
+ 149              		.global	I2C_RestoreConfig
+ 150              		.thumb
+ 151              		.thumb_func
+ 152              		.type	I2C_RestoreConfig, %function
+ 153              	I2C_RestoreConfig:
+ 154              	.LFB2:
+ 172:Generated_Source\PSoC5/I2C_PM.c **** }
+ 173:Generated_Source\PSoC5/I2C_PM.c **** 
+ 174:Generated_Source\PSoC5/I2C_PM.c **** 
+ 175:Generated_Source\PSoC5/I2C_PM.c **** /*******************************************************************************
+ 176:Generated_Source\PSoC5/I2C_PM.c **** * Function Name: I2C_RestoreConfig
+ 177:Generated_Source\PSoC5/I2C_PM.c **** ********************************************************************************
+ 178:Generated_Source\PSoC5/I2C_PM.c **** *
+ 179:Generated_Source\PSoC5/I2C_PM.c **** * Summary:
+ 180:Generated_Source\PSoC5/I2C_PM.c **** *  The Enable wakeup from Sleep Mode selection influences this function
+ 181:Generated_Source\PSoC5/I2C_PM.c **** *  implementation:
+ 182:Generated_Source\PSoC5/I2C_PM.c **** *   Unchecked: Restores the component non-retention configuration registers
+ 183:Generated_Source\PSoC5/I2C_PM.c **** *              to the state they were in before I2C_Sleep() or I2C_SaveConfig()
+ 184:Generated_Source\PSoC5/I2C_PM.c **** *              was called.
+ 185:Generated_Source\PSoC5/I2C_PM.c **** *   Checked:   Disables the backup regulator of the I2C hardware. Sets up the
+ 186:Generated_Source\PSoC5/I2C_PM.c **** *              regular component interrupt handler and generates the component
+ 187:Generated_Source\PSoC5/I2C_PM.c **** *              interrupt if it was wake up source to release the bus and
+ 188:Generated_Source\PSoC5/I2C_PM.c **** *              continue in-coming I2C transaction.
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 7
+
+
+ 189:Generated_Source\PSoC5/I2C_PM.c **** *
+ 190:Generated_Source\PSoC5/I2C_PM.c **** * Parameters:
+ 191:Generated_Source\PSoC5/I2C_PM.c **** *  None.
+ 192:Generated_Source\PSoC5/I2C_PM.c **** *
+ 193:Generated_Source\PSoC5/I2C_PM.c **** * Return:
+ 194:Generated_Source\PSoC5/I2C_PM.c **** *  None.
+ 195:Generated_Source\PSoC5/I2C_PM.c **** *
+ 196:Generated_Source\PSoC5/I2C_PM.c **** * Global Variables:
+ 197:Generated_Source\PSoC5/I2C_PM.c **** *  I2C_backup - The global variable used to save the component
+ 198:Generated_Source\PSoC5/I2C_PM.c **** *                            configuration and non-retention registers before
+ 199:Generated_Source\PSoC5/I2C_PM.c **** *                            exiting the sleep mode.
+ 200:Generated_Source\PSoC5/I2C_PM.c **** *
+ 201:Generated_Source\PSoC5/I2C_PM.c **** * Reentrant:
+ 202:Generated_Source\PSoC5/I2C_PM.c **** *  No.
+ 203:Generated_Source\PSoC5/I2C_PM.c **** *
+ 204:Generated_Source\PSoC5/I2C_PM.c **** * Side Effects:
+ 205:Generated_Source\PSoC5/I2C_PM.c **** *  Calling this function before I2C_SaveConfig() or
+ 206:Generated_Source\PSoC5/I2C_PM.c **** *  I2C_Sleep() will lead to unpredictable results.
+ 207:Generated_Source\PSoC5/I2C_PM.c **** *
+ 208:Generated_Source\PSoC5/I2C_PM.c **** *******************************************************************************/
+ 209:Generated_Source\PSoC5/I2C_PM.c **** void I2C_RestoreConfig(void) 
+ 210:Generated_Source\PSoC5/I2C_PM.c **** {
+ 155              		.loc 1 210 0
+ 156              		.cfi_startproc
+ 157              		@ args = 0, pretend = 0, frame = 0
+ 158              		@ frame_needed = 0, uses_anonymous_args = 0
+ 159 0000 08B5     		push	{r3, lr}
+ 160              		.cfi_def_cfa_offset 8
+ 161              		.cfi_offset 3, -8
+ 162              		.cfi_offset 14, -4
+ 211:Generated_Source\PSoC5/I2C_PM.c **** #if (I2C_FF_IMPLEMENTED)
+ 212:Generated_Source\PSoC5/I2C_PM.c ****     uint8 intState;
+ 213:Generated_Source\PSoC5/I2C_PM.c **** 
+ 214:Generated_Source\PSoC5/I2C_PM.c ****     if (I2C_CHECK_PWRSYS_I2C_BACKUP)
+ 163              		.loc 1 214 0
+ 164 0002 244B     		ldr	r3, .L15
+ 165 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 166 0006 13F0040F 		tst	r3, #4
+ 167 000a 0DD0     		beq	.L11
+ 215:Generated_Source\PSoC5/I2C_PM.c ****     /* Low power mode was Sleep - backup regulator is enabled */
+ 216:Generated_Source\PSoC5/I2C_PM.c ****     {
+ 217:Generated_Source\PSoC5/I2C_PM.c ****         /* Enable backup regulator in active mode */
+ 218:Generated_Source\PSoC5/I2C_PM.c ****         intState = CyEnterCriticalSection();
+ 168              		.loc 1 218 0
+ 169 000c FFF7FEFF 		bl	CyEnterCriticalSection
+ 170              	.LVL4:
+ 219:Generated_Source\PSoC5/I2C_PM.c ****         I2C_PWRSYS_CR1_REG &= (uint8) ~I2C_PWRSYS_CR1_I2C_REG_BACKUP;
+ 171              		.loc 1 219 0
+ 172 0010 204A     		ldr	r2, .L15
+ 173 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 174 0014 03F0FB03 		and	r3, r3, #251
+ 175 0018 1370     		strb	r3, [r2]
+ 220:Generated_Source\PSoC5/I2C_PM.c ****         CyExitCriticalSection(intState);
+ 176              		.loc 1 220 0
+ 177 001a FFF7FEFF 		bl	CyExitCriticalSection
+ 178              	.LVL5:
+ 221:Generated_Source\PSoC5/I2C_PM.c **** 
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 8
+
+
+ 222:Generated_Source\PSoC5/I2C_PM.c ****         /* Restore master */
+ 223:Generated_Source\PSoC5/I2C_PM.c ****         I2C_CFG_REG = I2C_backup.cfg;
+ 179              		.loc 1 223 0
+ 180 001e 1E4B     		ldr	r3, .L15+4
+ 181 0020 9A78     		ldrb	r2, [r3, #2]	@ zero_extendqisi2
+ 182 0022 1E4B     		ldr	r3, .L15+8
+ 183 0024 1A70     		strb	r2, [r3]
+ 184 0026 1FE0     		b	.L12
+ 185              	.L11:
+ 224:Generated_Source\PSoC5/I2C_PM.c ****     }
+ 225:Generated_Source\PSoC5/I2C_PM.c ****     else
+ 226:Generated_Source\PSoC5/I2C_PM.c ****     /* Low power mode was Hibernate - backup regulator is disabled. All registers are cleared */
+ 227:Generated_Source\PSoC5/I2C_PM.c ****     {
+ 228:Generated_Source\PSoC5/I2C_PM.c ****     #if (I2C_WAKEUP_ENABLED)
+ 229:Generated_Source\PSoC5/I2C_PM.c ****         /* Disable power to block before register restore */
+ 230:Generated_Source\PSoC5/I2C_PM.c ****         intState = CyEnterCriticalSection();
+ 186              		.loc 1 230 0
+ 187 0028 FFF7FEFF 		bl	CyEnterCriticalSection
+ 188              	.LVL6:
+ 231:Generated_Source\PSoC5/I2C_PM.c ****         I2C_ACT_PWRMGR_REG  &= (uint8) ~I2C_ACT_PWR_EN;
+ 189              		.loc 1 231 0
+ 190 002c 1C4A     		ldr	r2, .L15+12
+ 191 002e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 192 0030 03F0FB03 		and	r3, r3, #251
+ 193 0034 1370     		strb	r3, [r2]
+ 232:Generated_Source\PSoC5/I2C_PM.c ****         I2C_STBY_PWRMGR_REG &= (uint8) ~I2C_STBY_PWR_EN;
+ 194              		.loc 1 232 0
+ 195 0036 1032     		adds	r2, r2, #16
+ 196 0038 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 197 003a 03F0FB03 		and	r3, r3, #251
+ 198 003e 1370     		strb	r3, [r2]
+ 233:Generated_Source\PSoC5/I2C_PM.c ****         CyExitCriticalSection(intState);
+ 199              		.loc 1 233 0
+ 200 0040 FFF7FEFF 		bl	CyExitCriticalSection
+ 201              	.LVL7:
+ 234:Generated_Source\PSoC5/I2C_PM.c **** 
+ 235:Generated_Source\PSoC5/I2C_PM.c ****         /* Enable component in I2C_Wakeup() after register restore */
+ 236:Generated_Source\PSoC5/I2C_PM.c ****         I2C_backup.enableState = I2C_ENABLE;
+ 202              		.loc 1 236 0
+ 203 0044 144B     		ldr	r3, .L15+4
+ 204 0046 0122     		movs	r2, #1
+ 205 0048 1A70     		strb	r2, [r3]
+ 237:Generated_Source\PSoC5/I2C_PM.c ****     #endif /* (I2C_WAKEUP_ENABLED) */
+ 238:Generated_Source\PSoC5/I2C_PM.c **** 
+ 239:Generated_Source\PSoC5/I2C_PM.c ****         /* Restore component registers after Hibernate */
+ 240:Generated_Source\PSoC5/I2C_PM.c ****         I2C_XCFG_REG    = I2C_backup.xcfg;
+ 206              		.loc 1 240 0
+ 207 004a 5978     		ldrb	r1, [r3, #1]	@ zero_extendqisi2
+ 208 004c 154A     		ldr	r2, .L15+16
+ 209 004e 1170     		strb	r1, [r2]
+ 241:Generated_Source\PSoC5/I2C_PM.c ****         I2C_CFG_REG     = I2C_backup.cfg;
+ 210              		.loc 1 241 0
+ 211 0050 9978     		ldrb	r1, [r3, #2]	@ zero_extendqisi2
+ 212 0052 0E32     		adds	r2, r2, #14
+ 213 0054 1170     		strb	r1, [r2]
+ 242:Generated_Source\PSoC5/I2C_PM.c ****         I2C_ADDR_REG    = I2C_backup.addr;
+ 214              		.loc 1 242 0
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 9
+
+
+ 215 0056 D978     		ldrb	r1, [r3, #3]	@ zero_extendqisi2
+ 216 0058 0C3A     		subs	r2, r2, #12
+ 217 005a 1170     		strb	r1, [r2]
+ 243:Generated_Source\PSoC5/I2C_PM.c ****         I2C_CLKDIV1_REG = I2C_backup.clkDiv1;
+ 218              		.loc 1 243 0
+ 219 005c 1979     		ldrb	r1, [r3, #4]	@ zero_extendqisi2
+ 220 005e 1132     		adds	r2, r2, #17
+ 221 0060 1170     		strb	r1, [r2]
+ 244:Generated_Source\PSoC5/I2C_PM.c ****         I2C_CLKDIV2_REG = I2C_backup.clkDiv2;
+ 222              		.loc 1 244 0
+ 223 0062 5A79     		ldrb	r2, [r3, #5]	@ zero_extendqisi2
+ 224 0064 104B     		ldr	r3, .L15+20
+ 225 0066 1A70     		strb	r2, [r3]
+ 226              	.L12:
+ 245:Generated_Source\PSoC5/I2C_PM.c ****     }
+ 246:Generated_Source\PSoC5/I2C_PM.c **** 
+ 247:Generated_Source\PSoC5/I2C_PM.c **** #if (I2C_WAKEUP_ENABLED)
+ 248:Generated_Source\PSoC5/I2C_PM.c ****     I2C_DisableInt();
+ 227              		.loc 1 248 0
+ 228 0068 4FF40042 		mov	r2, #32768
+ 229 006c 0F4B     		ldr	r3, .L15+24
+ 230 006e 1A60     		str	r2, [r3]
+ 249:Generated_Source\PSoC5/I2C_PM.c ****     (void) CyIntSetVector(I2C_ISR_NUMBER, &I2C_ISR);
+ 231              		.loc 1 249 0
+ 232 0070 0F49     		ldr	r1, .L15+28
+ 233 0072 0F20     		movs	r0, #15
+ 234 0074 FFF7FEFF 		bl	CyIntSetVector
+ 235              	.LVL8:
+ 250:Generated_Source\PSoC5/I2C_PM.c ****     if (0u != I2C_wakeupSource)
+ 236              		.loc 1 250 0
+ 237 0078 0E4B     		ldr	r3, .L15+32
+ 238 007a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 239 007c 13F0FF0F 		tst	r3, #255
+ 240 0080 03D0     		beq	.L13
+ 251:Generated_Source\PSoC5/I2C_PM.c ****     {
+ 252:Generated_Source\PSoC5/I2C_PM.c ****         /* Generate interrupt to process incoming transaction */
+ 253:Generated_Source\PSoC5/I2C_PM.c ****         I2C_SetPendingInt();
+ 241              		.loc 1 253 0
+ 242 0082 4FF40042 		mov	r2, #32768
+ 243 0086 0C4B     		ldr	r3, .L15+36
+ 244 0088 1A60     		str	r2, [r3]
+ 245              	.L13:
+ 254:Generated_Source\PSoC5/I2C_PM.c ****     }
+ 255:Generated_Source\PSoC5/I2C_PM.c ****     I2C_EnableInt();
+ 246              		.loc 1 255 0
+ 247 008a 4FF40042 		mov	r2, #32768
+ 248 008e 0B4B     		ldr	r3, .L15+40
+ 249 0090 1A60     		str	r2, [r3]
+ 250 0092 08BD     		pop	{r3, pc}
+ 251              	.L16:
+ 252              		.align	2
+ 253              	.L15:
+ 254 0094 31430040 		.word	1073759025
+ 255 0098 00000000 		.word	.LANCHOR0
+ 256 009c D6490040 		.word	1073760726
+ 257 00a0 A5430040 		.word	1073759141
+ 258 00a4 C8490040 		.word	1073760712
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 10
+
+
+ 259 00a8 DC490040 		.word	1073760732
+ 260 00ac 80E100E0 		.word	-536813184
+ 261 00b0 00000000 		.word	I2C_ISR
+ 262 00b4 00000000 		.word	I2C_wakeupSource
+ 263 00b8 00E200E0 		.word	-536813056
+ 264 00bc 00E100E0 		.word	-536813312
+ 265              		.cfi_endproc
+ 266              	.LFE2:
+ 267              		.size	I2C_RestoreConfig, .-I2C_RestoreConfig
+ 268              		.section	.text.I2C_Wakeup,"ax",%progbits
+ 269              		.align	2
+ 270              		.global	I2C_Wakeup
+ 271              		.thumb
+ 272              		.thumb_func
+ 273              		.type	I2C_Wakeup, %function
+ 274              	I2C_Wakeup:
+ 275              	.LFB3:
+ 256:Generated_Source\PSoC5/I2C_PM.c **** #endif /* (I2C_WAKEUP_ENABLED) */
+ 257:Generated_Source\PSoC5/I2C_PM.c **** 
+ 258:Generated_Source\PSoC5/I2C_PM.c **** #else
+ 259:Generated_Source\PSoC5/I2C_PM.c ****     I2C_CFG_REG = I2C_backup.control;
+ 260:Generated_Source\PSoC5/I2C_PM.c **** #endif /* (I2C_FF_IMPLEMENTED) */
+ 261:Generated_Source\PSoC5/I2C_PM.c **** 
+ 262:Generated_Source\PSoC5/I2C_PM.c **** #if (I2C_TIMEOUT_ENABLED)
+ 263:Generated_Source\PSoC5/I2C_PM.c ****     I2C_TimeoutRestoreConfig();
+ 264:Generated_Source\PSoC5/I2C_PM.c **** #endif /* (I2C_TIMEOUT_ENABLED) */
+ 265:Generated_Source\PSoC5/I2C_PM.c **** }
+ 266:Generated_Source\PSoC5/I2C_PM.c **** 
+ 267:Generated_Source\PSoC5/I2C_PM.c **** 
+ 268:Generated_Source\PSoC5/I2C_PM.c **** /*******************************************************************************
+ 269:Generated_Source\PSoC5/I2C_PM.c **** * Function Name: I2C_Wakeup
+ 270:Generated_Source\PSoC5/I2C_PM.c **** ********************************************************************************
+ 271:Generated_Source\PSoC5/I2C_PM.c **** *
+ 272:Generated_Source\PSoC5/I2C_PM.c **** * Summary:
+ 273:Generated_Source\PSoC5/I2C_PM.c **** *  This is the preferred method to prepare the component for active mode
+ 274:Generated_Source\PSoC5/I2C_PM.c **** *  operation (when device exits sleep mode). The Enable wakeup from Sleep Mode
+ 275:Generated_Source\PSoC5/I2C_PM.c **** *  selection influences this function implementation:
+ 276:Generated_Source\PSoC5/I2C_PM.c **** *   Unchecked: Restores the component non-retention configuration registers
+ 277:Generated_Source\PSoC5/I2C_PM.c **** *              by calling I2C_RestoreConfig(). If the component was enabled
+ 278:Generated_Source\PSoC5/I2C_PM.c **** *              before the I2C_Sleep() function was called, I2C_Wakeup()
+ 279:Generated_Source\PSoC5/I2C_PM.c **** *              re-enables it.
+ 280:Generated_Source\PSoC5/I2C_PM.c **** *   Checked:   Enables  master functionality if it was enabled before sleep,
+ 281:Generated_Source\PSoC5/I2C_PM.c **** *              and disables the backup regulator of the I2C hardware.
+ 282:Generated_Source\PSoC5/I2C_PM.c **** *              The incoming transaction continues as soon as the regular
+ 283:Generated_Source\PSoC5/I2C_PM.c **** *              I2C interrupt handler is set up (global interrupts has to be
+ 284:Generated_Source\PSoC5/I2C_PM.c **** *              enabled to service I2C component interrupt).
+ 285:Generated_Source\PSoC5/I2C_PM.c **** *
+ 286:Generated_Source\PSoC5/I2C_PM.c **** * Parameters:
+ 287:Generated_Source\PSoC5/I2C_PM.c **** *  None.
+ 288:Generated_Source\PSoC5/I2C_PM.c **** *
+ 289:Generated_Source\PSoC5/I2C_PM.c **** * Return:
+ 290:Generated_Source\PSoC5/I2C_PM.c **** *  None.
+ 291:Generated_Source\PSoC5/I2C_PM.c **** *
+ 292:Generated_Source\PSoC5/I2C_PM.c **** * Reentrant:
+ 293:Generated_Source\PSoC5/I2C_PM.c **** *  No.
+ 294:Generated_Source\PSoC5/I2C_PM.c **** *
+ 295:Generated_Source\PSoC5/I2C_PM.c **** * Side Effects:
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 11
+
+
+ 296:Generated_Source\PSoC5/I2C_PM.c **** *  Calling this function before I2C_SaveConfig() or
+ 297:Generated_Source\PSoC5/I2C_PM.c **** *  I2C_Sleep() will lead to unpredictable results.
+ 298:Generated_Source\PSoC5/I2C_PM.c **** *
+ 299:Generated_Source\PSoC5/I2C_PM.c **** *******************************************************************************/
+ 300:Generated_Source\PSoC5/I2C_PM.c **** void I2C_Wakeup(void) 
+ 301:Generated_Source\PSoC5/I2C_PM.c **** {
+ 276              		.loc 1 301 0
+ 277              		.cfi_startproc
+ 278              		@ args = 0, pretend = 0, frame = 0
+ 279              		@ frame_needed = 0, uses_anonymous_args = 0
+ 280 0000 08B5     		push	{r3, lr}
+ 281              		.cfi_def_cfa_offset 8
+ 282              		.cfi_offset 3, -8
+ 283              		.cfi_offset 14, -4
+ 302:Generated_Source\PSoC5/I2C_PM.c ****     I2C_RestoreConfig();
+ 284              		.loc 1 302 0
+ 285 0002 FFF7FEFF 		bl	I2C_RestoreConfig
+ 286              	.LVL9:
+ 303:Generated_Source\PSoC5/I2C_PM.c **** 
+ 304:Generated_Source\PSoC5/I2C_PM.c ****     /* Restore component enable state */
+ 305:Generated_Source\PSoC5/I2C_PM.c ****     if (0u != I2C_backup.enableState)
+ 287              		.loc 1 305 0
+ 288 0006 054B     		ldr	r3, .L20
+ 289 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 290 000a 2BB1     		cbz	r3, .L17
+ 306:Generated_Source\PSoC5/I2C_PM.c ****     {
+ 307:Generated_Source\PSoC5/I2C_PM.c ****         I2C_Enable();
+ 291              		.loc 1 307 0
+ 292 000c FFF7FEFF 		bl	I2C_Enable
+ 293              	.LVL10:
+ 308:Generated_Source\PSoC5/I2C_PM.c ****         I2C_EnableInt();
+ 294              		.loc 1 308 0
+ 295 0010 4FF40042 		mov	r2, #32768
+ 296 0014 024B     		ldr	r3, .L20+4
+ 297 0016 1A60     		str	r2, [r3]
+ 298              	.L17:
+ 299 0018 08BD     		pop	{r3, pc}
+ 300              	.L21:
+ 301 001a 00BF     		.align	2
+ 302              	.L20:
+ 303 001c 00000000 		.word	.LANCHOR0
+ 304 0020 00E100E0 		.word	-536813312
+ 305              		.cfi_endproc
+ 306              	.LFE3:
+ 307              		.size	I2C_Wakeup, .-I2C_Wakeup
+ 308              		.comm	I2C_wakeupSource,1,1
+ 309              		.global	I2C_backup
+ 310              		.data
+ 311              		.align	2
+ 312              		.set	.LANCHOR0,. + 0
+ 313              		.type	I2C_backup, %object
+ 314              		.size	I2C_backup, 6
+ 315              	I2C_backup:
+ 316 0000 00       		.byte	0
+ 317 0001 C1       		.byte	-63
+ 318 0002 C1       		.byte	-63
+ 319 0003 01       		.byte	1
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 12
+
+
+ 320 0004 0F       		.byte	15
+ 321 0005 00       		.byte	0
+ 322              		.text
+ 323              	.Letext0:
+ 324              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 325              		.file 3 "Generated_Source\\PSoC5\\I2C.h"
+ 326              		.file 4 "Generated_Source\\PSoC5\\CyLib.h"
+ 327              		.section	.debug_info,"",%progbits
+ 328              	.Ldebug_info0:
+ 329 0000 61020000 		.4byte	0x261
+ 330 0004 0400     		.2byte	0x4
+ 331 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 332 000a 04       		.byte	0x4
+ 333 000b 01       		.uleb128 0x1
+ 334 000c 93000000 		.4byte	.LASF36
+ 335 0010 0C       		.byte	0xc
+ 336 0011 7B020000 		.4byte	.LASF37
+ 337 0015 4F010000 		.4byte	.LASF38
+ 338 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 339 001d 00000000 		.4byte	0
+ 340 0021 00000000 		.4byte	.Ldebug_line0
+ 341 0025 02       		.uleb128 0x2
+ 342 0026 01       		.byte	0x1
+ 343 0027 06       		.byte	0x6
+ 344 0028 5D020000 		.4byte	.LASF0
+ 345 002c 02       		.uleb128 0x2
+ 346 002d 01       		.byte	0x1
+ 347 002e 08       		.byte	0x8
+ 348 002f 85000000 		.4byte	.LASF1
+ 349 0033 02       		.uleb128 0x2
+ 350 0034 02       		.byte	0x2
+ 351 0035 05       		.byte	0x5
+ 352 0036 2C020000 		.4byte	.LASF2
+ 353 003a 02       		.uleb128 0x2
+ 354 003b 02       		.byte	0x2
+ 355 003c 07       		.byte	0x7
+ 356 003d 35000000 		.4byte	.LASF3
+ 357 0041 02       		.uleb128 0x2
+ 358 0042 04       		.byte	0x4
+ 359 0043 05       		.byte	0x5
+ 360 0044 3C020000 		.4byte	.LASF4
+ 361 0048 02       		.uleb128 0x2
+ 362 0049 04       		.byte	0x4
+ 363 004a 07       		.byte	0x7
+ 364 004b 26010000 		.4byte	.LASF5
+ 365 004f 02       		.uleb128 0x2
+ 366 0050 08       		.byte	0x8
+ 367 0051 05       		.byte	0x5
+ 368 0052 02020000 		.4byte	.LASF6
+ 369 0056 02       		.uleb128 0x2
+ 370 0057 08       		.byte	0x8
+ 371 0058 07       		.byte	0x7
+ 372 0059 6E000000 		.4byte	.LASF7
+ 373 005d 03       		.uleb128 0x3
+ 374 005e 04       		.byte	0x4
+ 375 005f 05       		.byte	0x5
+ 376 0060 696E7400 		.ascii	"int\000"
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 13
+
+
+ 377 0064 02       		.uleb128 0x2
+ 378 0065 04       		.byte	0x4
+ 379 0066 07       		.byte	0x7
+ 380 0067 AF010000 		.4byte	.LASF8
+ 381 006b 04       		.uleb128 0x4
+ 382 006c 36020000 		.4byte	.LASF9
+ 383 0070 02       		.byte	0x2
+ 384 0071 E401     		.2byte	0x1e4
+ 385 0073 2C000000 		.4byte	0x2c
+ 386 0077 04       		.uleb128 0x4
+ 387 0078 98010000 		.4byte	.LASF10
+ 388 007c 02       		.byte	0x2
+ 389 007d E501     		.2byte	0x1e5
+ 390 007f 3A000000 		.4byte	0x3a
+ 391 0083 04       		.uleb128 0x4
+ 392 0084 9F010000 		.4byte	.LASF11
+ 393 0088 02       		.byte	0x2
+ 394 0089 E601     		.2byte	0x1e6
+ 395 008b 48000000 		.4byte	0x48
+ 396 008f 02       		.uleb128 0x2
+ 397 0090 04       		.byte	0x4
+ 398 0091 04       		.byte	0x4
+ 399 0092 68000000 		.4byte	.LASF12
+ 400 0096 02       		.uleb128 0x2
+ 401 0097 08       		.byte	0x8
+ 402 0098 04       		.byte	0x4
+ 403 0099 48010000 		.4byte	.LASF13
+ 404 009d 02       		.uleb128 0x2
+ 405 009e 01       		.byte	0x1
+ 406 009f 08       		.byte	0x8
+ 407 00a0 10020000 		.4byte	.LASF14
+ 408 00a4 04       		.uleb128 0x4
+ 409 00a5 21010000 		.4byte	.LASF15
+ 410 00a9 02       		.byte	0x2
+ 411 00aa 8E02     		.2byte	0x28e
+ 412 00ac B0000000 		.4byte	0xb0
+ 413 00b0 05       		.uleb128 0x5
+ 414 00b1 6B000000 		.4byte	0x6b
+ 415 00b5 04       		.uleb128 0x4
+ 416 00b6 15000000 		.4byte	.LASF16
+ 417 00ba 02       		.byte	0x2
+ 418 00bb 9002     		.2byte	0x290
+ 419 00bd C1000000 		.4byte	0xc1
+ 420 00c1 05       		.uleb128 0x5
+ 421 00c2 83000000 		.4byte	0x83
+ 422 00c6 02       		.uleb128 0x2
+ 423 00c7 08       		.byte	0x8
+ 424 00c8 04       		.byte	0x4
+ 425 00c9 51020000 		.4byte	.LASF17
+ 426 00cd 02       		.uleb128 0x2
+ 427 00ce 04       		.byte	0x4
+ 428 00cf 07       		.byte	0x7
+ 429 00d0 F9010000 		.4byte	.LASF18
+ 430 00d4 06       		.uleb128 0x6
+ 431 00d5 06       		.byte	0x6
+ 432 00d6 03       		.byte	0x3
+ 433 00d7 76       		.byte	0x76
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 14
+
+
+ 434 00d8 25010000 		.4byte	0x125
+ 435 00dc 07       		.uleb128 0x7
+ 436 00dd 45020000 		.4byte	.LASF19
+ 437 00e1 03       		.byte	0x3
+ 438 00e2 78       		.byte	0x78
+ 439 00e3 6B000000 		.4byte	0x6b
+ 440 00e7 00       		.byte	0
+ 441 00e8 07       		.uleb128 0x7
+ 442 00e9 15020000 		.4byte	.LASF20
+ 443 00ed 03       		.byte	0x3
+ 444 00ee 7B       		.byte	0x7b
+ 445 00ef 6B000000 		.4byte	0x6b
+ 446 00f3 01       		.byte	0x1
+ 447 00f4 08       		.uleb128 0x8
+ 448 00f5 63666700 		.ascii	"cfg\000"
+ 449 00f9 03       		.byte	0x3
+ 450 00fa 7C       		.byte	0x7c
+ 451 00fb 6B000000 		.4byte	0x6b
+ 452 00ff 02       		.byte	0x2
+ 453 0100 07       		.uleb128 0x7
+ 454 0101 38010000 		.4byte	.LASF21
+ 455 0105 03       		.byte	0x3
+ 456 0106 7D       		.byte	0x7d
+ 457 0107 6B000000 		.4byte	0x6b
+ 458 010b 03       		.byte	0x3
+ 459 010c 07       		.uleb128 0x7
+ 460 010d D2010000 		.4byte	.LASF22
+ 461 0111 03       		.byte	0x3
+ 462 0112 7E       		.byte	0x7e
+ 463 0113 6B000000 		.4byte	0x6b
+ 464 0117 04       		.byte	0x4
+ 465 0118 07       		.uleb128 0x7
+ 466 0119 DA010000 		.4byte	.LASF23
+ 467 011d 03       		.byte	0x3
+ 468 011e 7F       		.byte	0x7f
+ 469 011f 6B000000 		.4byte	0x6b
+ 470 0123 05       		.byte	0x5
+ 471 0124 00       		.byte	0
+ 472 0125 09       		.uleb128 0x9
+ 473 0126 1A020000 		.4byte	.LASF24
+ 474 012a 03       		.byte	0x3
+ 475 012b 89       		.byte	0x89
+ 476 012c D4000000 		.4byte	0xd4
+ 477 0130 0A       		.uleb128 0xa
+ 478 0131 48000000 		.4byte	.LASF25
+ 479 0135 01       		.byte	0x1
+ 480 0136 48       		.byte	0x48
+ 481 0137 00000000 		.4byte	.LFB0
+ 482 013b 94000000 		.4byte	.LFE0-.LFB0
+ 483 013f 01       		.uleb128 0x1
+ 484 0140 9C       		.byte	0x9c
+ 485 0141 76010000 		.4byte	0x176
+ 486 0145 0B       		.uleb128 0xb
+ 487 0146 A6010000 		.4byte	.LASF28
+ 488 014a 01       		.byte	0x1
+ 489 014b 4C       		.byte	0x4c
+ 490 014c 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 15
+
+
+ 491 0150 00000000 		.4byte	.LLST0
+ 492 0154 0C       		.uleb128 0xc
+ 493 0155 2C000000 		.4byte	.LVL0
+ 494 0159 38020000 		.4byte	0x238
+ 495 015d 0C       		.uleb128 0xc
+ 496 015e 3A000000 		.4byte	.LVL1
+ 497 0162 43020000 		.4byte	0x243
+ 498 0166 0D       		.uleb128 0xd
+ 499 0167 5C000000 		.4byte	.LVL2
+ 500 016b 4E020000 		.4byte	0x24e
+ 501 016f 0E       		.uleb128 0xe
+ 502 0170 01       		.uleb128 0x1
+ 503 0171 50       		.byte	0x50
+ 504 0172 01       		.uleb128 0x1
+ 505 0173 3F       		.byte	0x3f
+ 506 0174 00       		.byte	0
+ 507 0175 00       		.byte	0
+ 508 0176 0A       		.uleb128 0xa
+ 509 0177 0B000000 		.4byte	.LASF26
+ 510 017b 01       		.byte	0x1
+ 511 017c 97       		.byte	0x97
+ 512 017d 00000000 		.4byte	.LFB1
+ 513 0181 14000000 		.4byte	.LFE1-.LFB1
+ 514 0185 01       		.uleb128 0x1
+ 515 0186 9C       		.byte	0x9c
+ 516 0187 95010000 		.4byte	0x195
+ 517 018b 0C       		.uleb128 0xc
+ 518 018c 0C000000 		.4byte	.LVL3
+ 519 0190 30010000 		.4byte	0x130
+ 520 0194 00       		.byte	0
+ 521 0195 0A       		.uleb128 0xa
+ 522 0196 69020000 		.4byte	.LASF27
+ 523 019a 01       		.byte	0x1
+ 524 019b D1       		.byte	0xd1
+ 525 019c 00000000 		.4byte	.LFB2
+ 526 01a0 C0000000 		.4byte	.LFE2-.LFB2
+ 527 01a4 01       		.uleb128 0x1
+ 528 01a5 9C       		.byte	0x9c
+ 529 01a6 ED010000 		.4byte	0x1ed
+ 530 01aa 0B       		.uleb128 0xb
+ 531 01ab A6010000 		.4byte	.LASF28
+ 532 01af 01       		.byte	0x1
+ 533 01b0 D4       		.byte	0xd4
+ 534 01b1 6B000000 		.4byte	0x6b
+ 535 01b5 13000000 		.4byte	.LLST1
+ 536 01b9 0C       		.uleb128 0xc
+ 537 01ba 10000000 		.4byte	.LVL4
+ 538 01be 38020000 		.4byte	0x238
+ 539 01c2 0C       		.uleb128 0xc
+ 540 01c3 1E000000 		.4byte	.LVL5
+ 541 01c7 43020000 		.4byte	0x243
+ 542 01cb 0C       		.uleb128 0xc
+ 543 01cc 2C000000 		.4byte	.LVL6
+ 544 01d0 38020000 		.4byte	0x238
+ 545 01d4 0C       		.uleb128 0xc
+ 546 01d5 44000000 		.4byte	.LVL7
+ 547 01d9 43020000 		.4byte	0x243
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 16
+
+
+ 548 01dd 0D       		.uleb128 0xd
+ 549 01de 78000000 		.4byte	.LVL8
+ 550 01e2 4E020000 		.4byte	0x24e
+ 551 01e6 0E       		.uleb128 0xe
+ 552 01e7 01       		.uleb128 0x1
+ 553 01e8 50       		.byte	0x50
+ 554 01e9 01       		.uleb128 0x1
+ 555 01ea 3F       		.byte	0x3f
+ 556 01eb 00       		.byte	0
+ 557 01ec 00       		.byte	0
+ 558 01ed 0F       		.uleb128 0xf
+ 559 01ee 00000000 		.4byte	.LASF29
+ 560 01f2 01       		.byte	0x1
+ 561 01f3 2C01     		.2byte	0x12c
+ 562 01f5 00000000 		.4byte	.LFB3
+ 563 01f9 24000000 		.4byte	.LFE3-.LFB3
+ 564 01fd 01       		.uleb128 0x1
+ 565 01fe 9C       		.byte	0x9c
+ 566 01ff 16020000 		.4byte	0x216
+ 567 0203 0C       		.uleb128 0xc
+ 568 0204 06000000 		.4byte	.LVL9
+ 569 0208 95010000 		.4byte	0x195
+ 570 020c 0C       		.uleb128 0xc
+ 571 020d 10000000 		.4byte	.LVL10
+ 572 0211 59020000 		.4byte	0x259
+ 573 0215 00       		.byte	0
+ 574 0216 10       		.uleb128 0x10
+ 575 0217 2A000000 		.4byte	.LASF30
+ 576 021b 01       		.byte	0x1
+ 577 021c 11       		.byte	0x11
+ 578 021d 25010000 		.4byte	0x125
+ 579 0221 05       		.uleb128 0x5
+ 580 0222 03       		.byte	0x3
+ 581 0223 00000000 		.4byte	I2C_backup
+ 582 0227 10       		.uleb128 0x10
+ 583 0228 57000000 		.4byte	.LASF31
+ 584 022c 01       		.byte	0x1
+ 585 022d 26       		.byte	0x26
+ 586 022e B0000000 		.4byte	0xb0
+ 587 0232 05       		.uleb128 0x5
+ 588 0233 03       		.byte	0x3
+ 589 0234 00000000 		.4byte	I2C_wakeupSource
+ 590 0238 11       		.uleb128 0x11
+ 591 0239 E2010000 		.4byte	.LASF32
+ 592 023d E2010000 		.4byte	.LASF32
+ 593 0241 04       		.byte	0x4
+ 594 0242 7D       		.byte	0x7d
+ 595 0243 11       		.uleb128 0x11
+ 596 0244 BC010000 		.4byte	.LASF33
+ 597 0248 BC010000 		.4byte	.LASF33
+ 598 024c 04       		.byte	0x4
+ 599 024d 7E       		.byte	0x7e
+ 600 024e 11       		.uleb128 0x11
+ 601 024f 1B000000 		.4byte	.LASF34
+ 602 0253 1B000000 		.4byte	.LASF34
+ 603 0257 04       		.byte	0x4
+ 604 0258 88       		.byte	0x88
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 17
+
+
+ 605 0259 11       		.uleb128 0x11
+ 606 025a 3D010000 		.4byte	.LASF35
+ 607 025e 3D010000 		.4byte	.LASF35
+ 608 0262 03       		.byte	0x3
+ 609 0263 91       		.byte	0x91
+ 610 0264 00       		.byte	0
+ 611              		.section	.debug_abbrev,"",%progbits
+ 612              	.Ldebug_abbrev0:
+ 613 0000 01       		.uleb128 0x1
+ 614 0001 11       		.uleb128 0x11
+ 615 0002 01       		.byte	0x1
+ 616 0003 25       		.uleb128 0x25
+ 617 0004 0E       		.uleb128 0xe
+ 618 0005 13       		.uleb128 0x13
+ 619 0006 0B       		.uleb128 0xb
+ 620 0007 03       		.uleb128 0x3
+ 621 0008 0E       		.uleb128 0xe
+ 622 0009 1B       		.uleb128 0x1b
+ 623 000a 0E       		.uleb128 0xe
+ 624 000b 55       		.uleb128 0x55
+ 625 000c 17       		.uleb128 0x17
+ 626 000d 11       		.uleb128 0x11
+ 627 000e 01       		.uleb128 0x1
+ 628 000f 10       		.uleb128 0x10
+ 629 0010 17       		.uleb128 0x17
+ 630 0011 00       		.byte	0
+ 631 0012 00       		.byte	0
+ 632 0013 02       		.uleb128 0x2
+ 633 0014 24       		.uleb128 0x24
+ 634 0015 00       		.byte	0
+ 635 0016 0B       		.uleb128 0xb
+ 636 0017 0B       		.uleb128 0xb
+ 637 0018 3E       		.uleb128 0x3e
+ 638 0019 0B       		.uleb128 0xb
+ 639 001a 03       		.uleb128 0x3
+ 640 001b 0E       		.uleb128 0xe
+ 641 001c 00       		.byte	0
+ 642 001d 00       		.byte	0
+ 643 001e 03       		.uleb128 0x3
+ 644 001f 24       		.uleb128 0x24
+ 645 0020 00       		.byte	0
+ 646 0021 0B       		.uleb128 0xb
+ 647 0022 0B       		.uleb128 0xb
+ 648 0023 3E       		.uleb128 0x3e
+ 649 0024 0B       		.uleb128 0xb
+ 650 0025 03       		.uleb128 0x3
+ 651 0026 08       		.uleb128 0x8
+ 652 0027 00       		.byte	0
+ 653 0028 00       		.byte	0
+ 654 0029 04       		.uleb128 0x4
+ 655 002a 16       		.uleb128 0x16
+ 656 002b 00       		.byte	0
+ 657 002c 03       		.uleb128 0x3
+ 658 002d 0E       		.uleb128 0xe
+ 659 002e 3A       		.uleb128 0x3a
+ 660 002f 0B       		.uleb128 0xb
+ 661 0030 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 18
+
+
+ 662 0031 05       		.uleb128 0x5
+ 663 0032 49       		.uleb128 0x49
+ 664 0033 13       		.uleb128 0x13
+ 665 0034 00       		.byte	0
+ 666 0035 00       		.byte	0
+ 667 0036 05       		.uleb128 0x5
+ 668 0037 35       		.uleb128 0x35
+ 669 0038 00       		.byte	0
+ 670 0039 49       		.uleb128 0x49
+ 671 003a 13       		.uleb128 0x13
+ 672 003b 00       		.byte	0
+ 673 003c 00       		.byte	0
+ 674 003d 06       		.uleb128 0x6
+ 675 003e 13       		.uleb128 0x13
+ 676 003f 01       		.byte	0x1
+ 677 0040 0B       		.uleb128 0xb
+ 678 0041 0B       		.uleb128 0xb
+ 679 0042 3A       		.uleb128 0x3a
+ 680 0043 0B       		.uleb128 0xb
+ 681 0044 3B       		.uleb128 0x3b
+ 682 0045 0B       		.uleb128 0xb
+ 683 0046 01       		.uleb128 0x1
+ 684 0047 13       		.uleb128 0x13
+ 685 0048 00       		.byte	0
+ 686 0049 00       		.byte	0
+ 687 004a 07       		.uleb128 0x7
+ 688 004b 0D       		.uleb128 0xd
+ 689 004c 00       		.byte	0
+ 690 004d 03       		.uleb128 0x3
+ 691 004e 0E       		.uleb128 0xe
+ 692 004f 3A       		.uleb128 0x3a
+ 693 0050 0B       		.uleb128 0xb
+ 694 0051 3B       		.uleb128 0x3b
+ 695 0052 0B       		.uleb128 0xb
+ 696 0053 49       		.uleb128 0x49
+ 697 0054 13       		.uleb128 0x13
+ 698 0055 38       		.uleb128 0x38
+ 699 0056 0B       		.uleb128 0xb
+ 700 0057 00       		.byte	0
+ 701 0058 00       		.byte	0
+ 702 0059 08       		.uleb128 0x8
+ 703 005a 0D       		.uleb128 0xd
+ 704 005b 00       		.byte	0
+ 705 005c 03       		.uleb128 0x3
+ 706 005d 08       		.uleb128 0x8
+ 707 005e 3A       		.uleb128 0x3a
+ 708 005f 0B       		.uleb128 0xb
+ 709 0060 3B       		.uleb128 0x3b
+ 710 0061 0B       		.uleb128 0xb
+ 711 0062 49       		.uleb128 0x49
+ 712 0063 13       		.uleb128 0x13
+ 713 0064 38       		.uleb128 0x38
+ 714 0065 0B       		.uleb128 0xb
+ 715 0066 00       		.byte	0
+ 716 0067 00       		.byte	0
+ 717 0068 09       		.uleb128 0x9
+ 718 0069 16       		.uleb128 0x16
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 19
+
+
+ 719 006a 00       		.byte	0
+ 720 006b 03       		.uleb128 0x3
+ 721 006c 0E       		.uleb128 0xe
+ 722 006d 3A       		.uleb128 0x3a
+ 723 006e 0B       		.uleb128 0xb
+ 724 006f 3B       		.uleb128 0x3b
+ 725 0070 0B       		.uleb128 0xb
+ 726 0071 49       		.uleb128 0x49
+ 727 0072 13       		.uleb128 0x13
+ 728 0073 00       		.byte	0
+ 729 0074 00       		.byte	0
+ 730 0075 0A       		.uleb128 0xa
+ 731 0076 2E       		.uleb128 0x2e
+ 732 0077 01       		.byte	0x1
+ 733 0078 3F       		.uleb128 0x3f
+ 734 0079 19       		.uleb128 0x19
+ 735 007a 03       		.uleb128 0x3
+ 736 007b 0E       		.uleb128 0xe
+ 737 007c 3A       		.uleb128 0x3a
+ 738 007d 0B       		.uleb128 0xb
+ 739 007e 3B       		.uleb128 0x3b
+ 740 007f 0B       		.uleb128 0xb
+ 741 0080 27       		.uleb128 0x27
+ 742 0081 19       		.uleb128 0x19
+ 743 0082 11       		.uleb128 0x11
+ 744 0083 01       		.uleb128 0x1
+ 745 0084 12       		.uleb128 0x12
+ 746 0085 06       		.uleb128 0x6
+ 747 0086 40       		.uleb128 0x40
+ 748 0087 18       		.uleb128 0x18
+ 749 0088 9742     		.uleb128 0x2117
+ 750 008a 19       		.uleb128 0x19
+ 751 008b 01       		.uleb128 0x1
+ 752 008c 13       		.uleb128 0x13
+ 753 008d 00       		.byte	0
+ 754 008e 00       		.byte	0
+ 755 008f 0B       		.uleb128 0xb
+ 756 0090 34       		.uleb128 0x34
+ 757 0091 00       		.byte	0
+ 758 0092 03       		.uleb128 0x3
+ 759 0093 0E       		.uleb128 0xe
+ 760 0094 3A       		.uleb128 0x3a
+ 761 0095 0B       		.uleb128 0xb
+ 762 0096 3B       		.uleb128 0x3b
+ 763 0097 0B       		.uleb128 0xb
+ 764 0098 49       		.uleb128 0x49
+ 765 0099 13       		.uleb128 0x13
+ 766 009a 02       		.uleb128 0x2
+ 767 009b 17       		.uleb128 0x17
+ 768 009c 00       		.byte	0
+ 769 009d 00       		.byte	0
+ 770 009e 0C       		.uleb128 0xc
+ 771 009f 898201   		.uleb128 0x4109
+ 772 00a2 00       		.byte	0
+ 773 00a3 11       		.uleb128 0x11
+ 774 00a4 01       		.uleb128 0x1
+ 775 00a5 31       		.uleb128 0x31
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 20
+
+
+ 776 00a6 13       		.uleb128 0x13
+ 777 00a7 00       		.byte	0
+ 778 00a8 00       		.byte	0
+ 779 00a9 0D       		.uleb128 0xd
+ 780 00aa 898201   		.uleb128 0x4109
+ 781 00ad 01       		.byte	0x1
+ 782 00ae 11       		.uleb128 0x11
+ 783 00af 01       		.uleb128 0x1
+ 784 00b0 31       		.uleb128 0x31
+ 785 00b1 13       		.uleb128 0x13
+ 786 00b2 00       		.byte	0
+ 787 00b3 00       		.byte	0
+ 788 00b4 0E       		.uleb128 0xe
+ 789 00b5 8A8201   		.uleb128 0x410a
+ 790 00b8 00       		.byte	0
+ 791 00b9 02       		.uleb128 0x2
+ 792 00ba 18       		.uleb128 0x18
+ 793 00bb 9142     		.uleb128 0x2111
+ 794 00bd 18       		.uleb128 0x18
+ 795 00be 00       		.byte	0
+ 796 00bf 00       		.byte	0
+ 797 00c0 0F       		.uleb128 0xf
+ 798 00c1 2E       		.uleb128 0x2e
+ 799 00c2 01       		.byte	0x1
+ 800 00c3 3F       		.uleb128 0x3f
+ 801 00c4 19       		.uleb128 0x19
+ 802 00c5 03       		.uleb128 0x3
+ 803 00c6 0E       		.uleb128 0xe
+ 804 00c7 3A       		.uleb128 0x3a
+ 805 00c8 0B       		.uleb128 0xb
+ 806 00c9 3B       		.uleb128 0x3b
+ 807 00ca 05       		.uleb128 0x5
+ 808 00cb 27       		.uleb128 0x27
+ 809 00cc 19       		.uleb128 0x19
+ 810 00cd 11       		.uleb128 0x11
+ 811 00ce 01       		.uleb128 0x1
+ 812 00cf 12       		.uleb128 0x12
+ 813 00d0 06       		.uleb128 0x6
+ 814 00d1 40       		.uleb128 0x40
+ 815 00d2 18       		.uleb128 0x18
+ 816 00d3 9742     		.uleb128 0x2117
+ 817 00d5 19       		.uleb128 0x19
+ 818 00d6 01       		.uleb128 0x1
+ 819 00d7 13       		.uleb128 0x13
+ 820 00d8 00       		.byte	0
+ 821 00d9 00       		.byte	0
+ 822 00da 10       		.uleb128 0x10
+ 823 00db 34       		.uleb128 0x34
+ 824 00dc 00       		.byte	0
+ 825 00dd 03       		.uleb128 0x3
+ 826 00de 0E       		.uleb128 0xe
+ 827 00df 3A       		.uleb128 0x3a
+ 828 00e0 0B       		.uleb128 0xb
+ 829 00e1 3B       		.uleb128 0x3b
+ 830 00e2 0B       		.uleb128 0xb
+ 831 00e3 49       		.uleb128 0x49
+ 832 00e4 13       		.uleb128 0x13
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 21
+
+
+ 833 00e5 3F       		.uleb128 0x3f
+ 834 00e6 19       		.uleb128 0x19
+ 835 00e7 02       		.uleb128 0x2
+ 836 00e8 18       		.uleb128 0x18
+ 837 00e9 00       		.byte	0
+ 838 00ea 00       		.byte	0
+ 839 00eb 11       		.uleb128 0x11
+ 840 00ec 2E       		.uleb128 0x2e
+ 841 00ed 00       		.byte	0
+ 842 00ee 3F       		.uleb128 0x3f
+ 843 00ef 19       		.uleb128 0x19
+ 844 00f0 3C       		.uleb128 0x3c
+ 845 00f1 19       		.uleb128 0x19
+ 846 00f2 6E       		.uleb128 0x6e
+ 847 00f3 0E       		.uleb128 0xe
+ 848 00f4 03       		.uleb128 0x3
+ 849 00f5 0E       		.uleb128 0xe
+ 850 00f6 3A       		.uleb128 0x3a
+ 851 00f7 0B       		.uleb128 0xb
+ 852 00f8 3B       		.uleb128 0x3b
+ 853 00f9 0B       		.uleb128 0xb
+ 854 00fa 00       		.byte	0
+ 855 00fb 00       		.byte	0
+ 856 00fc 00       		.byte	0
+ 857              		.section	.debug_loc,"",%progbits
+ 858              	.Ldebug_loc0:
+ 859              	.LLST0:
+ 860 0000 2C000000 		.4byte	.LVL0
+ 861 0004 39000000 		.4byte	.LVL1-1
+ 862 0008 0100     		.2byte	0x1
+ 863 000a 50       		.byte	0x50
+ 864 000b 00000000 		.4byte	0
+ 865 000f 00000000 		.4byte	0
+ 866              	.LLST1:
+ 867 0013 10000000 		.4byte	.LVL4
+ 868 0017 1D000000 		.4byte	.LVL5-1
+ 869 001b 0100     		.2byte	0x1
+ 870 001d 50       		.byte	0x50
+ 871 001e 2C000000 		.4byte	.LVL6
+ 872 0022 43000000 		.4byte	.LVL7-1
+ 873 0026 0100     		.2byte	0x1
+ 874 0028 50       		.byte	0x50
+ 875 0029 00000000 		.4byte	0
+ 876 002d 00000000 		.4byte	0
+ 877              		.section	.debug_aranges,"",%progbits
+ 878 0000 34000000 		.4byte	0x34
+ 879 0004 0200     		.2byte	0x2
+ 880 0006 00000000 		.4byte	.Ldebug_info0
+ 881 000a 04       		.byte	0x4
+ 882 000b 00       		.byte	0
+ 883 000c 0000     		.2byte	0
+ 884 000e 0000     		.2byte	0
+ 885 0010 00000000 		.4byte	.LFB0
+ 886 0014 94000000 		.4byte	.LFE0-.LFB0
+ 887 0018 00000000 		.4byte	.LFB1
+ 888 001c 14000000 		.4byte	.LFE1-.LFB1
+ 889 0020 00000000 		.4byte	.LFB2
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 22
+
+
+ 890 0024 C0000000 		.4byte	.LFE2-.LFB2
+ 891 0028 00000000 		.4byte	.LFB3
+ 892 002c 24000000 		.4byte	.LFE3-.LFB3
+ 893 0030 00000000 		.4byte	0
+ 894 0034 00000000 		.4byte	0
+ 895              		.section	.debug_ranges,"",%progbits
+ 896              	.Ldebug_ranges0:
+ 897 0000 00000000 		.4byte	.LFB0
+ 898 0004 94000000 		.4byte	.LFE0
+ 899 0008 00000000 		.4byte	.LFB1
+ 900 000c 14000000 		.4byte	.LFE1
+ 901 0010 00000000 		.4byte	.LFB2
+ 902 0014 C0000000 		.4byte	.LFE2
+ 903 0018 00000000 		.4byte	.LFB3
+ 904 001c 24000000 		.4byte	.LFE3
+ 905 0020 00000000 		.4byte	0
+ 906 0024 00000000 		.4byte	0
+ 907              		.section	.debug_line,"",%progbits
+ 908              	.Ldebug_line0:
+ 909 0000 CC000000 		.section	.debug_str,"MS",%progbits,1
+ 909      02005700 
+ 909      00000201 
+ 909      FB0E0D00 
+ 909      01010101 
+ 910              	.LASF29:
+ 911 0000 4932435F 		.ascii	"I2C_Wakeup\000"
+ 911      57616B65 
+ 911      757000
+ 912              	.LASF26:
+ 913 000b 4932435F 		.ascii	"I2C_Sleep\000"
+ 913      536C6565 
+ 913      7000
+ 914              	.LASF16:
+ 915 0015 72656733 		.ascii	"reg32\000"
+ 915      3200
+ 916              	.LASF34:
+ 917 001b 4379496E 		.ascii	"CyIntSetVector\000"
+ 917      74536574 
+ 917      56656374 
+ 917      6F7200
+ 918              	.LASF30:
+ 919 002a 4932435F 		.ascii	"I2C_backup\000"
+ 919      6261636B 
+ 919      757000
+ 920              	.LASF3:
+ 921 0035 73686F72 		.ascii	"short unsigned int\000"
+ 921      7420756E 
+ 921      7369676E 
+ 921      65642069 
+ 921      6E7400
+ 922              	.LASF25:
+ 923 0048 4932435F 		.ascii	"I2C_SaveConfig\000"
+ 923      53617665 
+ 923      436F6E66 
+ 923      696700
+ 924              	.LASF31:
+ 925 0057 4932435F 		.ascii	"I2C_wakeupSource\000"
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 23
+
+
+ 925      77616B65 
+ 925      7570536F 
+ 925      75726365 
+ 925      00
+ 926              	.LASF12:
+ 927 0068 666C6F61 		.ascii	"float\000"
+ 927      7400
+ 928              	.LASF7:
+ 929 006e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 929      206C6F6E 
+ 929      6720756E 
+ 929      7369676E 
+ 929      65642069 
+ 930              	.LASF1:
+ 931 0085 756E7369 		.ascii	"unsigned char\000"
+ 931      676E6564 
+ 931      20636861 
+ 931      7200
+ 932              	.LASF36:
+ 933 0093 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 933      43313120 
+ 933      352E342E 
+ 933      31203230 
+ 933      31363036 
+ 934 00c6 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 934      20726576 
+ 934      6973696F 
+ 934      6E203233 
+ 934      37373135 
+ 935 00f9 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 935      66756E63 
+ 935      74696F6E 
+ 935      2D736563 
+ 935      74696F6E 
+ 936              	.LASF15:
+ 937 0121 72656738 		.ascii	"reg8\000"
+ 937      00
+ 938              	.LASF5:
+ 939 0126 6C6F6E67 		.ascii	"long unsigned int\000"
+ 939      20756E73 
+ 939      69676E65 
+ 939      6420696E 
+ 939      7400
+ 940              	.LASF21:
+ 941 0138 61646472 		.ascii	"addr\000"
+ 941      00
+ 942              	.LASF35:
+ 943 013d 4932435F 		.ascii	"I2C_Enable\000"
+ 943      456E6162 
+ 943      6C6500
+ 944              	.LASF13:
+ 945 0148 646F7562 		.ascii	"double\000"
+ 945      6C6500
+ 946              	.LASF38:
+ 947 014f 433A5C55 		.ascii	"C:\\Users\\isaac\\Documents\\PSoC Creator\\P7_Class"
+ 947      73657273 
+ 947      5C697361 
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 24
+
+
+ 947      61635C44 
+ 947      6F63756D 
+ 948 017d 4D616E61 		.ascii	"Manager\\ClassManager.cydsn\000"
+ 948      6765725C 
+ 948      436C6173 
+ 948      734D616E 
+ 948      61676572 
+ 949              	.LASF10:
+ 950 0198 75696E74 		.ascii	"uint16\000"
+ 950      313600
+ 951              	.LASF11:
+ 952 019f 75696E74 		.ascii	"uint32\000"
+ 952      333200
+ 953              	.LASF28:
+ 954 01a6 696E7453 		.ascii	"intState\000"
+ 954      74617465 
+ 954      00
+ 955              	.LASF8:
+ 956 01af 756E7369 		.ascii	"unsigned int\000"
+ 956      676E6564 
+ 956      20696E74 
+ 956      00
+ 957              	.LASF33:
+ 958 01bc 43794578 		.ascii	"CyExitCriticalSection\000"
+ 958      69744372 
+ 958      69746963 
+ 958      616C5365 
+ 958      6374696F 
+ 959              	.LASF22:
+ 960 01d2 636C6B44 		.ascii	"clkDiv1\000"
+ 960      69763100 
+ 961              	.LASF23:
+ 962 01da 636C6B44 		.ascii	"clkDiv2\000"
+ 962      69763200 
+ 963              	.LASF32:
+ 964 01e2 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 964      74657243 
+ 964      72697469 
+ 964      63616C53 
+ 964      65637469 
+ 965              	.LASF18:
+ 966 01f9 73697A65 		.ascii	"sizetype\000"
+ 966      74797065 
+ 966      00
+ 967              	.LASF6:
+ 968 0202 6C6F6E67 		.ascii	"long long int\000"
+ 968      206C6F6E 
+ 968      6720696E 
+ 968      7400
+ 969              	.LASF14:
+ 970 0210 63686172 		.ascii	"char\000"
+ 970      00
+ 971              	.LASF20:
+ 972 0215 78636667 		.ascii	"xcfg\000"
+ 972      00
+ 973              	.LASF24:
+ 974 021a 4932435F 		.ascii	"I2C_BACKUP_STRUCT\000"
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccWb6vyk.s 			page 25
+
+
+ 974      4241434B 
+ 974      55505F53 
+ 974      54525543 
+ 974      5400
+ 975              	.LASF2:
+ 976 022c 73686F72 		.ascii	"short int\000"
+ 976      7420696E 
+ 976      7400
+ 977              	.LASF9:
+ 978 0236 75696E74 		.ascii	"uint8\000"
+ 978      3800
+ 979              	.LASF4:
+ 980 023c 6C6F6E67 		.ascii	"long int\000"
+ 980      20696E74 
+ 980      00
+ 981              	.LASF19:
+ 982 0245 656E6162 		.ascii	"enableState\000"
+ 982      6C655374 
+ 982      61746500 
+ 983              	.LASF17:
+ 984 0251 6C6F6E67 		.ascii	"long double\000"
+ 984      20646F75 
+ 984      626C6500 
+ 985              	.LASF0:
+ 986 025d 7369676E 		.ascii	"signed char\000"
+ 986      65642063 
+ 986      68617200 
+ 987              	.LASF27:
+ 988 0269 4932435F 		.ascii	"I2C_RestoreConfig\000"
+ 988      52657374 
+ 988      6F726543 
+ 988      6F6E6669 
+ 988      6700
+ 989              	.LASF37:
+ 990 027b 47656E65 		.ascii	"Generated_Source\\PSoC5\\I2C_PM.c\000"
+ 990      72617465 
+ 990      645F536F 
+ 990      75726365 
+ 990      5C50536F 
+ 991              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

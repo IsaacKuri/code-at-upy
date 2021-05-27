@@ -1,0 +1,11 @@
+dont_use_io iocell 1 0
+dont_use_io iocell 1 1
+dont_use_io iocell 1 3
+set_location "Net_226" macrocell 3 4 0 0
+set_location "Net_2" macrocell 3 4 0 3
+set_location "Net_241" macrocell 3 4 0 2
+set_location "Net_245" macrocell 3 4 0 1
+set_io "BTN(0)" iocell 0 0
+set_io "LED(0)" iocell 0 1
+set_io "LED_1(0)" iocell 0 2
+set_location "ClockBlock" clockblockcell -1 -1 0

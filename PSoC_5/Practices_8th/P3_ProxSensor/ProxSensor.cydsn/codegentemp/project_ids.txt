@@ -1,0 +1,6 @@
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|b6e79330-f369-49ff-b8e4-586cd79de4b0
+C:\Users\isaac\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|ce9cff3c-0e45-45c3-83fa-8e0dc9d02956
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|4794a4d5-48cd-4028-85f5-66ac5dc37149
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|bedbb8ed-a1d8-4f7b-823a-1e26d07ec022
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|fda5b95c-ee53-46ff-a7e6-60f8bb1c7272
+C:\Users\isaac\Documents\PSoC Creator\P3_ProxSensor\ProxSensor.cydsn\ProxSensor.cyprj|ac8e67a0-bca0-494d-97b0-5fe202286a41

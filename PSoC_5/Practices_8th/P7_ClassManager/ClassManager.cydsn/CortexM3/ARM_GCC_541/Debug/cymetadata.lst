@@ -1,0 +1,1603 @@
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 1060
+  28              	cy_meta_configecc:
+  29 0000 01       		.byte	1
+  30 0001 45       		.byte	69
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 01       		.byte	1
+  34 0005 49       		.byte	73
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 02       		.byte	2
+  38 0009 4F       		.byte	79
+  39 000a 00       		.byte	0
+  40 000b 40       		.byte	64
+  41 000c 01       		.byte	1
+  42 000d 64       		.byte	100
+  43 000e 00       		.byte	0
+  44 000f 40       		.byte	64
+  45 0010 02       		.byte	2
+  46 0011 65       		.byte	101
+  47 0012 00       		.byte	0
+  48 0013 40       		.byte	64
+  49 0014 5F       		.byte	95
+  50 0015 08       		.byte	8
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 31       		.byte	49
+  54 0019 09       		.byte	9
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 05       		.byte	5
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 2
+
+
+  58 001d 15       		.byte	21
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 45       		.byte	69
+  62 0021 18       		.byte	24
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 3B       		.byte	59
+  66 0025 19       		.byte	25
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 44       		.byte	68
+  70 0029 1A       		.byte	26
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 43       		.byte	67
+  74 002d 1B       		.byte	27
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 02       		.byte	2
+  78 0031 42       		.byte	66
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 01       		.byte	1
+  82 0035 43       		.byte	67
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 03       		.byte	3
+  86 0039 48       		.byte	72
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 15       		.byte	21
+  90 003d 49       		.byte	73
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 08       		.byte	8
+  94 0041 4C       		.byte	76
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 0D       		.byte	13
+  98 0045 4D       		.byte	77
+  99 0046 01       		.byte	1
+ 100 0047 40       		.byte	64
+ 101 0048 04       		.byte	4
+ 102 0049 50       		.byte	80
+ 103 004a 01       		.byte	1
+ 104 004b 40       		.byte	64
+ 105 004c 01       		.byte	1
+ 106 004d 51       		.byte	81
+ 107 004e 01       		.byte	1
+ 108 004f 40       		.byte	64
+ 109 0050 01       		.byte	1
+ 110 0051 01       		.byte	1
+ 111 0052 D6       		.byte	-42
+ 112 0053 C0       		.byte	-64
+ 113 0054 01       		.byte	1
+ 114 0055 10       		.byte	16
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 3
+
+
+ 115 0056 0A       		.byte	10
+ 116 0057 36       		.byte	54
+ 117 0058 88       		.byte	-120
+ 118 0059 0F       		.byte	15
+ 119 005a 88       		.byte	-120
+ 120 005b 72       		.byte	114
+ 121 005c 8B       		.byte	-117
+ 122 005d 38       		.byte	56
+ 123 005e 00       		.byte	0
+ 124 005f 13       		.byte	19
+ 125 0060 02       		.byte	2
+ 126 0061 0C       		.byte	12
+ 127 0062 06       		.byte	6
+ 128 0063 08       		.byte	8
+ 129 0064 08       		.byte	8
+ 130 0065 60       		.byte	96
+ 131 0066 0C       		.byte	12
+ 132 0067 20       		.byte	32
+ 133 0068 0E       		.byte	14
+ 134 0069 40       		.byte	64
+ 135 006a 14       		.byte	20
+ 136 006b 0A       		.byte	10
+ 137 006c 16       		.byte	22
+ 138 006d 14       		.byte	20
+ 139 006e 18       		.byte	24
+ 140 006f 03       		.byte	3
+ 141 0070 1A       		.byte	26
+ 142 0071 14       		.byte	20
+ 143 0072 1C       		.byte	28
+ 144 0073 13       		.byte	19
+ 145 0074 1E       		.byte	30
+ 146 0075 04       		.byte	4
+ 147 0076 22       		.byte	34
+ 148 0077 15       		.byte	21
+ 149 0078 24       		.byte	36
+ 150 0079 60       		.byte	96
+ 151 007a 28       		.byte	40
+ 152 007b 40       		.byte	64
+ 153 007c 29       		.byte	41
+ 154 007d 01       		.byte	1
+ 155 007e 2A       		.byte	42
+ 156 007f 20       		.byte	32
+ 157 0080 30       		.byte	48
+ 158 0081 10       		.byte	16
+ 159 0082 32       		.byte	50
+ 160 0083 60       		.byte	96
+ 161 0084 35       		.byte	53
+ 162 0085 01       		.byte	1
+ 163 0086 36       		.byte	54
+ 164 0087 0F       		.byte	15
+ 165 0088 3A       		.byte	58
+ 166 0089 80       		.byte	-128
+ 167 008a 3E       		.byte	62
+ 168 008b 01       		.byte	1
+ 169 008c 3F       		.byte	63
+ 170 008d 10       		.byte	16
+ 171 008e 40       		.byte	64
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 4
+
+
+ 172 008f 15       		.byte	21
+ 173 0090 41       		.byte	65
+ 174 0091 04       		.byte	4
+ 175 0092 45       		.byte	69
+ 176 0093 0C       		.byte	12
+ 177 0094 46       		.byte	70
+ 178 0095 B0       		.byte	-80
+ 179 0096 47       		.byte	71
+ 180 0097 0E       		.byte	14
+ 181 0098 48       		.byte	72
+ 182 0099 19       		.byte	25
+ 183 009a 49       		.byte	73
+ 184 009b FF       		.byte	-1
+ 185 009c 4A       		.byte	74
+ 186 009d FF       		.byte	-1
+ 187 009e 4B       		.byte	75
+ 188 009f FF       		.byte	-1
+ 189 00a0 4E       		.byte	78
+ 190 00a1 F0       		.byte	-16
+ 191 00a2 4F       		.byte	79
+ 192 00a3 44       		.byte	68
+ 193 00a4 50       		.byte	80
+ 194 00a5 0C       		.byte	12
+ 195 00a6 54       		.byte	84
+ 196 00a7 01       		.byte	1
+ 197 00a8 58       		.byte	88
+ 198 00a9 04       		.byte	4
+ 199 00aa 59       		.byte	89
+ 200 00ab 04       		.byte	4
+ 201 00ac 5A       		.byte	90
+ 202 00ad 04       		.byte	4
+ 203 00ae 5B       		.byte	91
+ 204 00af 04       		.byte	4
+ 205 00b0 5F       		.byte	95
+ 206 00b1 01       		.byte	1
+ 207 00b2 66       		.byte	102
+ 208 00b3 C0       		.byte	-64
+ 209 00b4 6A       		.byte	106
+ 210 00b5 40       		.byte	64
+ 211 00b6 6B       		.byte	107
+ 212 00b7 02       		.byte	2
+ 213 00b8 80       		.byte	-128
+ 214 00b9 0C       		.byte	12
+ 215 00ba 82       		.byte	-126
+ 216 00bb 71       		.byte	113
+ 217 00bc 84       		.byte	-124
+ 218 00bd 09       		.byte	9
+ 219 00be 86       		.byte	-122
+ 220 00bf D0       		.byte	-48
+ 221 00c0 87       		.byte	-121
+ 222 00c1 0C       		.byte	12
+ 223 00c2 8A       		.byte	-118
+ 224 00c3 03       		.byte	3
+ 225 00c4 8C       		.byte	-116
+ 226 00c5 10       		.byte	16
+ 227 00c6 8D       		.byte	-115
+ 228 00c7 80       		.byte	-128
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 5
+
+
+ 229 00c8 8E       		.byte	-114
+ 230 00c9 40       		.byte	64
+ 231 00ca 8F       		.byte	-113
+ 232 00cb 13       		.byte	19
+ 233 00cc 92       		.byte	-110
+ 234 00cd 20       		.byte	32
+ 235 00ce 95       		.byte	-107
+ 236 00cf 2C       		.byte	44
+ 237 00d0 97       		.byte	-105
+ 238 00d1 43       		.byte	67
+ 239 00d2 9C       		.byte	-100
+ 240 00d3 10       		.byte	16
+ 241 00d4 9E       		.byte	-98
+ 242 00d5 AC       		.byte	-84
+ 243 00d6 9F       		.byte	-97
+ 244 00d7 08       		.byte	8
+ 245 00d8 A1       		.byte	-95
+ 246 00d9 71       		.byte	113
+ 247 00da A3       		.byte	-93
+ 248 00db 0E       		.byte	14
+ 249 00dc A4       		.byte	-92
+ 250 00dd 14       		.byte	20
+ 251 00de A8       		.byte	-88
+ 252 00df DC       		.byte	-36
+ 253 00e0 AA       		.byte	-86
+ 254 00e1 22       		.byte	34
+ 255 00e2 AD       		.byte	-83
+ 256 00e3 71       		.byte	113
+ 257 00e4 AF       		.byte	-81
+ 258 00e5 06       		.byte	6
+ 259 00e6 B0       		.byte	-80
+ 260 00e7 E0       		.byte	-32
+ 261 00e8 B1       		.byte	-79
+ 262 00e9 30       		.byte	48
+ 263 00ea B3       		.byte	-77
+ 264 00eb 0F       		.byte	15
+ 265 00ec B4       		.byte	-76
+ 266 00ed 1F       		.byte	31
+ 267 00ee B5       		.byte	-75
+ 268 00ef C0       		.byte	-64
+ 269 00f0 B9       		.byte	-71
+ 270 00f1 22       		.byte	34
+ 271 00f2 BA       		.byte	-70
+ 272 00f3 02       		.byte	2
+ 273 00f4 BB       		.byte	-69
+ 274 00f5 08       		.byte	8
+ 275 00f6 BF       		.byte	-65
+ 276 00f7 01       		.byte	1
+ 277 00f8 C0       		.byte	-64
+ 278 00f9 04       		.byte	4
+ 279 00fa C5       		.byte	-59
+ 280 00fb 40       		.byte	64
+ 281 00fc C9       		.byte	-55
+ 282 00fd FF       		.byte	-1
+ 283 00fe CA       		.byte	-54
+ 284 00ff 07       		.byte	7
+ 285 0100 CB       		.byte	-53
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 6
+
+
+ 286 0101 FF       		.byte	-1
+ 287 0102 CC       		.byte	-52
+ 288 0103 40       		.byte	64
+ 289 0104 CD       		.byte	-51
+ 290 0105 20       		.byte	32
+ 291 0106 CE       		.byte	-50
+ 292 0107 F0       		.byte	-16
+ 293 0108 CF       		.byte	-49
+ 294 0109 05       		.byte	5
+ 295 010a D0       		.byte	-48
+ 296 010b 08       		.byte	8
+ 297 010c D8       		.byte	-40
+ 298 010d 04       		.byte	4
+ 299 010e D9       		.byte	-39
+ 300 010f 04       		.byte	4
+ 301 0110 DA       		.byte	-38
+ 302 0111 04       		.byte	4
+ 303 0112 DF       		.byte	-33
+ 304 0113 01       		.byte	1
+ 305 0114 E0       		.byte	-32
+ 306 0115 40       		.byte	64
+ 307 0116 E1       		.byte	-31
+ 308 0117 A8       		.byte	-88
+ 309 0118 E2       		.byte	-30
+ 310 0119 40       		.byte	64
+ 311 011a E3       		.byte	-29
+ 312 011b 20       		.byte	32
+ 313 011c 00       		.byte	0
+ 314 011d 84       		.byte	-124
+ 315 011e 01       		.byte	1
+ 316 011f 22       		.byte	34
+ 317 0120 04       		.byte	4
+ 318 0121 24       		.byte	36
+ 319 0122 05       		.byte	5
+ 320 0123 80       		.byte	-128
+ 321 0124 06       		.byte	6
+ 322 0125 40       		.byte	64
+ 323 0126 09       		.byte	9
+ 324 0127 80       		.byte	-128
+ 325 0128 0B       		.byte	11
+ 326 0129 40       		.byte	64
+ 327 012a 0F       		.byte	15
+ 328 012b 1A       		.byte	26
+ 329 012c 10       		.byte	16
+ 330 012d 20       		.byte	32
+ 331 012e 12       		.byte	18
+ 332 012f 08       		.byte	8
+ 333 0130 16       		.byte	22
+ 334 0131 88       		.byte	-120
+ 335 0132 17       		.byte	23
+ 336 0133 04       		.byte	4
+ 337 0134 19       		.byte	25
+ 338 0135 23       		.byte	35
+ 339 0136 1B       		.byte	27
+ 340 0137 01       		.byte	1
+ 341 0138 1D       		.byte	29
+ 342 0139 C4       		.byte	-60
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 7
+
+
+ 343 013a 1E       		.byte	30
+ 344 013b 40       		.byte	64
+ 345 013c 20       		.byte	32
+ 346 013d 44       		.byte	68
+ 347 013e 22       		.byte	34
+ 348 013f 08       		.byte	8
+ 349 0140 23       		.byte	35
+ 350 0141 10       		.byte	16
+ 351 0142 27       		.byte	39
+ 352 0143 08       		.byte	8
+ 353 0144 28       		.byte	40
+ 354 0145 40       		.byte	64
+ 355 0146 29       		.byte	41
+ 356 0147 45       		.byte	69
+ 357 0148 2A       		.byte	42
+ 358 0149 48       		.byte	72
+ 359 014a 2F       		.byte	47
+ 360 014b 08       		.byte	8
+ 361 014c 32       		.byte	50
+ 362 014d 88       		.byte	-120
+ 363 014e 38       		.byte	56
+ 364 014f 84       		.byte	-124
+ 365 0150 3A       		.byte	58
+ 366 0151 80       		.byte	-128
+ 367 0152 3B       		.byte	59
+ 368 0153 40       		.byte	64
+ 369 0154 40       		.byte	64
+ 370 0155 40       		.byte	64
+ 371 0156 44       		.byte	68
+ 372 0157 40       		.byte	64
+ 373 0158 45       		.byte	69
+ 374 0159 80       		.byte	-128
+ 375 015a 48       		.byte	72
+ 376 015b 40       		.byte	64
+ 377 015c 4A       		.byte	74
+ 378 015d 80       		.byte	-128
+ 379 015e 4F       		.byte	79
+ 380 015f 48       		.byte	72
+ 381 0160 50       		.byte	80
+ 382 0161 40       		.byte	64
+ 383 0162 54       		.byte	84
+ 384 0163 20       		.byte	32
+ 385 0164 57       		.byte	87
+ 386 0165 08       		.byte	8
+ 387 0166 5C       		.byte	92
+ 388 0167 22       		.byte	34
+ 389 0168 5E       		.byte	94
+ 390 0169 40       		.byte	64
+ 391 016a 5F       		.byte	95
+ 392 016b 08       		.byte	8
+ 393 016c C0       		.byte	-64
+ 394 016d FF       		.byte	-1
+ 395 016e C2       		.byte	-62
+ 396 016f E9       		.byte	-23
+ 397 0170 C4       		.byte	-60
+ 398 0171 76       		.byte	118
+ 399 0172 CA       		.byte	-54
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 8
+
+
+ 400 0173 29       		.byte	41
+ 401 0174 CC       		.byte	-52
+ 402 0175 0A       		.byte	10
+ 403 0176 CE       		.byte	-50
+ 404 0177 0A       		.byte	10
+ 405 0178 D0       		.byte	-48
+ 406 0179 91       		.byte	-111
+ 407 017a D2       		.byte	-46
+ 408 017b 10       		.byte	16
+ 409 017c D6       		.byte	-42
+ 410 017d F0       		.byte	-16
+ 411 017e E0       		.byte	-32
+ 412 017f 08       		.byte	8
+ 413 0180 E4       		.byte	-28
+ 414 0181 01       		.byte	1
+ 415 0182 E6       		.byte	-26
+ 416 0183 02       		.byte	2
+ 417 0184 EA       		.byte	-22
+ 418 0185 05       		.byte	5
+ 419 0186 EE       		.byte	-18
+ 420 0187 02       		.byte	2
+ 421 0188 00       		.byte	0
+ 422 0189 01       		.byte	1
+ 423 018a 04       		.byte	4
+ 424 018b 01       		.byte	1
+ 425 018c 05       		.byte	5
+ 426 018d 0E       		.byte	14
+ 427 018e 08       		.byte	8
+ 428 018f 01       		.byte	1
+ 429 0190 09       		.byte	9
+ 430 0191 0E       		.byte	14
+ 431 0192 0C       		.byte	12
+ 432 0193 02       		.byte	2
+ 433 0194 0F       		.byte	15
+ 434 0195 10       		.byte	16
+ 435 0196 10       		.byte	16
+ 436 0197 01       		.byte	1
+ 437 0198 11       		.byte	17
+ 438 0199 01       		.byte	1
+ 439 019a 15       		.byte	21
+ 440 019b 08       		.byte	8
+ 441 019c 16       		.byte	22
+ 442 019d 04       		.byte	4
+ 443 019e 17       		.byte	23
+ 444 019f 42       		.byte	66
+ 445 01a0 19       		.byte	25
+ 446 01a1 02       		.byte	2
+ 447 01a2 1A       		.byte	26
+ 448 01a3 04       		.byte	4
+ 449 01a4 1B       		.byte	27
+ 450 01a5 2C       		.byte	44
+ 451 01a6 1F       		.byte	31
+ 452 01a7 10       		.byte	16
+ 453 01a8 23       		.byte	35
+ 454 01a9 01       		.byte	1
+ 455 01aa 24       		.byte	36
+ 456 01ab 02       		.byte	2
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 9
+
+
+ 457 01ac 27       		.byte	39
+ 458 01ad 01       		.byte	1
+ 459 01ae 28       		.byte	40
+ 460 01af 02       		.byte	2
+ 461 01b0 29       		.byte	41
+ 462 01b1 01       		.byte	1
+ 463 01b2 2D       		.byte	45
+ 464 01b3 04       		.byte	4
+ 465 01b4 2F       		.byte	47
+ 466 01b5 42       		.byte	66
+ 467 01b6 31       		.byte	49
+ 468 01b7 60       		.byte	96
+ 469 01b8 32       		.byte	50
+ 470 01b9 04       		.byte	4
+ 471 01ba 33       		.byte	51
+ 472 01bb 01       		.byte	1
+ 473 01bc 34       		.byte	52
+ 474 01bd 01       		.byte	1
+ 475 01be 35       		.byte	53
+ 476 01bf 0E       		.byte	14
+ 477 01c0 36       		.byte	54
+ 478 01c1 02       		.byte	2
+ 479 01c2 37       		.byte	55
+ 480 01c3 10       		.byte	16
+ 481 01c4 39       		.byte	57
+ 482 01c5 08       		.byte	8
+ 483 01c6 3E       		.byte	62
+ 484 01c7 14       		.byte	20
+ 485 01c8 3F       		.byte	63
+ 486 01c9 41       		.byte	65
+ 487 01ca 40       		.byte	64
+ 488 01cb 53       		.byte	83
+ 489 01cc 41       		.byte	65
+ 490 01cd 02       		.byte	2
+ 491 01ce 42       		.byte	66
+ 492 01cf 06       		.byte	6
+ 493 01d0 44       		.byte	68
+ 494 01d1 01       		.byte	1
+ 495 01d2 45       		.byte	69
+ 496 01d3 0E       		.byte	14
+ 497 01d4 46       		.byte	70
+ 498 01d5 0C       		.byte	12
+ 499 01d6 48       		.byte	72
+ 500 01d7 05       		.byte	5
+ 501 01d8 49       		.byte	73
+ 502 01d9 FF       		.byte	-1
+ 503 01da 4A       		.byte	74
+ 504 01db FF       		.byte	-1
+ 505 01dc 4B       		.byte	75
+ 506 01dd FF       		.byte	-1
+ 507 01de 4C       		.byte	76
+ 508 01df 62       		.byte	98
+ 509 01e0 4D       		.byte	77
+ 510 01e1 A0       		.byte	-96
+ 511 01e2 4E       		.byte	78
+ 512 01e3 F0       		.byte	-16
+ 513 01e4 4F       		.byte	79
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 10
+
+
+ 514 01e5 41       		.byte	65
+ 515 01e6 50       		.byte	80
+ 516 01e7 0C       		.byte	12
+ 517 01e8 56       		.byte	86
+ 518 01e9 02       		.byte	2
+ 519 01ea 57       		.byte	87
+ 520 01eb 12       		.byte	18
+ 521 01ec 58       		.byte	88
+ 522 01ed 04       		.byte	4
+ 523 01ee 59       		.byte	89
+ 524 01ef 04       		.byte	4
+ 525 01f0 5A       		.byte	90
+ 526 01f1 04       		.byte	4
+ 527 01f2 5B       		.byte	91
+ 528 01f3 04       		.byte	4
+ 529 01f4 5F       		.byte	95
+ 530 01f5 01       		.byte	1
+ 531 01f6 66       		.byte	102
+ 532 01f7 40       		.byte	64
+ 533 01f8 67       		.byte	103
+ 534 01f9 02       		.byte	2
+ 535 01fa 69       		.byte	105
+ 536 01fb 10       		.byte	16
+ 537 01fc 6A       		.byte	106
+ 538 01fd 30       		.byte	48
+ 539 01fe 6B       		.byte	107
+ 540 01ff 10       		.byte	16
+ 541 0200 6D       		.byte	109
+ 542 0201 10       		.byte	16
+ 543 0202 6E       		.byte	110
+ 544 0203 10       		.byte	16
+ 545 0204 6F       		.byte	111
+ 546 0205 12       		.byte	18
+ 547 0206 A9       		.byte	-87
+ 548 0207 01       		.byte	1
+ 549 0208 B5       		.byte	-75
+ 550 0209 01       		.byte	1
+ 551 020a BB       		.byte	-69
+ 552 020b 08       		.byte	8
+ 553 020c BF       		.byte	-65
+ 554 020d 10       		.byte	16
+ 555 020e D9       		.byte	-39
+ 556 020f 04       		.byte	4
+ 557 0210 DF       		.byte	-33
+ 558 0211 01       		.byte	1
+ 559 0212 04       		.byte	4
+ 560 0213 16       		.byte	22
+ 561 0214 05       		.byte	5
+ 562 0215 0A       		.byte	10
+ 563 0216 07       		.byte	7
+ 564 0217 01       		.byte	1
+ 565 0218 0C       		.byte	12
+ 566 0219 01       		.byte	1
+ 567 021a 0D       		.byte	13
+ 568 021b 08       		.byte	8
+ 569 021c 0E       		.byte	14
+ 570 021d 40       		.byte	64
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 11
+
+
+ 571 021e 0F       		.byte	15
+ 572 021f 48       		.byte	72
+ 573 0220 12       		.byte	18
+ 574 0221 40       		.byte	64
+ 575 0222 13       		.byte	19
+ 576 0223 02       		.byte	2
+ 577 0224 17       		.byte	23
+ 578 0225 14       		.byte	20
+ 579 0226 1E       		.byte	30
+ 580 0227 08       		.byte	8
+ 581 0228 1F       		.byte	31
+ 582 0229 84       		.byte	-124
+ 583 022a 20       		.byte	32
+ 584 022b 10       		.byte	16
+ 585 022c 21       		.byte	33
+ 586 022d 20       		.byte	32
+ 587 022e 23       		.byte	35
+ 588 022f 20       		.byte	32
+ 589 0230 25       		.byte	37
+ 590 0231 08       		.byte	8
+ 591 0232 26       		.byte	38
+ 592 0233 10       		.byte	16
+ 593 0234 27       		.byte	39
+ 594 0235 42       		.byte	66
+ 595 0236 29       		.byte	41
+ 596 0237 20       		.byte	32
+ 597 0238 2C       		.byte	44
+ 598 0239 04       		.byte	4
+ 599 023a 2D       		.byte	45
+ 600 023b 8A       		.byte	-118
+ 601 023c 34       		.byte	52
+ 602 023d 09       		.byte	9
+ 603 023e 35       		.byte	53
+ 604 023f 04       		.byte	4
+ 605 0240 36       		.byte	54
+ 606 0241 90       		.byte	-112
+ 607 0242 3D       		.byte	61
+ 608 0243 10       		.byte	16
+ 609 0244 3E       		.byte	62
+ 610 0245 04       		.byte	4
+ 611 0246 3F       		.byte	63
+ 612 0247 80       		.byte	-128
+ 613 0248 44       		.byte	68
+ 614 0249 24       		.byte	36
+ 615 024a 47       		.byte	71
+ 616 024b 60       		.byte	96
+ 617 024c 4E       		.byte	78
+ 618 024d 04       		.byte	4
+ 619 024e 4F       		.byte	79
+ 620 024f 48       		.byte	72
+ 621 0250 57       		.byte	87
+ 622 0251 40       		.byte	64
+ 623 0252 5E       		.byte	94
+ 624 0253 08       		.byte	8
+ 625 0254 6C       		.byte	108
+ 626 0255 10       		.byte	16
+ 627 0256 6D       		.byte	109
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 12
+
+
+ 628 0257 10       		.byte	16
+ 629 0258 6E       		.byte	110
+ 630 0259 04       		.byte	4
+ 631 025a 6F       		.byte	111
+ 632 025b 15       		.byte	21
+ 633 025c 74       		.byte	116
+ 634 025d 68       		.byte	104
+ 635 025e 76       		.byte	118
+ 636 025f 0C       		.byte	12
+ 637 0260 77       		.byte	119
+ 638 0261 08       		.byte	8
+ 639 0262 8A       		.byte	-118
+ 640 0263 84       		.byte	-124
+ 641 0264 8D       		.byte	-115
+ 642 0265 20       		.byte	32
+ 643 0266 94       		.byte	-108
+ 644 0267 20       		.byte	32
+ 645 0268 99       		.byte	-103
+ 646 0269 24       		.byte	36
+ 647 026a 9D       		.byte	-99
+ 648 026b 80       		.byte	-128
+ 649 026c 9F       		.byte	-97
+ 650 026d 04       		.byte	4
+ 651 026e A8       		.byte	-88
+ 652 026f 20       		.byte	32
+ 653 0270 AB       		.byte	-85
+ 654 0271 04       		.byte	4
+ 655 0272 B0       		.byte	-80
+ 656 0273 02       		.byte	2
+ 657 0274 B3       		.byte	-77
+ 658 0275 08       		.byte	8
+ 659 0276 C0       		.byte	-64
+ 660 0277 F0       		.byte	-16
+ 661 0278 C2       		.byte	-62
+ 662 0279 70       		.byte	112
+ 663 027a C4       		.byte	-60
+ 664 027b 60       		.byte	96
+ 665 027c CA       		.byte	-54
+ 666 027d F4       		.byte	-12
+ 667 027e CC       		.byte	-52
+ 668 027f F0       		.byte	-16
+ 669 0280 CE       		.byte	-50
+ 670 0281 70       		.byte	112
+ 671 0282 D0       		.byte	-48
+ 672 0283 70       		.byte	112
+ 673 0284 D2       		.byte	-46
+ 674 0285 30       		.byte	48
+ 675 0286 D6       		.byte	-42
+ 676 0287 40       		.byte	64
+ 677 0288 02       		.byte	2
+ 678 0289 01       		.byte	1
+ 679 028a 03       		.byte	3
+ 680 028b 08       		.byte	8
+ 681 028c 04       		.byte	4
+ 682 028d 06       		.byte	6
+ 683 028e 05       		.byte	5
+ 684 028f 10       		.byte	16
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 13
+
+
+ 685 0290 06       		.byte	6
+ 686 0291 01       		.byte	1
+ 687 0292 08       		.byte	8
+ 688 0293 07       		.byte	7
+ 689 0294 09       		.byte	9
+ 690 0295 3E       		.byte	62
+ 691 0296 0C       		.byte	12
+ 692 0297 04       		.byte	4
+ 693 0298 0D       		.byte	13
+ 694 0299 20       		.byte	32
+ 695 029a 10       		.byte	16
+ 696 029b 01       		.byte	1
+ 697 029c 11       		.byte	17
+ 698 029d 38       		.byte	56
+ 699 029e 12       		.byte	18
+ 700 029f 06       		.byte	6
+ 701 02a0 13       		.byte	19
+ 702 02a1 02       		.byte	2
+ 703 02a2 15       		.byte	21
+ 704 02a3 30       		.byte	48
+ 705 02a4 19       		.byte	25
+ 706 02a5 38       		.byte	56
+ 707 02a6 1B       		.byte	27
+ 708 02a7 04       		.byte	4
+ 709 02a8 1C       		.byte	28
+ 710 02a9 06       		.byte	6
+ 711 02aa 1E       		.byte	30
+ 712 02ab 01       		.byte	1
+ 713 02ac 1F       		.byte	31
+ 714 02ad 06       		.byte	6
+ 715 02ae 21       		.byte	33
+ 716 02af 0E       		.byte	14
+ 717 02b0 23       		.byte	35
+ 718 02b1 30       		.byte	48
+ 719 02b2 24       		.byte	36
+ 720 02b3 02       		.byte	2
+ 721 02b4 28       		.byte	40
+ 722 02b5 06       		.byte	6
+ 723 02b6 2D       		.byte	45
+ 724 02b7 08       		.byte	8
+ 725 02b8 2F       		.byte	47
+ 726 02b9 01       		.byte	1
+ 727 02ba 35       		.byte	53
+ 728 02bb 3E       		.byte	62
+ 729 02bc 36       		.byte	54
+ 730 02bd 07       		.byte	7
+ 731 02be 37       		.byte	55
+ 732 02bf 01       		.byte	1
+ 733 02c0 3A       		.byte	58
+ 734 02c1 80       		.byte	-128
+ 735 02c2 3B       		.byte	59
+ 736 02c3 20       		.byte	32
+ 737 02c4 58       		.byte	88
+ 738 02c5 04       		.byte	4
+ 739 02c6 59       		.byte	89
+ 740 02c7 04       		.byte	4
+ 741 02c8 5F       		.byte	95
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 14
+
+
+ 742 02c9 01       		.byte	1
+ 743 02ca 80       		.byte	-128
+ 744 02cb 0F       		.byte	15
+ 745 02cc 82       		.byte	-126
+ 746 02cd 30       		.byte	48
+ 747 02ce 84       		.byte	-124
+ 748 02cf 0C       		.byte	12
+ 749 02d0 85       		.byte	-123
+ 750 02d1 02       		.byte	2
+ 751 02d2 88       		.byte	-120
+ 752 02d3 04       		.byte	4
+ 753 02d4 89       		.byte	-119
+ 754 02d5 07       		.byte	7
+ 755 02d6 8C       		.byte	-116
+ 756 02d7 11       		.byte	17
+ 757 02d8 8D       		.byte	-115
+ 758 02d9 04       		.byte	4
+ 759 02da 90       		.byte	-112
+ 760 02db 33       		.byte	51
+ 761 02dc 92       		.byte	-110
+ 762 02dd 0C       		.byte	12
+ 763 02de 94       		.byte	-108
+ 764 02df 33       		.byte	51
+ 765 02e0 98       		.byte	-104
+ 766 02e1 0C       		.byte	12
+ 767 02e2 99       		.byte	-103
+ 768 02e3 07       		.byte	7
+ 769 02e4 9A       		.byte	-102
+ 770 02e5 33       		.byte	51
+ 771 02e6 9D       		.byte	-99
+ 772 02e7 06       		.byte	6
+ 773 02e8 9E       		.byte	-98
+ 774 02e9 33       		.byte	51
+ 775 02ea 9F       		.byte	-97
+ 776 02eb 01       		.byte	1
+ 777 02ec A0       		.byte	-96
+ 778 02ed 08       		.byte	8
+ 779 02ee A3       		.byte	-93
+ 780 02ef 01       		.byte	1
+ 781 02f0 A4       		.byte	-92
+ 782 02f1 3F       		.byte	63
+ 783 02f2 A5       		.byte	-91
+ 784 02f3 06       		.byte	6
+ 785 02f4 A8       		.byte	-88
+ 786 02f5 22       		.byte	34
+ 787 02f6 AD       		.byte	-83
+ 788 02f7 01       		.byte	1
+ 789 02f8 AF       		.byte	-81
+ 790 02f9 06       		.byte	6
+ 791 02fa B0       		.byte	-80
+ 792 02fb 0F       		.byte	15
+ 793 02fc B6       		.byte	-74
+ 794 02fd 30       		.byte	48
+ 795 02fe B7       		.byte	-73
+ 796 02ff 07       		.byte	7
+ 797 0300 B8       		.byte	-72
+ 798 0301 08       		.byte	8
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 15
+
+
+ 799 0302 BA       		.byte	-70
+ 800 0303 02       		.byte	2
+ 801 0304 BE       		.byte	-66
+ 802 0305 04       		.byte	4
+ 803 0306 D4       		.byte	-44
+ 804 0307 18       		.byte	24
+ 805 0308 D8       		.byte	-40
+ 806 0309 04       		.byte	4
+ 807 030a D9       		.byte	-39
+ 808 030b 04       		.byte	4
+ 809 030c DB       		.byte	-37
+ 810 030d 04       		.byte	4
+ 811 030e DF       		.byte	-33
+ 812 030f 01       		.byte	1
+ 813 0310 00       		.byte	0
+ 814 0311 D4       		.byte	-44
+ 815 0312 03       		.byte	3
+ 816 0313 85       		.byte	-123
+ 817 0314 04       		.byte	4
+ 818 0315 02       		.byte	2
+ 819 0316 05       		.byte	5
+ 820 0317 88       		.byte	-120
+ 821 0318 07       		.byte	7
+ 822 0319 28       		.byte	40
+ 823 031a 0A       		.byte	10
+ 824 031b 42       		.byte	66
+ 825 031c 0C       		.byte	12
+ 826 031d 40       		.byte	64
+ 827 031e 0E       		.byte	14
+ 828 031f 60       		.byte	96
+ 829 0320 0F       		.byte	15
+ 830 0321 04       		.byte	4
+ 831 0322 10       		.byte	16
+ 832 0323 28       		.byte	40
+ 833 0324 13       		.byte	19
+ 834 0325 20       		.byte	32
+ 835 0326 14       		.byte	20
+ 836 0327 08       		.byte	8
+ 837 0328 17       		.byte	23
+ 838 0329 05       		.byte	5
+ 839 032a 18       		.byte	24
+ 840 032b 02       		.byte	2
+ 841 032c 19       		.byte	25
+ 842 032d 40       		.byte	64
+ 843 032e 1A       		.byte	26
+ 844 032f 02       		.byte	2
+ 845 0330 1D       		.byte	29
+ 846 0331 01       		.byte	1
+ 847 0332 1E       		.byte	30
+ 848 0333 41       		.byte	65
+ 849 0334 1F       		.byte	31
+ 850 0335 08       		.byte	8
+ 851 0336 20       		.byte	32
+ 852 0337 05       		.byte	5
+ 853 0338 22       		.byte	34
+ 854 0339 20       		.byte	32
+ 855 033a 23       		.byte	35
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 16
+
+
+ 856 033b 04       		.byte	4
+ 857 033c 26       		.byte	38
+ 858 033d 80       		.byte	-128
+ 859 033e 29       		.byte	41
+ 860 033f 81       		.byte	-127
+ 861 0340 2D       		.byte	45
+ 862 0341 08       		.byte	8
+ 863 0342 2E       		.byte	46
+ 864 0343 40       		.byte	64
+ 865 0344 2F       		.byte	47
+ 866 0345 80       		.byte	-128
+ 867 0346 30       		.byte	48
+ 868 0347 48       		.byte	72
+ 869 0348 32       		.byte	50
+ 870 0349 21       		.byte	33
+ 871 034a 33       		.byte	51
+ 872 034b 80       		.byte	-128
+ 873 034c 35       		.byte	53
+ 874 034d 40       		.byte	64
+ 875 034e 36       		.byte	54
+ 876 034f 20       		.byte	32
+ 877 0350 38       		.byte	56
+ 878 0351 51       		.byte	81
+ 879 0352 3A       		.byte	58
+ 880 0353 04       		.byte	4
+ 881 0354 3C       		.byte	60
+ 882 0355 90       		.byte	-112
+ 883 0356 3E       		.byte	62
+ 884 0357 08       		.byte	8
+ 885 0358 5E       		.byte	94
+ 886 0359 01       		.byte	1
+ 887 035a 66       		.byte	102
+ 888 035b 40       		.byte	64
+ 889 035c 67       		.byte	103
+ 890 035d 08       		.byte	8
+ 891 035e 87       		.byte	-121
+ 892 035f 08       		.byte	8
+ 893 0360 89       		.byte	-119
+ 894 0361 80       		.byte	-128
+ 895 0362 90       		.byte	-112
+ 896 0363 10       		.byte	16
+ 897 0364 93       		.byte	-109
+ 898 0365 08       		.byte	8
+ 899 0366 94       		.byte	-108
+ 900 0367 06       		.byte	6
+ 901 0368 96       		.byte	-106
+ 902 0369 40       		.byte	64
+ 903 036a 98       		.byte	-104
+ 904 036b 08       		.byte	8
+ 905 036c 9A       		.byte	-102
+ 906 036d 4C       		.byte	76
+ 907 036e 9B       		.byte	-101
+ 908 036f 08       		.byte	8
+ 909 0370 9D       		.byte	-99
+ 910 0371 80       		.byte	-128
+ 911 0372 A0       		.byte	-96
+ 912 0373 68       		.byte	104
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 17
+
+
+ 913 0374 A2       		.byte	-94
+ 914 0375 10       		.byte	16
+ 915 0376 A3       		.byte	-93
+ 916 0377 80       		.byte	-128
+ 917 0378 A6       		.byte	-90
+ 918 0379 80       		.byte	-128
+ 919 037a B4       		.byte	-76
+ 920 037b 20       		.byte	32
+ 921 037c B7       		.byte	-73
+ 922 037d 80       		.byte	-128
+ 923 037e C0       		.byte	-64
+ 924 037f FF       		.byte	-1
+ 925 0380 C2       		.byte	-62
+ 926 0381 F9       		.byte	-7
+ 927 0382 C4       		.byte	-60
+ 928 0383 76       		.byte	118
+ 929 0384 CA       		.byte	-54
+ 930 0385 D9       		.byte	-39
+ 931 0386 CC       		.byte	-52
+ 932 0387 3F       		.byte	63
+ 933 0388 CE       		.byte	-50
+ 934 0389 7F       		.byte	127
+ 935 038a D6       		.byte	-42
+ 936 038b 80       		.byte	-128
+ 937 038c D8       		.byte	-40
+ 938 038d 30       		.byte	48
+ 939 038e E0       		.byte	-32
+ 940 038f 08       		.byte	8
+ 941 0390 E4       		.byte	-28
+ 942 0391 01       		.byte	1
+ 943 0392 EA       		.byte	-22
+ 944 0393 05       		.byte	5
+ 945 0394 EE       		.byte	-18
+ 946 0395 02       		.byte	2
+ 947 0396 3E       		.byte	62
+ 948 0397 10       		.byte	16
+ 949 0398 CE       		.byte	-50
+ 950 0399 20       		.byte	32
+ 951 039a 96       		.byte	-106
+ 952 039b 10       		.byte	16
+ 953 039c 67       		.byte	103
+ 954 039d 40       		.byte	64
+ 955 039e 96       		.byte	-106
+ 956 039f 10       		.byte	16
+ 957 03a0 D8       		.byte	-40
+ 958 03a1 80       		.byte	-128
+ 959 03a2 12       		.byte	18
+ 960 03a3 20       		.byte	32
+ 961 03a4 16       		.byte	22
+ 962 03a5 40       		.byte	64
+ 963 03a6 7B       		.byte	123
+ 964 03a7 02       		.byte	2
+ 965 03a8 7E       		.byte	126
+ 966 03a9 01       		.byte	1
+ 967 03aa 82       		.byte	-126
+ 968 03ab 20       		.byte	32
+ 969 03ac 86       		.byte	-122
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 18
+
+
+ 970 03ad 40       		.byte	64
+ 971 03ae 87       		.byte	-121
+ 972 03af 40       		.byte	64
+ 973 03b0 92       		.byte	-110
+ 974 03b1 02       		.byte	2
+ 975 03b2 97       		.byte	-105
+ 976 03b3 40       		.byte	64
+ 977 03b4 A3       		.byte	-93
+ 978 03b5 02       		.byte	2
+ 979 03b6 AA       		.byte	-86
+ 980 03b7 10       		.byte	16
+ 981 03b8 AB       		.byte	-85
+ 982 03b9 02       		.byte	2
+ 983 03ba AE       		.byte	-82
+ 984 03bb 01       		.byte	1
+ 985 03bc C4       		.byte	-60
+ 986 03bd 30       		.byte	48
+ 987 03be DC       		.byte	-36
+ 988 03bf 80       		.byte	-128
+ 989 03c0 DE       		.byte	-34
+ 990 03c1 20       		.byte	32
+ 991 03c2 E0       		.byte	-32
+ 992 03c3 10       		.byte	16
+ 993 03c4 E4       		.byte	-28
+ 994 03c5 80       		.byte	-128
+ 995 03c6 E6       		.byte	-26
+ 996 03c7 40       		.byte	64
+ 997 03c8 EA       		.byte	-22
+ 998 03c9 A0       		.byte	-96
+ 999 03ca EE       		.byte	-18
+ 1000 03cb 40       		.byte	64
+ 1001 03cc 13       		.byte	19
+ 1002 03cd 28       		.byte	40
+ 1003 03ce 15       		.byte	21
+ 1004 03cf 02       		.byte	2
+ 1005 03d0 7B       		.byte	123
+ 1006 03d1 10       		.byte	16
+ 1007 03d2 7F       		.byte	127
+ 1008 03d3 40       		.byte	64
+ 1009 03d4 8C       		.byte	-116
+ 1010 03d5 02       		.byte	2
+ 1011 03d6 C4       		.byte	-60
+ 1012 03d7 0E       		.byte	14
+ 1013 03d8 DE       		.byte	-34
+ 1014 03d9 03       		.byte	3
+ 1015 03da E4       		.byte	-28
+ 1016 03db 02       		.byte	2
+ 1017 03dc 11       		.byte	17
+ 1018 03dd 01       		.byte	1
+ 1019 03de 74       		.byte	116
+ 1020 03df 02       		.byte	2
+ 1021 03e0 83       		.byte	-125
+ 1022 03e1 10       		.byte	16
+ 1023 03e2 87       		.byte	-121
+ 1024 03e3 40       		.byte	64
+ 1025 03e4 89       		.byte	-119
+ 1026 03e5 01       		.byte	1
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 19
+
+
+ 1027 03e6 97       		.byte	-105
+ 1028 03e7 80       		.byte	-128
+ 1029 03e8 A0       		.byte	-96
+ 1030 03e9 02       		.byte	2
+ 1031 03ea A7       		.byte	-89
+ 1032 03eb 10       		.byte	16
+ 1033 03ec AB       		.byte	-85
+ 1034 03ed 28       		.byte	40
+ 1035 03ee AD       		.byte	-83
+ 1036 03ef 01       		.byte	1
+ 1037 03f0 C4       		.byte	-60
+ 1038 03f1 08       		.byte	8
+ 1039 03f2 DE       		.byte	-34
+ 1040 03f3 04       		.byte	4
+ 1041 03f4 E6       		.byte	-26
+ 1042 03f5 01       		.byte	1
+ 1043 03f6 00       		.byte	0
+ 1044 03f7 01       		.byte	1
+ 1045 03f8 0C       		.byte	12
+ 1046 03f9 01       		.byte	1
+ 1047 03fa 10       		.byte	16
+ 1048 03fb 01       		.byte	1
+ 1049 03fc 1C       		.byte	28
+ 1050 03fd 01       		.byte	1
+ 1051 03fe 03       		.byte	3
+ 1052 03ff C0       		.byte	-64
+ 1053 0400 82       		.byte	-126
+ 1054 0401 80       		.byte	-128
+ 1055 0402 00       		.byte	0
+ 1056 0403 00       		.byte	0
+ 1057 0404 43       		.byte	67
+ 1058 0405 00       		.byte	0
+ 1059 0406 00       		.byte	0
+ 1060 0407 00       		.byte	0
+ 1061 0408 02       		.byte	2
+ 1062 0409 0F       		.byte	15
+ 1063 040a 0D       		.byte	13
+ 1064 040b 00       		.byte	0
+ 1065 040c 00       		.byte	0
+ 1066 040d 00       		.byte	0
+ 1067 040e 00       		.byte	0
+ 1068 040f 00       		.byte	0
+ 1069 0410 83       		.byte	-125
+ 1070 0411 00       		.byte	0
+ 1071 0412 40       		.byte	64
+ 1072 0413 80       		.byte	-128
+ 1073 0414 83       		.byte	-125
+ 1074 0415 00       		.byte	0
+ 1075 0416 83       		.byte	-125
+ 1076 0417 00       		.byte	0
+ 1077 0418 00       		.byte	0
+ 1078 0419 00       		.byte	0
+ 1079 041a 00       		.byte	0
+ 1080 041b 00       		.byte	0
+ 1081 041c 00       		.byte	0
+ 1082 041d 0B       		.byte	11
+ 1083 041e 0B       		.byte	11
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 20
+
+
+ 1084 041f 00       		.byte	0
+ 1085 0420 00       		.byte	0
+ 1086 0421 00       		.byte	0
+ 1087 0422 00       		.byte	0
+ 1088 0423 00       		.byte	0
+ 1089              		.section	.cywolatch,"a",%progbits
+ 1090              		.align	2
+ 1091              		.type	cy_meta_wonvl, %object
+ 1092              		.size	cy_meta_wonvl, 4
+ 1093              	cy_meta_wonvl:
+ 1094 0000 BC       		.byte	-68
+ 1095 0001 90       		.byte	-112
+ 1096 0002 AC       		.byte	-84
+ 1097 0003 AF       		.byte	-81
+ 1098              		.section	.cycustnvl,"a",%progbits
+ 1099              		.align	2
+ 1100              		.type	cy_meta_custnvl, %object
+ 1101              		.size	cy_meta_custnvl, 4
+ 1102              	cy_meta_custnvl:
+ 1103 0000 00       		.byte	0
+ 1104 0001 00       		.byte	0
+ 1105 0002 40       		.byte	64
+ 1106 0003 05       		.byte	5
+ 1107              		.section	.cymeta,"a",%progbits
+ 1108              		.align	2
+ 1109              		.type	cy_metadata, %object
+ 1110              		.size	cy_metadata, 12
+ 1111              	cy_metadata:
+ 1112 0000 00       		.byte	0
+ 1113 0001 01       		.byte	1
+ 1114 0002 2E       		.byte	46
+ 1115 0003 16       		.byte	22
+ 1116 0004 10       		.byte	16
+ 1117 0005 69       		.byte	105
+ 1118 0006 00       		.byte	0
+ 1119 0007 01       		.byte	1
+ 1120 0008 00       		.byte	0
+ 1121 0009 00       		.byte	0
+ 1122 000a 00       		.byte	0
+ 1123 000b 00       		.byte	0
+ 1124              		.section	.cyflashprotect,"a",%progbits
+ 1125              		.align	2
+ 1126              		.type	cy_meta_flashprotect, %object
+ 1127              		.size	cy_meta_flashprotect, 256
+ 1128              	cy_meta_flashprotect:
+ 1129 0000 00000000 		.space	256
+ 1129      00000000 
+ 1129      00000000 
+ 1129      00000000 
+ 1129      00000000 
+ 1130              		.text
+ 1131              	.Letext0:
+ 1132              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 1133              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 1134              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 1135              		.section	.debug_info,"",%progbits
+ 1136              	.Ldebug_info0:
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 21
+
+
+ 1137 0000 31010000 		.4byte	0x131
+ 1138 0004 0400     		.2byte	0x4
+ 1139 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1140 000a 04       		.byte	0x4
+ 1141 000b 01       		.uleb128 0x1
+ 1142 000c 24000000 		.4byte	.LASF17
+ 1143 0010 0C       		.byte	0xc
+ 1144 0011 C7010000 		.4byte	.LASF18
+ 1145 0015 D7000000 		.4byte	.LASF19
+ 1146 0019 00000000 		.4byte	.Ldebug_line0
+ 1147 001d 02       		.uleb128 0x2
+ 1148 001e 01       		.byte	0x1
+ 1149 001f 06       		.byte	0x6
+ 1150 0020 BB010000 		.4byte	.LASF0
+ 1151 0024 03       		.uleb128 0x3
+ 1152 0025 00000000 		.4byte	.LASF9
+ 1153 0029 01       		.byte	0x1
+ 1154 002a 1D       		.byte	0x1d
+ 1155 002b 2F000000 		.4byte	0x2f
+ 1156 002f 02       		.uleb128 0x2
+ 1157 0030 01       		.byte	0x1
+ 1158 0031 08       		.byte	0x8
+ 1159 0032 16000000 		.4byte	.LASF1
+ 1160 0036 02       		.uleb128 0x2
+ 1161 0037 02       		.byte	0x2
+ 1162 0038 05       		.byte	0x5
+ 1163 0039 A8010000 		.4byte	.LASF2
+ 1164 003d 02       		.uleb128 0x2
+ 1165 003e 02       		.byte	0x2
+ 1166 003f 07       		.byte	0x7
+ 1167 0040 C4000000 		.4byte	.LASF3
+ 1168 0044 02       		.uleb128 0x2
+ 1169 0045 04       		.byte	0x4
+ 1170 0046 05       		.byte	0x5
+ 1171 0047 B2010000 		.4byte	.LASF4
+ 1172 004b 02       		.uleb128 0x2
+ 1173 004c 04       		.byte	0x4
+ 1174 004d 07       		.byte	0x7
+ 1175 004e B2000000 		.4byte	.LASF5
+ 1176 0052 02       		.uleb128 0x2
+ 1177 0053 08       		.byte	0x8
+ 1178 0054 05       		.byte	0x5
+ 1179 0055 9A010000 		.4byte	.LASF6
+ 1180 0059 02       		.uleb128 0x2
+ 1181 005a 08       		.byte	0x8
+ 1182 005b 07       		.byte	0x7
+ 1183 005c 4F010000 		.4byte	.LASF7
+ 1184 0060 04       		.uleb128 0x4
+ 1185 0061 04       		.byte	0x4
+ 1186 0062 05       		.byte	0x5
+ 1187 0063 696E7400 		.ascii	"int\000"
+ 1188 0067 02       		.uleb128 0x2
+ 1189 0068 04       		.byte	0x4
+ 1190 0069 07       		.byte	0x7
+ 1191 006a 42010000 		.4byte	.LASF8
+ 1192 006e 03       		.uleb128 0x3
+ 1193 006f 66010000 		.4byte	.LASF10
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 22
+
+
+ 1194 0073 02       		.byte	0x2
+ 1195 0074 18       		.byte	0x18
+ 1196 0075 24000000 		.4byte	0x24
+ 1197 0079 05       		.uleb128 0x5
+ 1198 007a 91000000 		.4byte	0x91
+ 1199 007e 8A000000 		.4byte	0x8a
+ 1200 0082 06       		.uleb128 0x6
+ 1201 0083 8A000000 		.4byte	0x8a
+ 1202 0087 2304     		.2byte	0x423
+ 1203 0089 00       		.byte	0
+ 1204 008a 02       		.uleb128 0x2
+ 1205 008b 04       		.byte	0x4
+ 1206 008c 07       		.byte	0x7
+ 1207 008d 91010000 		.4byte	.LASF11
+ 1208 0091 07       		.uleb128 0x7
+ 1209 0092 6E000000 		.4byte	0x6e
+ 1210 0096 08       		.uleb128 0x8
+ 1211 0097 30010000 		.4byte	.LASF12
+ 1212 009b 03       		.byte	0x3
+ 1213 009c 1F       		.byte	0x1f
+ 1214 009d A7000000 		.4byte	0xa7
+ 1215 00a1 05       		.uleb128 0x5
+ 1216 00a2 03       		.byte	0x3
+ 1217 00a3 00000000 		.4byte	cy_meta_configecc
+ 1218 00a7 07       		.uleb128 0x7
+ 1219 00a8 79000000 		.4byte	0x79
+ 1220 00ac 05       		.uleb128 0x5
+ 1221 00ad 91000000 		.4byte	0x91
+ 1222 00b1 BC000000 		.4byte	0xbc
+ 1223 00b5 09       		.uleb128 0x9
+ 1224 00b6 8A000000 		.4byte	0x8a
+ 1225 00ba 03       		.byte	0x3
+ 1226 00bb 00       		.byte	0
+ 1227 00bc 08       		.uleb128 0x8
+ 1228 00bd 20010000 		.4byte	.LASF13
+ 1229 00c1 03       		.byte	0x3
+ 1230 00c2 B1       		.byte	0xb1
+ 1231 00c3 CD000000 		.4byte	0xcd
+ 1232 00c7 05       		.uleb128 0x5
+ 1233 00c8 03       		.byte	0x3
+ 1234 00c9 00000000 		.4byte	cy_meta_custnvl
+ 1235 00cd 07       		.uleb128 0x7
+ 1236 00ce AC000000 		.4byte	0xac
+ 1237 00d2 08       		.uleb128 0x8
+ 1238 00d3 83010000 		.4byte	.LASF14
+ 1239 00d7 03       		.byte	0x3
+ 1240 00d8 BF       		.byte	0xbf
+ 1241 00d9 E3000000 		.4byte	0xe3
+ 1242 00dd 05       		.uleb128 0x5
+ 1243 00de 03       		.byte	0x3
+ 1244 00df 00000000 		.4byte	cy_meta_wonvl
+ 1245 00e3 07       		.uleb128 0x7
+ 1246 00e4 AC000000 		.4byte	0xac
+ 1247 00e8 05       		.uleb128 0x5
+ 1248 00e9 91000000 		.4byte	0x91
+ 1249 00ed F8000000 		.4byte	0xf8
+ 1250 00f1 09       		.uleb128 0x9
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 23
+
+
+ 1251 00f2 8A000000 		.4byte	0x8a
+ 1252 00f6 FF       		.byte	0xff
+ 1253 00f7 00       		.byte	0
+ 1254 00f8 08       		.uleb128 0x8
+ 1255 00f9 6E010000 		.4byte	.LASF15
+ 1256 00fd 03       		.byte	0x3
+ 1257 00fe CD       		.byte	0xcd
+ 1258 00ff 09010000 		.4byte	0x109
+ 1259 0103 05       		.uleb128 0x5
+ 1260 0104 03       		.byte	0x3
+ 1261 0105 00000000 		.4byte	cy_meta_flashprotect
+ 1262 0109 07       		.uleb128 0x7
+ 1263 010a E8000000 		.4byte	0xe8
+ 1264 010e 05       		.uleb128 0x5
+ 1265 010f 91000000 		.4byte	0x91
+ 1266 0113 1E010000 		.4byte	0x11e
+ 1267 0117 09       		.uleb128 0x9
+ 1268 0118 8A000000 		.4byte	0x8a
+ 1269 011c 0B       		.byte	0xb
+ 1270 011d 00       		.byte	0
+ 1271 011e 08       		.uleb128 0x8
+ 1272 011f 0A000000 		.4byte	.LASF16
+ 1273 0123 03       		.byte	0x3
+ 1274 0124 FA       		.byte	0xfa
+ 1275 0125 2F010000 		.4byte	0x12f
+ 1276 0129 05       		.uleb128 0x5
+ 1277 012a 03       		.byte	0x3
+ 1278 012b 00000000 		.4byte	cy_metadata
+ 1279 012f 07       		.uleb128 0x7
+ 1280 0130 0E010000 		.4byte	0x10e
+ 1281 0134 00       		.byte	0
+ 1282              		.section	.debug_abbrev,"",%progbits
+ 1283              	.Ldebug_abbrev0:
+ 1284 0000 01       		.uleb128 0x1
+ 1285 0001 11       		.uleb128 0x11
+ 1286 0002 01       		.byte	0x1
+ 1287 0003 25       		.uleb128 0x25
+ 1288 0004 0E       		.uleb128 0xe
+ 1289 0005 13       		.uleb128 0x13
+ 1290 0006 0B       		.uleb128 0xb
+ 1291 0007 03       		.uleb128 0x3
+ 1292 0008 0E       		.uleb128 0xe
+ 1293 0009 1B       		.uleb128 0x1b
+ 1294 000a 0E       		.uleb128 0xe
+ 1295 000b 10       		.uleb128 0x10
+ 1296 000c 17       		.uleb128 0x17
+ 1297 000d 00       		.byte	0
+ 1298 000e 00       		.byte	0
+ 1299 000f 02       		.uleb128 0x2
+ 1300 0010 24       		.uleb128 0x24
+ 1301 0011 00       		.byte	0
+ 1302 0012 0B       		.uleb128 0xb
+ 1303 0013 0B       		.uleb128 0xb
+ 1304 0014 3E       		.uleb128 0x3e
+ 1305 0015 0B       		.uleb128 0xb
+ 1306 0016 03       		.uleb128 0x3
+ 1307 0017 0E       		.uleb128 0xe
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 24
+
+
+ 1308 0018 00       		.byte	0
+ 1309 0019 00       		.byte	0
+ 1310 001a 03       		.uleb128 0x3
+ 1311 001b 16       		.uleb128 0x16
+ 1312 001c 00       		.byte	0
+ 1313 001d 03       		.uleb128 0x3
+ 1314 001e 0E       		.uleb128 0xe
+ 1315 001f 3A       		.uleb128 0x3a
+ 1316 0020 0B       		.uleb128 0xb
+ 1317 0021 3B       		.uleb128 0x3b
+ 1318 0022 0B       		.uleb128 0xb
+ 1319 0023 49       		.uleb128 0x49
+ 1320 0024 13       		.uleb128 0x13
+ 1321 0025 00       		.byte	0
+ 1322 0026 00       		.byte	0
+ 1323 0027 04       		.uleb128 0x4
+ 1324 0028 24       		.uleb128 0x24
+ 1325 0029 00       		.byte	0
+ 1326 002a 0B       		.uleb128 0xb
+ 1327 002b 0B       		.uleb128 0xb
+ 1328 002c 3E       		.uleb128 0x3e
+ 1329 002d 0B       		.uleb128 0xb
+ 1330 002e 03       		.uleb128 0x3
+ 1331 002f 08       		.uleb128 0x8
+ 1332 0030 00       		.byte	0
+ 1333 0031 00       		.byte	0
+ 1334 0032 05       		.uleb128 0x5
+ 1335 0033 01       		.uleb128 0x1
+ 1336 0034 01       		.byte	0x1
+ 1337 0035 49       		.uleb128 0x49
+ 1338 0036 13       		.uleb128 0x13
+ 1339 0037 01       		.uleb128 0x1
+ 1340 0038 13       		.uleb128 0x13
+ 1341 0039 00       		.byte	0
+ 1342 003a 00       		.byte	0
+ 1343 003b 06       		.uleb128 0x6
+ 1344 003c 21       		.uleb128 0x21
+ 1345 003d 00       		.byte	0
+ 1346 003e 49       		.uleb128 0x49
+ 1347 003f 13       		.uleb128 0x13
+ 1348 0040 2F       		.uleb128 0x2f
+ 1349 0041 05       		.uleb128 0x5
+ 1350 0042 00       		.byte	0
+ 1351 0043 00       		.byte	0
+ 1352 0044 07       		.uleb128 0x7
+ 1353 0045 26       		.uleb128 0x26
+ 1354 0046 00       		.byte	0
+ 1355 0047 49       		.uleb128 0x49
+ 1356 0048 13       		.uleb128 0x13
+ 1357 0049 00       		.byte	0
+ 1358 004a 00       		.byte	0
+ 1359 004b 08       		.uleb128 0x8
+ 1360 004c 34       		.uleb128 0x34
+ 1361 004d 00       		.byte	0
+ 1362 004e 03       		.uleb128 0x3
+ 1363 004f 0E       		.uleb128 0xe
+ 1364 0050 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 25
+
+
+ 1365 0051 0B       		.uleb128 0xb
+ 1366 0052 3B       		.uleb128 0x3b
+ 1367 0053 0B       		.uleb128 0xb
+ 1368 0054 49       		.uleb128 0x49
+ 1369 0055 13       		.uleb128 0x13
+ 1370 0056 3F       		.uleb128 0x3f
+ 1371 0057 19       		.uleb128 0x19
+ 1372 0058 02       		.uleb128 0x2
+ 1373 0059 18       		.uleb128 0x18
+ 1374 005a 00       		.byte	0
+ 1375 005b 00       		.byte	0
+ 1376 005c 09       		.uleb128 0x9
+ 1377 005d 21       		.uleb128 0x21
+ 1378 005e 00       		.byte	0
+ 1379 005f 49       		.uleb128 0x49
+ 1380 0060 13       		.uleb128 0x13
+ 1381 0061 2F       		.uleb128 0x2f
+ 1382 0062 0B       		.uleb128 0xb
+ 1383 0063 00       		.byte	0
+ 1384 0064 00       		.byte	0
+ 1385 0065 00       		.byte	0
+ 1386              		.section	.debug_aranges,"",%progbits
+ 1387 0000 14000000 		.4byte	0x14
+ 1388 0004 0200     		.2byte	0x2
+ 1389 0006 00000000 		.4byte	.Ldebug_info0
+ 1390 000a 04       		.byte	0x4
+ 1391 000b 00       		.byte	0
+ 1392 000c 0000     		.2byte	0
+ 1393 000e 0000     		.2byte	0
+ 1394 0010 00000000 		.4byte	0
+ 1395 0014 00000000 		.4byte	0
+ 1396              		.section	.debug_line,"",%progbits
+ 1397              	.Ldebug_line0:
+ 1398 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 1398      02003701 
+ 1398      00000201 
+ 1398      FB0E0D00 
+ 1398      01010101 
+ 1399              	.LASF9:
+ 1400 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 1400      6E74385F 
+ 1400      7400
+ 1401              	.LASF16:
+ 1402 000a 63795F6D 		.ascii	"cy_metadata\000"
+ 1402      65746164 
+ 1402      61746100 
+ 1403              	.LASF1:
+ 1404 0016 756E7369 		.ascii	"unsigned char\000"
+ 1404      676E6564 
+ 1404      20636861 
+ 1404      7200
+ 1405              	.LASF17:
+ 1406 0024 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1406      43313120 
+ 1406      352E342E 
+ 1406      31203230 
+ 1406      31363036 
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 26
+
+
+ 1407 0057 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1407      20726576 
+ 1407      6973696F 
+ 1407      6E203233 
+ 1407      37373135 
+ 1408 008a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1408      66756E63 
+ 1408      74696F6E 
+ 1408      2D736563 
+ 1408      74696F6E 
+ 1409              	.LASF5:
+ 1410 00b2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1410      20756E73 
+ 1410      69676E65 
+ 1410      6420696E 
+ 1410      7400
+ 1411              	.LASF3:
+ 1412 00c4 73686F72 		.ascii	"short unsigned int\000"
+ 1412      7420756E 
+ 1412      7369676E 
+ 1412      65642069 
+ 1412      6E7400
+ 1413              	.LASF19:
+ 1414 00d7 433A5C55 		.ascii	"C:\\Users\\isaac\\Documents\\PSoC Creator\\P7_Class"
+ 1414      73657273 
+ 1414      5C697361 
+ 1414      61635C44 
+ 1414      6F63756D 
+ 1415 0105 4D616E61 		.ascii	"Manager\\ClassManager.cydsn\000"
+ 1415      6765725C 
+ 1415      436C6173 
+ 1415      734D616E 
+ 1415      61676572 
+ 1416              	.LASF13:
+ 1417 0120 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 1417      6574615F 
+ 1417      63757374 
+ 1417      6E766C00 
+ 1418              	.LASF12:
+ 1419 0130 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 1419      6574615F 
+ 1419      636F6E66 
+ 1419      69676563 
+ 1419      6300
+ 1420              	.LASF8:
+ 1421 0142 756E7369 		.ascii	"unsigned int\000"
+ 1421      676E6564 
+ 1421      20696E74 
+ 1421      00
+ 1422              	.LASF7:
+ 1423 014f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1423      206C6F6E 
+ 1423      6720756E 
+ 1423      7369676E 
+ 1423      65642069 
+ 1424              	.LASF10:
+ 1425 0166 75696E74 		.ascii	"uint8_t\000"
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cc85jtkP.s 			page 27
+
+
+ 1425      385F7400 
+ 1426              	.LASF15:
+ 1427 016e 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 1427      6574615F 
+ 1427      666C6173 
+ 1427      6870726F 
+ 1427      74656374 
+ 1428              	.LASF14:
+ 1429 0183 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 1429      6574615F 
+ 1429      776F6E76 
+ 1429      6C00
+ 1430              	.LASF11:
+ 1431 0191 73697A65 		.ascii	"sizetype\000"
+ 1431      74797065 
+ 1431      00
+ 1432              	.LASF6:
+ 1433 019a 6C6F6E67 		.ascii	"long long int\000"
+ 1433      206C6F6E 
+ 1433      6720696E 
+ 1433      7400
+ 1434              	.LASF2:
+ 1435 01a8 73686F72 		.ascii	"short int\000"
+ 1435      7420696E 
+ 1435      7400
+ 1436              	.LASF4:
+ 1437 01b2 6C6F6E67 		.ascii	"long int\000"
+ 1437      20696E74 
+ 1437      00
+ 1438              	.LASF0:
+ 1439 01bb 7369676E 		.ascii	"signed char\000"
+ 1439      65642063 
+ 1439      68617200 
+ 1440              	.LASF18:
+ 1441 01c7 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 1441      72617465 
+ 1441      645F536F 
+ 1441      75726365 
+ 1441      5C50536F 
+ 1442              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,0 +1,6 @@
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|e25a0fe2-0a5c-450f-aa31-6afef6a30c6e
+C:\Users\isaac\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|3dae99db-0698-4169-b980-bc5cf9c3bbb0
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|7a210866-314e-4b0c-9aa4-011d90aa2d5e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|8009aecd-18d3-46d6-85ac-3cfc85bc2140
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|098d20f6-dd9e-44f7-a83b-3651ee526c0e
+C:\Users\isaac\Documents\PSoC Creator\P4_JKFlipFlop\JKFlipFlop.cydsn\JKFlipFlop.cyprj|00c26fc8-3442-483d-9a8d-331a2dcb843e

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="P1_BatallaNaval\BatallaNaval\Source Files\main.c">
+<ExpandedNodeIds>
+<v>P1_BatallaNaval</v>
+<v>P1_BatallaNaval\BatallaNaval</v>
+<v>P1_BatallaNaval\BatallaNaval\TopDesign</v>
+<v>P1_BatallaNaval\BatallaNaval\BatallaNaval.cydwr</v>
+<v>P1_BatallaNaval\BatallaNaval\BatallaNaval.cydwr\Pins</v>
+<v>P1_BatallaNaval\BatallaNaval\BatallaNaval.cydwr\Analog</v>
+<v>P1_BatallaNaval\BatallaNaval\BatallaNaval.cydwr\Clocks</v>
+<v>P1_BatallaNaval\BatallaNaval\BatallaNaval.cydwr\Interrupts</v>
+<v>P1_BatallaNaval\BatallaNaval\BatallaNaval.cydwr\DMA</v>
+<v>P1_BatallaNaval\BatallaNaval\BatallaNaval.cydwr\System</v>
+<v>P1_BatallaNaval\BatallaNaval\BatallaNaval.cydwr\Directives</v>
+<v>P1_BatallaNaval\BatallaNaval\BatallaNaval.cydwr\Flash Security</v>
+<v>P1_BatallaNaval\BatallaNaval\BatallaNaval.cydwr\EEPROM</v>
+<v>P1_BatallaNaval\BatallaNaval\Header Files</v>
+<v>P1_BatallaNaval\BatallaNaval\Header Files\cyapicallbacks.h</v>
+<v>P1_BatallaNaval\BatallaNaval\Source Files</v>
+<v>P1_BatallaNaval\BatallaNaval\Source Files\main.c</v>
+<v>P1_BatallaNaval\BatallaNaval\Generated_Source</v>
+<v>P1_BatallaNaval\BatallaNaval\Generated_Source\PSoC5</v>
+</ExpandedNodeIds>
+<VisibleNodeIds />
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>P1_BatallaNaval</v>
+<v>P1_BatallaNaval\BatallaNaval</v>
+<v>P1_BatallaNaval\BatallaNaval\TopDesign</v>
+<v>P1_BatallaNaval\BatallaNaval\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds />
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>P1_BatallaNaval</v>
+<v>P1_BatallaNaval\BatallaNaval</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\BUT.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\com.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_CustChars.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_LCDPort.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_PM.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_BOOT.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_INT.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_IntClock.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_PM.lst</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\BatallaNaval.elf</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\BatallaNaval.hex</v>
+<v>P1_BatallaNaval\BatallaNaval\CortexM3\ARM_GCC_541\Debug\BatallaNaval.map</v>
+<v>P1_BatallaNaval\BatallaNaval\BatallaNaval.gpdsc</v>
+<v>P1_BatallaNaval\BatallaNaval\BatallaNaval.rpt</v>
+<v>P1_BatallaNaval\BatallaNaval\BatallaNaval_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds />
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>P1_BatallaNaval</v>
+<v>P1_BatallaNaval\BatallaNaval</v>
+<v>P1_BatallaNaval\BatallaNaval\PSoC 5LP Architecture TRM</v>
+<v>P1_BatallaNaval\BatallaNaval\CY8C58LP Family Datasheet</v>
+<v>P1_BatallaNaval\BatallaNaval\System Reference Guides</v>
+<v>P1_BatallaNaval\BatallaNaval\System Reference Guides\cy_boot_v5_70</v>
+<v>P1_BatallaNaval\BatallaNaval\CharLCD_v2_20.pdf</v>
+<v>P1_BatallaNaval\BatallaNaval\cy_constant_v1_0.pdf</v>
+<v>P1_BatallaNaval\BatallaNaval\cy_isr_v1_70.pdf</v>
+<v>P1_BatallaNaval\BatallaNaval\cy_pins_v2_20</v>
+<v>P1_BatallaNaval\BatallaNaval\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>P1_BatallaNaval\BatallaNaval\UART_v2_50.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds />
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\BatallaNaval.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\BatallaNaval.cydsn\BatallaNaval.cydwr" />
+<name v=".\BatallaNaval.cydsn\main.c" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1461, 744" SelectedTabbedMdiWindow="5595bf25-27c3-435f-b6c8-b4381f2505d6"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="d2427f4c-ed97-46c7-9d22-cb46345cfc9c" /><DocumentWindow Key="C:\Users\isaac\Documents\PSoC Creator\P1_BatallaNaval\BatallaNaval.cydsn\TopDesign\TopDesign.cysch" Guid="79152863-923b-4c59-9552-525bb04f197e" /><DocumentWindow Key="C:\Users\isaac\Documents\PSoC Creator\P1_BatallaNaval\BatallaNaval.cydsn\BatallaNaval.cydwr" Guid="92736db3-77c8-4279-bc82-48d1d7c8dbd9" /><DocumentWindow Key="C:\Users\isaac\Documents\PSoC Creator\P1_BatallaNaval\BatallaNaval.cydsn\main.c" Guid="5595bf25-27c3-435f-b6c8-b4381f2505d6" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>

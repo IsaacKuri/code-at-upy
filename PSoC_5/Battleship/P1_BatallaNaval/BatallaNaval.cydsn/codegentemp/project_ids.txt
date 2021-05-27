@@ -1,0 +1,6 @@
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|a105ec97-2892-4951-8153-814ff2760765
+C:\Users\isaac\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|6a8443f5-f112-4add-817a-154da12ea0e4
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|625a221f-9f46-40f9-a913-efc9a77206fc
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|e4feb28e-457c-4265-8c6c-c71f5f0144dd
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|6e5e3734-4766-4b0c-aa57-b1f08278f5ca
+C:\Users\isaac\Documents\PSoC Creator\P1_BatallaNaval\BatallaNaval.cydsn\BatallaNaval.cyprj|bd216bfc-aff5-4a1a-9003-16b77bceae40

@@ -1,0 +1,7 @@
+Warning-1361: The design contains a combinational loop. Check the design for unintentional latches. Breaking the loop at Net_226/main_1 --> Net_226/q 
+Warning-1361: The design contains a combinational loop. Check the design for unintentional latches. Breaking the loop at Net_2/main_2 --> Net_2/q 
+Warning-1361: The design contains a combinational loop. Check the design for unintentional latches. Breaking the loop at Net_226/main_2 --> Net_226/q 
+Warning-1361: The design contains a combinational loop. Check the design for unintentional latches. Breaking the loop at Net_245/main_2 --> Net_245/q 
+I2659: No Constrained paths were found. The placer will run in non-timing driven mode.
+I2076: Total run-time: 0.5 sec.
+

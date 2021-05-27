@@ -1,0 +1,6 @@
+C:\Users\isaac\Documents\PSoC Creator\PROYECT_U1_SNAKE\Snake.cydsn\Snake.cyprj|cabe4700-7bf0-432d-b0c8-54d1a2db3ec8
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|4d8f3064-63d2-4b47-9cc8-ed2b5b94bce8
+C:\Users\isaac\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|d1d37418-22f4-4957-b91d-3d7242c37e79
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|22aa59bb-4472-4c7a-a3cc-4e7ba0cb4209
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|cf3d42f9-178f-4271-b662-2eb4a6566c10
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|e95ba077-8bd3-4117-98bb-311f48acdc6a

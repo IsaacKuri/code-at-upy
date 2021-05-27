@@ -1,0 +1,228 @@
+dont_use_io iocell 1 0
+dont_use_io iocell 1 1
+dont_use_io iocell 1 3
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_8\" macrocell 2 3 0 2
+set_location "\UART:BUART:pollcount_1\" macrocell 0 0 1 3
+set_location "\ADC:AMuxHw_2_Decoder_old_id_4\" macrocell 2 5 0 3
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_27\" macrocell 1 4 0 0
+set_location "\ADC:AMuxHw_2_Decoder_old_id_0\" macrocell 1 5 1 0
+set_location "Net_5050" macrocell 0 4 1 0
+set_location "\UART:BUART:tx_ctrl_mark_last\" macrocell 2 0 1 3
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_16\" macrocell 1 1 0 1
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_58\" macrocell 2 2 1 2
+set_location "\UART:BUART:rx_last\" macrocell 0 0 1 1
+set_location "\ADC:bSAR_SEQ:nrq_reg\" macrocell 0 4 1 1
+set_location "\UART:BUART:tx_status_2\" macrocell 2 3 0 1
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_37\" macrocell 1 5 1 3
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_9\" macrocell 2 4 0 3
+set_location "\UART:BUART:rx_bitclk_enable\" macrocell 0 0 0 0
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_31\" macrocell 2 5 1 1
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_33\" macrocell 2 3 0 0
+set_location "\ADC:AMuxHw_2_Decoder_old_id_5\" macrocell 1 4 0 1
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_13\" macrocell 0 5 1 1
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_51\" macrocell 2 4 1 2
+set_location "\UART:BUART:sTX:TxSts\" statusicell 2 3 4 
+set_location "\UART:BUART:txn\" macrocell 2 1 1 0
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_48\" macrocell 0 3 1 0
+set_location "\UART:BUART:sRX:RxShifter:u0\" datapathcell 0 2 2 
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_17\" macrocell 3 1 0 3
+set_location "\UART:BUART:sRX:RxBitCounter\" count7cell 0 1 7 
+set_location "\UART:BUART:counter_load_not\" macrocell 2 2 0 1
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_10\" macrocell 0 5 0 0
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_43\" macrocell 1 1 0 3
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_32\" macrocell 0 5 0 3
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_0\" macrocell 3 4 0 1
+set_location "\PWM_1:PWMUDB:genblk8:stsreg\" statusicell 1 3 4 
+set_location "\PWM_2:PWMUDB:genblk8:stsreg\" statusicell 1 2 4 
+set_location "\PWM_3:PWMUDB:genblk8:stsreg\" statusicell 0 3 4 
+set_location "\PWM_4:PWMUDB:genblk8:stsreg\" statusicell 3 5 4 
+set_location "\PWM_5:PWMUDB:genblk8:stsreg\" statusicell 2 4 4 
+set_location "\PWM_6:PWMUDB:genblk8:stsreg\" statusicell 2 1 4 
+set_location "\PWM_7:PWMUDB:genblk8:stsreg\" statusicell 3 0 4 
+set_location "\PWM_8:PWMUDB:genblk8:stsreg\" statusicell 3 3 4 
+set_location "\PWM_9:PWMUDB:genblk8:stsreg\" statusicell 1 0 4 
+set_location "\PWM_1:PWMUDB:status_0\" macrocell 1 3 0 1
+set_location "\PWM_2:PWMUDB:status_0\" macrocell 1 2 0 3
+set_location "\PWM_3:PWMUDB:status_0\" macrocell 1 3 0 3
+set_location "\PWM_4:PWMUDB:status_0\" macrocell 3 5 0 0
+set_location "\PWM_5:PWMUDB:status_0\" macrocell 3 4 1 2
+set_location "\PWM_6:PWMUDB:status_0\" macrocell 2 0 0 1
+set_location "\PWM_7:PWMUDB:status_0\" macrocell 3 0 0 0
+set_location "\PWM_8:PWMUDB:status_0\" macrocell 3 3 1 0
+set_location "\PWM_9:PWMUDB:status_0\" macrocell 1 0 1 0
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_1\" macrocell 3 4 0 0
+set_location "\ADC:AMuxHw_2_Decoder_is_active\" macrocell 2 5 1 2
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_25\" macrocell 3 2 1 1
+set_location "Net_2" macrocell 1 1 1 1
+set_location "\PWM_1:PWMUDB:sP16:pwmdp:u1\" datapathcell 1 3 2 
+set_location "\PWM_2:PWMUDB:sP16:pwmdp:u1\" datapathcell 0 1 2 
+set_location "\PWM_3:PWMUDB:sP16:pwmdp:u1\" datapathcell 0 4 2 
+set_location "\PWM_4:PWMUDB:sP16:pwmdp:u1\" datapathcell 3 5 2 
+set_location "\PWM_5:PWMUDB:sP16:pwmdp:u1\" datapathcell 2 4 2 
+set_location "\PWM_6:PWMUDB:sP16:pwmdp:u1\" datapathcell 2 1 2 
+set_location "\PWM_7:PWMUDB:sP16:pwmdp:u1\" datapathcell 3 0 2 
+set_location "\PWM_8:PWMUDB:sP16:pwmdp:u1\" datapathcell 3 3 2 
+set_location "\PWM_9:PWMUDB:sP16:pwmdp:u1\" datapathcell 1 0 2 
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_60\" macrocell 0 2 0 1
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_22\" macrocell 3 1 1 2
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_12\" macrocell 0 2 0 3
+set_location "\UART:BUART:sRX:RxSts\" statusicell 1 1 4 
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_42\" macrocell 1 3 1 3
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_19\" macrocell 1 5 1 1
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_63\" macrocell 0 5 0 1
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_59\" macrocell 0 3 1 1
+set_location "\UART:BUART:rx_state_0\" macrocell 0 1 0 3
+set_location "Net_3428" macrocell 1 2 0 1
+set_location "Net_3495" macrocell 1 0 0 1
+set_location "Net_3629" macrocell 3 3 1 3
+set_location "Net_2779" macrocell 3 2 0 0
+set_location "Net_6338" macrocell 2 0 0 0
+set_location "Net_3562" macrocell 3 3 1 1
+set_location "Net_6170" macrocell 3 0 0 2
+set_location "Net_6282" macrocell 3 2 0 3
+set_location "Net_6226" macrocell 3 0 1 3
+set_location "\ADC:AMuxHw_2_Decoder_old_id_3\" macrocell 2 5 0 1
+set_location "\PWM_1:PWMUDB:sP16:pwmdp:u0\" datapathcell 0 3 2 
+set_location "\PWM_2:PWMUDB:sP16:pwmdp:u0\" datapathcell 1 1 2 
+set_location "\PWM_3:PWMUDB:sP16:pwmdp:u0\" datapathcell 1 4 2 
+set_location "\PWM_4:PWMUDB:sP16:pwmdp:u0\" datapathcell 2 5 2 
+set_location "\PWM_5:PWMUDB:sP16:pwmdp:u0\" datapathcell 3 4 2 
+set_location "\PWM_6:PWMUDB:sP16:pwmdp:u0\" datapathcell 3 1 2 
+set_location "\PWM_7:PWMUDB:sP16:pwmdp:u0\" datapathcell 2 0 2 
+set_location "\PWM_8:PWMUDB:sP16:pwmdp:u0\" datapathcell 2 3 2 
+set_location "\PWM_9:PWMUDB:sP16:pwmdp:u0\" datapathcell 0 0 2 
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_21\" macrocell 1 3 1 2
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_57\" macrocell 1 4 1 0
+set_location "\UART:BUART:rx_counter_load\" macrocell 0 1 0 1
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_61\" macrocell 3 5 1 1
+set_location "\UART:BUART:tx_status_0\" macrocell 2 2 1 1
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_5\" macrocell 2 4 0 1
+set_location "\PWM_1:PWMUDB:runmode_enable\" macrocell 0 2 1 1
+set_location "\PWM_2:PWMUDB:runmode_enable\" macrocell 1 2 0 2
+set_location "\PWM_3:PWMUDB:runmode_enable\" macrocell 1 3 0 0
+set_location "\PWM_4:PWMUDB:runmode_enable\" macrocell 3 2 0 2
+set_location "\PWM_5:PWMUDB:runmode_enable\" macrocell 2 2 0 3
+set_location "\PWM_6:PWMUDB:runmode_enable\" macrocell 2 0 0 2
+set_location "\PWM_7:PWMUDB:runmode_enable\" macrocell 3 0 1 0
+set_location "\PWM_8:PWMUDB:runmode_enable\" macrocell 3 3 0 1
+set_location "\PWM_9:PWMUDB:runmode_enable\" macrocell 2 0 0 3
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_40\" macrocell 3 2 1 0
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_38\" macrocell 3 1 0 0
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_3\" macrocell 3 2 1 3
+set_location "\UART:BUART:rx_load_fifo\" macrocell 0 0 0 1
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_11\" macrocell 2 4 0 0
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_39\" macrocell 1 3 1 0
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_6\" macrocell 3 1 1 0
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_23\" macrocell 0 5 1 3
+set_location "\UART:BUART:tx_state_1\" macrocell 2 1 1 1
+set_location "\UART:BUART:rx_state_2\" macrocell 0 1 0 0
+set_location "\UART:BUART:tx_bitclk\" macrocell 2 1 0 1
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_35\" macrocell 1 1 0 0
+set_location "\UART:BUART:tx_state_0\" macrocell 2 0 1 0
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_34\" macrocell 2 3 1 3
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_62\" macrocell 3 1 0 1
+set_location "\ADC:bSAR_SEQ:bus_clk_nrq_reg\" macrocell 0 4 0 0
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_26\" macrocell 0 3 1 3
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_28\" macrocell 0 3 1 2
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_41\" macrocell 3 1 0 2
+set_location "\UART:BUART:rx_status_3\" macrocell 0 0 1 0
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_18\" macrocell 2 3 1 2
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_46\" macrocell 2 4 0 2
+set_location "\ADC:AMuxHw_2_Decoder_is_active_split\" macrocell 1 5 0 0
+set_location "\ADC:bSAR_SEQ:ChannelCounter\" count7cell 1 5 7 
+set_location "\UART:BUART:rx_status_5\" macrocell 0 2 1 0
+set_location "\UART:BUART:rx_state_stop1_reg\" macrocell 0 0 0 2
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_7\" macrocell 3 1 1 1
+set_location "\UART:BUART:sTX:sCLOCK:TxBitClkGen\" datapathcell 3 2 2 
+set_location "\ADC:AMuxHw_2_Decoder_old_id_1\" macrocell 1 4 1 2
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_15\" macrocell 0 3 0 2
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_14\" macrocell 0 5 1 0
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_30\" macrocell 3 5 1 0
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_49\" macrocell 2 2 1 0
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_45\" macrocell 2 5 1 3
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_50\" macrocell 2 3 1 1
+set_location "\UART:BUART:rx_status_4\" macrocell 0 2 0 0
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_56\" macrocell 0 1 1 2
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_2\" macrocell 3 4 0 2
+set_location "\UART:BUART:rx_postpoll\" macrocell 0 2 1 2
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_4\" macrocell 3 4 0 3
+set_location "\UART:BUART:tx_state_2\" macrocell 2 1 0 0
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_20\" macrocell 2 4 1 3
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_36\" macrocell 2 2 1 3
+set_location "\PWM_1:PWMUDB:status_2\" macrocell 1 3 0 2
+set_location "\PWM_2:PWMUDB:status_2\" macrocell 1 2 1 3
+set_location "\PWM_3:PWMUDB:status_2\" macrocell 0 4 1 3
+set_location "\PWM_4:PWMUDB:status_2\" macrocell 3 5 0 1
+set_location "\PWM_5:PWMUDB:status_2\" macrocell 2 4 1 1
+set_location "\PWM_6:PWMUDB:status_2\" macrocell 2 1 0 3
+set_location "\PWM_7:PWMUDB:status_2\" macrocell 3 0 0 1
+set_location "\PWM_8:PWMUDB:status_2\" macrocell 3 3 0 0
+set_location "\PWM_9:PWMUDB:status_2\" macrocell 2 0 1 2
+set_location "\UART:BUART:rx_state_3\" macrocell 0 0 0 3
+set_location "\UART:BUART:sTX:TxShifter:u0\" datapathcell 2 2 2 
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_53\" macrocell 1 4 0 2
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_47\" macrocell 2 3 1 0
+set_location "\UART:BUART:pollcount_0\" macrocell 0 0 1 2
+set_location "\PWM_1:PWMUDB:prevCompare1\" macrocell 1 2 1 0
+set_location "\PWM_2:PWMUDB:prevCompare1\" macrocell 1 2 1 2
+set_location "\PWM_3:PWMUDB:prevCompare1\" macrocell 1 2 0 0
+set_location "\PWM_4:PWMUDB:prevCompare1\" macrocell 3 4 1 3
+set_location "\PWM_5:PWMUDB:prevCompare1\" macrocell 3 3 1 2
+set_location "\PWM_6:PWMUDB:prevCompare1\" macrocell 2 2 0 0
+set_location "\PWM_7:PWMUDB:prevCompare1\" macrocell 3 0 1 1
+set_location "\PWM_8:PWMUDB:prevCompare1\" macrocell 3 3 0 3
+set_location "\PWM_9:PWMUDB:prevCompare1\" macrocell 1 0 0 0
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_29\" macrocell 2 5 0 2
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_54\" macrocell 3 2 1 2
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_24\" macrocell 2 5 1 0
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_52\" macrocell 2 4 1 0
+set_location "\ADC:bSAR_SEQ:cnt_enable\" macrocell 1 4 1 1
+set_location "\ADC:AMuxHw_2_Decoder_old_id_2\" macrocell 1 4 1 3
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_55\" macrocell 2 5 0 0
+set_location "\ADC:AMuxHw_2_Decoder_one_hot_44\" macrocell 1 1 0 2
+set_location "\ADC:TempBuf\" drqcell -1 -1 1
+set_io "F_5(0)" iocell 3 4
+set_io "\LCD:LCDPort(6)\" iocell 2 6
+set_io "\LCD:LCDPort(5)\" iocell 2 5
+set_io "\LCD:LCDPort(3)\" iocell 2 3
+set_location "\ADC:bSAR_SEQ:CtrlReg\" controlcell 1 4 6 
+set_io "\LCD:LCDPort(4)\" iocell 2 4
+set_io "F_7(0)" iocell 3 6
+set_io "F_3(0)" iocell 3 2
+set_io "F_2(0)" iocell 3 1
+set_io "F_1(0)" iocell 3 0
+set_io "F_6(0)" iocell 3 5
+set_location "\ADC:FinalBuf\" drqcell -1 -1 0
+set_location "ClockBlock" clockblockcell -1 -1 0
+set_location "\PWM_1:PWMUDB:genblk1:ctrlreg\" controlcell 0 2 6 
+set_location "\PWM_2:PWMUDB:genblk1:ctrlreg\" controlcell 1 2 6 
+set_location "\PWM_3:PWMUDB:genblk1:ctrlreg\" controlcell 1 3 6 
+set_location "\PWM_4:PWMUDB:genblk1:ctrlreg\" controlcell 3 2 6 
+set_location "\PWM_5:PWMUDB:genblk1:ctrlreg\" controlcell 2 2 6 
+set_location "\PWM_6:PWMUDB:genblk1:ctrlreg\" controlcell 2 0 6 
+set_location "\PWM_7:PWMUDB:genblk1:ctrlreg\" controlcell 3 0 6 
+set_location "\PWM_8:PWMUDB:genblk1:ctrlreg\" controlcell 3 4 6 
+set_location "\PWM_9:PWMUDB:genblk1:ctrlreg\" controlcell 1 0 6 
+set_location "\ADC:SAR:ADC_SAR\" sarcell -1 -1 0
+# Note: port 12 is the logical name for port 7
+set_io "TX(0)" iocell 12 7
+set_location "\ADC:IRQ\" interrupt -1 -1 0
+set_io "F_8(0)" iocell 3 7
+set_location "\ADC:bSAR_SEQ:EOCSts\" statuscell 0 4 3 
+# Note: port 15 is the logical name for port 8
+set_io "MODE(0)" iocell 15 5
+set_io "F_4(0)" iocell 3 3
+# Note: port 15 is the logical name for port 8
+set_io "F_9(0)" iocell 15 0
+set_location "com" interrupt -1 -1 1
+# Note: port 12 is the logical name for port 7
+set_io "RX(0)" iocell 12 6
+set_io "\LCD:LCDPort(0)\" iocell 2 0
+set_location "\ADC:Sync:genblk1[0]:INST\" synccell 0 5 5 0
+set_io "POT1(0)" iocell 0 0
+set_io "POT3(0)" iocell 0 2
+set_io "POT4(0)" iocell 0 3
+set_io "POT5(0)" iocell 0 4
+set_io "POT2(0)" iocell 0 1
+set_io "\LCD:LCDPort(2)\" iocell 2 2
+set_io "\LCD:LCDPort(1)\" iocell 2 1

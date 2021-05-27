@@ -1,0 +1,3383 @@
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.com_handler,"ax",%progbits
+  20              		.align	2
+  21              		.global	com_handler
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	com_handler, %function
+  25              	com_handler:
+  26              	.LFB64:
+  27              		.file 1 "main.c"
+   1:main.c        **** #include "project.h"
+   2:main.c        **** 
+   3:main.c        **** char codigo[32] = "WRE,08,08,08,08,08,08,08,08,08,F";
+   4:main.c        **** char check[32] = "00000000000000000000000000000000";
+   5:main.c        **** char foo;
+   6:main.c        **** int cs = 0;
+   7:main.c        **** int pass = 1;
+   8:main.c        **** int comas = 0;
+   9:main.c        **** int read = 1;
+  10:main.c        **** int offset = 8;
+  11:main.c        **** int adc[4];
+  12:main.c        **** //Prototipo de funciones
+  13:main.c        **** char intochar();
+  14:main.c        **** void intostring();
+  15:main.c        **** int chartoint();
+  16:main.c        **** int stringtoint();
+  17:main.c        **** CY_ISR_PROTO(com_handler);
+  18:main.c        **** int main(void)
+  19:main.c        **** {
+  20:main.c        ****     CyGlobalIntEnable;
+  21:main.c        ****     LCD_Start();
+  22:main.c        ****     UART_Start();
+  23:main.c        ****     ADC_Start();
+  24:main.c        ****     ADC_StartConvert();
+  25:main.c        ****     Clock_1_Start();
+  26:main.c        ****     PWM_1_Start();
+  27:main.c        ****     PWM_2_Start();
+  28:main.c        ****     PWM_3_Start();
+  29:main.c        ****     PWM_4_Start();
+  30:main.c        ****     PWM_5_Start();
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 2
+
+
+  31:main.c        ****     PWM_6_Start();
+  32:main.c        ****     PWM_7_Start();
+  33:main.c        ****     PWM_8_Start();
+  34:main.c        ****     PWM_9_Start();
+  35:main.c        ****     com_StartEx(com_handler);
+  36:main.c        ****     com_ClearPending();
+  37:main.c        ****     for(;;)
+  38:main.c        ****     {
+  39:main.c        ****         //Read
+  40:main.c        ****         adc[0] = (int)(((0.0055)*ADC_GetResult16(0)) + offset);
+  41:main.c        ****         adc[1] = (int)(((0.0055)*ADC_GetResult16(1)) + offset);
+  42:main.c        ****         adc[2] = (int)(((0.0055)*ADC_GetResult16(2)) + offset);
+  43:main.c        ****         adc[3] = (int)(((0.0055)*ADC_GetResult16(3)) + offset);
+  44:main.c        ****         //Manual
+  45:main.c        ****         PWM_1_WriteCompare(stringtoint(&codigo[0],4,5));
+  46:main.c        ****         PWM_2_WriteCompare(stringtoint(&codigo[0],7,8));
+  47:main.c        ****         PWM_3_WriteCompare(stringtoint(&codigo[0],10,11));
+  48:main.c        ****         PWM_4_WriteCompare(stringtoint(&codigo[0],13,14));
+  49:main.c        ****         PWM_5_WriteCompare(stringtoint(&codigo[0],16,17));
+  50:main.c        ****         PWM_9_WriteCompare(stringtoint(&codigo[0],28,29));
+  51:main.c        ****         
+  52:main.c        ****         if(MODE_Read() == 1){
+  53:main.c        ****          //Routine Mode
+  54:main.c        ****         PWM_6_WriteCompare(stringtoint(&codigo[0],19,20));
+  55:main.c        ****         PWM_7_WriteCompare(stringtoint(&codigo[0],22,23));
+  56:main.c        ****         PWM_8_WriteCompare(stringtoint(&codigo[0],25,26));
+  57:main.c        ****         }
+  58:main.c        ****         else{
+  59:main.c        ****         PWM_6_WriteCompare(adc[0]);
+  60:main.c        ****         PWM_7_WriteCompare(adc[1]);
+  61:main.c        ****         PWM_8_WriteCompare(adc[2]); 
+  62:main.c        ****         }
+  63:main.c        ****         
+  64:main.c        ****         LCD_ClearDisplay();
+  65:main.c        ****         LCD_Position(0,0);
+  66:main.c        ****         LCD_PrintString(codigo);
+  67:main.c        ****         LCD_Position(1,0);
+  68:main.c        ****         LCD_PrintNumber(comas);
+  69:main.c        ****         CyDelay(30);
+  70:main.c        ****     }
+  71:main.c        **** }
+  72:main.c        **** 
+  73:main.c        **** CY_ISR(com_handler){
+  28              		.loc 1 73 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  74:main.c        ****     //UART_PutChar('r');
+  75:main.c        ****     foo = UART_GetChar();
+  36              		.loc 1 75 0
+  37 0002 FFF7FEFF 		bl	UART_GetChar
+  38              	.LVL0:
+  39 0006 344B     		ldr	r3, .L15
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 3
+
+
+  40 0008 1870     		strb	r0, [r3]
+  76:main.c        ****     if(foo == 'W'){
+  41              		.loc 1 76 0
+  42 000a 5728     		cmp	r0, #87
+  43 000c 07D1     		bne	.L2
+  77:main.c        ****         cs = 0;
+  44              		.loc 1 77 0
+  45 000e 3349     		ldr	r1, .L15+4
+  46 0010 0024     		movs	r4, #0
+  47 0012 0C60     		str	r4, [r1]
+  78:main.c        ****         pass = 1;
+  48              		.loc 1 78 0
+  49 0014 324B     		ldr	r3, .L15+8
+  50 0016 0122     		movs	r2, #1
+  51 0018 1A60     		str	r2, [r3]
+  79:main.c        ****         comas = 0;
+  52              		.loc 1 79 0
+  53 001a 4C60     		str	r4, [r1, #4]
+  80:main.c        ****         read = 1;
+  54              		.loc 1 80 0
+  55 001c 5A60     		str	r2, [r3, #4]
+  56              	.L2:
+  81:main.c        ****     }
+  82:main.c        ****     if(foo == ','){
+  57              		.loc 1 82 0
+  58 001e 2C28     		cmp	r0, #44
+  59 0020 03D1     		bne	.L3
+  83:main.c        ****         comas++;
+  60              		.loc 1 83 0
+  61 0022 2E4A     		ldr	r2, .L15+4
+  62 0024 5368     		ldr	r3, [r2, #4]
+  63 0026 0133     		adds	r3, r3, #1
+  64 0028 5360     		str	r3, [r2, #4]
+  65              	.L3:
+  84:main.c        ****     }
+  85:main.c        ****     if(read == 1){
+  66              		.loc 1 85 0
+  67 002a 2D4B     		ldr	r3, .L15+8
+  68 002c 5B68     		ldr	r3, [r3, #4]
+  69 002e 012B     		cmp	r3, #1
+  70 0030 04D1     		bne	.L4
+  86:main.c        ****      check[cs] = foo;
+  71              		.loc 1 86 0
+  72 0032 2A4B     		ldr	r3, .L15+4
+  73 0034 1B68     		ldr	r3, [r3]
+  74 0036 2A4A     		ldr	r2, .L15+8
+  75 0038 1344     		add	r3, r3, r2
+  76 003a 1872     		strb	r0, [r3, #8]
+  77              	.L4:
+  87:main.c        ****     }
+  88:main.c        ****     if(cs == 3){
+  78              		.loc 1 88 0
+  79 003c 274B     		ldr	r3, .L15+4
+  80 003e 1B68     		ldr	r3, [r3]
+  81 0040 032B     		cmp	r3, #3
+  82 0042 14D1     		bne	.L5
+  89:main.c        ****         if(check[0] != 'W'){ pass = 0;}
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 4
+
+
+  83              		.loc 1 89 0
+  84 0044 264A     		ldr	r2, .L15+8
+  85 0046 127A     		ldrb	r2, [r2, #8]	@ zero_extendqisi2
+  86 0048 572A     		cmp	r2, #87
+  87 004a 02D0     		beq	.L6
+  88              		.loc 1 89 0 is_stmt 0 discriminator 1
+  89 004c 0021     		movs	r1, #0
+  90 004e 244A     		ldr	r2, .L15+8
+  91 0050 1160     		str	r1, [r2]
+  92              	.L6:
+  90:main.c        ****         if(check[1] != 'R'){ pass = 0;}
+  93              		.loc 1 90 0 is_stmt 1
+  94 0052 234A     		ldr	r2, .L15+8
+  95 0054 527A     		ldrb	r2, [r2, #9]	@ zero_extendqisi2
+  96 0056 522A     		cmp	r2, #82
+  97 0058 02D0     		beq	.L7
+  98              		.loc 1 90 0 is_stmt 0 discriminator 1
+  99 005a 0021     		movs	r1, #0
+ 100 005c 204A     		ldr	r2, .L15+8
+ 101 005e 1160     		str	r1, [r2]
+ 102              	.L7:
+  91:main.c        ****         if(check[2] != 'E'){ pass = 0;}
+ 103              		.loc 1 91 0 is_stmt 1
+ 104 0060 1F4A     		ldr	r2, .L15+8
+ 105 0062 927A     		ldrb	r2, [r2, #10]	@ zero_extendqisi2
+ 106 0064 452A     		cmp	r2, #69
+ 107 0066 02D0     		beq	.L5
+ 108              		.loc 1 91 0 is_stmt 0 discriminator 1
+ 109 0068 0021     		movs	r1, #0
+ 110 006a 1D4A     		ldr	r2, .L15+8
+ 111 006c 1160     		str	r1, [r2]
+ 112              	.L5:
+  92:main.c        ****     }
+  93:main.c        ****     if(cs == 31){
+ 113              		.loc 1 93 0 is_stmt 1
+ 114 006e 1F2B     		cmp	r3, #31
+ 115 0070 14D1     		bne	.L8
+  94:main.c        ****         if(check[0] != 'W'){ pass = 0;}
+ 116              		.loc 1 94 0
+ 117 0072 1B4A     		ldr	r2, .L15+8
+ 118 0074 127A     		ldrb	r2, [r2, #8]	@ zero_extendqisi2
+ 119 0076 572A     		cmp	r2, #87
+ 120 0078 02D0     		beq	.L9
+ 121              		.loc 1 94 0 is_stmt 0 discriminator 1
+ 122 007a 0021     		movs	r1, #0
+ 123 007c 184A     		ldr	r2, .L15+8
+ 124 007e 1160     		str	r1, [r2]
+ 125              	.L9:
+  95:main.c        ****         if(check[1] != 'R'){ pass = 0;}
+ 126              		.loc 1 95 0 is_stmt 1
+ 127 0080 174A     		ldr	r2, .L15+8
+ 128 0082 527A     		ldrb	r2, [r2, #9]	@ zero_extendqisi2
+ 129 0084 522A     		cmp	r2, #82
+ 130 0086 02D0     		beq	.L10
+ 131              		.loc 1 95 0 is_stmt 0 discriminator 1
+ 132 0088 0021     		movs	r1, #0
+ 133 008a 154A     		ldr	r2, .L15+8
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 5
+
+
+ 134 008c 1160     		str	r1, [r2]
+ 135              	.L10:
+  96:main.c        ****         if(check[2] != 'E'){ pass = 0;}
+ 136              		.loc 1 96 0 is_stmt 1
+ 137 008e 144A     		ldr	r2, .L15+8
+ 138 0090 927A     		ldrb	r2, [r2, #10]	@ zero_extendqisi2
+ 139 0092 452A     		cmp	r2, #69
+ 140 0094 02D0     		beq	.L8
+ 141              		.loc 1 96 0 is_stmt 0 discriminator 1
+ 142 0096 0021     		movs	r1, #0
+ 143 0098 114A     		ldr	r2, .L15+8
+ 144 009a 1160     		str	r1, [r2]
+ 145              	.L8:
+  97:main.c        ****     }
+  98:main.c        ****     if((foo == 'F')&&(cs==31)&&(pass == 1)&&(comas == 10)){
+ 146              		.loc 1 98 0 is_stmt 1
+ 147 009c 4628     		cmp	r0, #70
+ 148 009e 15D1     		bne	.L11
+ 149              		.loc 1 98 0 is_stmt 0 discriminator 1
+ 150 00a0 1F2B     		cmp	r3, #31
+ 151 00a2 13D1     		bne	.L11
+ 152              		.loc 1 98 0 discriminator 2
+ 153 00a4 0E4A     		ldr	r2, .L15+8
+ 154 00a6 1268     		ldr	r2, [r2]
+ 155 00a8 012A     		cmp	r2, #1
+ 156 00aa 0FD1     		bne	.L11
+ 157              		.loc 1 98 0 discriminator 3
+ 158 00ac 0B4A     		ldr	r2, .L15+4
+ 159 00ae 5268     		ldr	r2, [r2, #4]
+ 160 00b0 0A2A     		cmp	r2, #10
+ 161 00b2 0BD1     		bne	.L11
+  99:main.c        ****          read = 0;
+ 162              		.loc 1 99 0 is_stmt 1
+ 163 00b4 0021     		movs	r1, #0
+ 164 00b6 0A4A     		ldr	r2, .L15+8
+ 165 00b8 5160     		str	r1, [r2, #4]
+ 166              	.LVL1:
+ 167              	.LBB2:
+ 100:main.c        ****         for(int i = 0; i < 32; i++){
+ 168              		.loc 1 100 0
+ 169 00ba 05E0     		b	.L12
+ 170              	.LVL2:
+ 171              	.L13:
+ 101:main.c        ****             codigo[i] = check[i];
+ 172              		.loc 1 101 0 discriminator 3
+ 173 00bc 084A     		ldr	r2, .L15+8
+ 174 00be 0A44     		add	r2, r2, r1
+ 175 00c0 107A     		ldrb	r0, [r2, #8]	@ zero_extendqisi2
+ 176 00c2 82F82800 		strb	r0, [r2, #40]
+ 100:main.c        ****         for(int i = 0; i < 32; i++){
+ 177              		.loc 1 100 0 discriminator 3
+ 178 00c6 0131     		adds	r1, r1, #1
+ 179              	.LVL3:
+ 180              	.L12:
+ 100:main.c        ****         for(int i = 0; i < 32; i++){
+ 181              		.loc 1 100 0 is_stmt 0 discriminator 1
+ 182 00c8 1F29     		cmp	r1, #31
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 6
+
+
+ 183 00ca F7DD     		ble	.L13
+ 184              	.LVL4:
+ 185              	.L11:
+ 186              	.LBE2:
+ 102:main.c        ****         }
+ 103:main.c        ****     }
+ 104:main.c        ****     cs++;
+ 187              		.loc 1 104 0 is_stmt 1
+ 188 00cc 0133     		adds	r3, r3, #1
+ 189 00ce 034A     		ldr	r2, .L15+4
+ 190 00d0 1360     		str	r3, [r2]
+ 105:main.c        ****     com_ClearPending();
+ 191              		.loc 1 105 0
+ 192 00d2 FFF7FEFF 		bl	com_ClearPending
+ 193              	.LVL5:
+ 194 00d6 10BD     		pop	{r4, pc}
+ 195              	.L16:
+ 196              		.align	2
+ 197              	.L15:
+ 198 00d8 00000000 		.word	foo
+ 199 00dc 00000000 		.word	.LANCHOR0
+ 200 00e0 00000000 		.word	.LANCHOR1
+ 201              		.cfi_endproc
+ 202              	.LFE64:
+ 203              		.size	com_handler, .-com_handler
+ 204              		.section	.text.intochar,"ax",%progbits
+ 205              		.align	2
+ 206              		.global	intochar
+ 207              		.thumb
+ 208              		.thumb_func
+ 209              		.type	intochar, %function
+ 210              	intochar:
+ 211              	.LFB65:
+ 106:main.c        **** }
+ 107:main.c        **** 
+ 108:main.c        **** 
+ 109:main.c        **** 
+ 110:main.c        **** //Funciones de conversion
+ 111:main.c        **** char intochar(int temp){
+ 212              		.loc 1 111 0
+ 213              		.cfi_startproc
+ 214              		@ args = 0, pretend = 0, frame = 0
+ 215              		@ frame_needed = 0, uses_anonymous_args = 0
+ 216              		@ link register save eliminated.
+ 217              	.LVL6:
+ 112:main.c        ****     if (temp == 0){ return '0'; }
+ 218              		.loc 1 112 0
+ 219 0000 98B1     		cbz	r0, .L19
+ 113:main.c        ****     else if(temp == 1){return '1';}
+ 220              		.loc 1 113 0
+ 221 0002 0128     		cmp	r0, #1
+ 222 0004 13D0     		beq	.L20
+ 114:main.c        ****     else if(temp == 2){return '2';}
+ 223              		.loc 1 114 0
+ 224 0006 0228     		cmp	r0, #2
+ 225 0008 13D0     		beq	.L21
+ 115:main.c        ****     else if(temp == 3){return '3';}
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 7
+
+
+ 226              		.loc 1 115 0
+ 227 000a 0328     		cmp	r0, #3
+ 228 000c 13D0     		beq	.L22
+ 116:main.c        ****     else if(temp == 4){return '4';}
+ 229              		.loc 1 116 0
+ 230 000e 0428     		cmp	r0, #4
+ 231 0010 13D0     		beq	.L23
+ 117:main.c        ****     else if(temp == 5){return '5';}
+ 232              		.loc 1 117 0
+ 233 0012 0528     		cmp	r0, #5
+ 234 0014 13D0     		beq	.L24
+ 118:main.c        ****     else if(temp == 6){return '6';}
+ 235              		.loc 1 118 0
+ 236 0016 0628     		cmp	r0, #6
+ 237 0018 13D0     		beq	.L25
+ 119:main.c        ****     else if(temp == 7){return '7';}
+ 238              		.loc 1 119 0
+ 239 001a 0728     		cmp	r0, #7
+ 240 001c 13D0     		beq	.L26
+ 120:main.c        ****     else if(temp == 8){return '8';}
+ 241              		.loc 1 120 0
+ 242 001e 0828     		cmp	r0, #8
+ 243 0020 13D0     		beq	.L27
+ 121:main.c        ****     else if(temp == 9){return '9';}
+ 244              		.loc 1 121 0
+ 245 0022 0928     		cmp	r0, #9
+ 246 0024 13D1     		bne	.L28
+ 247 0026 3920     		movs	r0, #57
+ 248              	.LVL7:
+ 249 0028 7047     		bx	lr
+ 250              	.LVL8:
+ 251              	.L19:
+ 112:main.c        ****     else if(temp == 1){return '1';}
+ 252              		.loc 1 112 0
+ 253 002a 3020     		movs	r0, #48
+ 254              	.LVL9:
+ 255 002c 7047     		bx	lr
+ 256              	.LVL10:
+ 257              	.L20:
+ 113:main.c        ****     else if(temp == 2){return '2';}
+ 258              		.loc 1 113 0
+ 259 002e 3120     		movs	r0, #49
+ 260              	.LVL11:
+ 261 0030 7047     		bx	lr
+ 262              	.LVL12:
+ 263              	.L21:
+ 114:main.c        ****     else if(temp == 3){return '3';}
+ 264              		.loc 1 114 0
+ 265 0032 3220     		movs	r0, #50
+ 266              	.LVL13:
+ 267 0034 7047     		bx	lr
+ 268              	.LVL14:
+ 269              	.L22:
+ 115:main.c        ****     else if(temp == 4){return '4';}
+ 270              		.loc 1 115 0
+ 271 0036 3320     		movs	r0, #51
+ 272              	.LVL15:
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 8
+
+
+ 273 0038 7047     		bx	lr
+ 274              	.LVL16:
+ 275              	.L23:
+ 116:main.c        ****     else if(temp == 5){return '5';}
+ 276              		.loc 1 116 0
+ 277 003a 3420     		movs	r0, #52
+ 278              	.LVL17:
+ 279 003c 7047     		bx	lr
+ 280              	.LVL18:
+ 281              	.L24:
+ 117:main.c        ****     else if(temp == 6){return '6';}
+ 282              		.loc 1 117 0
+ 283 003e 3520     		movs	r0, #53
+ 284              	.LVL19:
+ 285 0040 7047     		bx	lr
+ 286              	.LVL20:
+ 287              	.L25:
+ 118:main.c        ****     else if(temp == 7){return '7';}
+ 288              		.loc 1 118 0
+ 289 0042 3620     		movs	r0, #54
+ 290              	.LVL21:
+ 291 0044 7047     		bx	lr
+ 292              	.LVL22:
+ 293              	.L26:
+ 119:main.c        ****     else if(temp == 8){return '8';}
+ 294              		.loc 1 119 0
+ 295 0046 3720     		movs	r0, #55
+ 296              	.LVL23:
+ 297 0048 7047     		bx	lr
+ 298              	.LVL24:
+ 299              	.L27:
+ 120:main.c        ****     else if(temp == 9){return '9';}
+ 300              		.loc 1 120 0
+ 301 004a 3820     		movs	r0, #56
+ 302              	.LVL25:
+ 303 004c 7047     		bx	lr
+ 304              	.LVL26:
+ 305              	.L28:
+ 122:main.c        ****     else {return 'x';} 
+ 306              		.loc 1 122 0
+ 307 004e 7820     		movs	r0, #120
+ 308              	.LVL27:
+ 123:main.c        **** }
+ 309              		.loc 1 123 0
+ 310 0050 7047     		bx	lr
+ 311              		.cfi_endproc
+ 312              	.LFE65:
+ 313              		.size	intochar, .-intochar
+ 314 0052 00BF     		.section	.text.intostring,"ax",%progbits
+ 315              		.align	2
+ 316              		.global	intostring
+ 317              		.thumb
+ 318              		.thumb_func
+ 319              		.type	intostring, %function
+ 320              	intostring:
+ 321              	.LFB66:
+ 124:main.c        **** 
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 9
+
+
+ 125:main.c        **** void intostring(int temp, char *str){
+ 322              		.loc 1 125 0
+ 323              		.cfi_startproc
+ 324              		@ args = 0, pretend = 0, frame = 0
+ 325              		@ frame_needed = 0, uses_anonymous_args = 0
+ 326              	.LVL28:
+ 327 0000 70B5     		push	{r4, r5, r6, lr}
+ 328              		.cfi_def_cfa_offset 16
+ 329              		.cfi_offset 4, -16
+ 330              		.cfi_offset 5, -12
+ 331              		.cfi_offset 6, -8
+ 332              		.cfi_offset 14, -4
+ 333 0002 0546     		mov	r5, r0
+ 334 0004 0E46     		mov	r6, r1
+ 126:main.c        ****     *str = intochar((temp/10)%10);
+ 335              		.loc 1 126 0
+ 336 0006 0D4B     		ldr	r3, .L31
+ 337 0008 83FB0024 		smull	r2, r4, r3, r0
+ 338 000c C217     		asrs	r2, r0, #31
+ 339 000e C2EBA404 		rsb	r4, r2, r4, asr #2
+ 340 0012 83FB0423 		smull	r2, r3, r3, r4
+ 341 0016 E217     		asrs	r2, r4, #31
+ 342 0018 C2EBA303 		rsb	r3, r2, r3, asr #2
+ 343 001c 03EB8303 		add	r3, r3, r3, lsl #2
+ 344 0020 5800     		lsls	r0, r3, #1
+ 345              	.LVL29:
+ 346 0022 201A     		subs	r0, r4, r0
+ 347 0024 FFF7FEFF 		bl	intochar
+ 348              	.LVL30:
+ 349 0028 3070     		strb	r0, [r6]
+ 350              	.LVL31:
+ 127:main.c        ****     str++;
+ 128:main.c        ****     *str = intochar(temp%10);
+ 351              		.loc 1 128 0
+ 352 002a 04EB8404 		add	r4, r4, r4, lsl #2
+ 353 002e 6000     		lsls	r0, r4, #1
+ 354 0030 281A     		subs	r0, r5, r0
+ 355 0032 FFF7FEFF 		bl	intochar
+ 356              	.LVL32:
+ 357 0036 7070     		strb	r0, [r6, #1]
+ 358 0038 70BD     		pop	{r4, r5, r6, pc}
+ 359              	.LVL33:
+ 360              	.L32:
+ 361 003a 00BF     		.align	2
+ 362              	.L31:
+ 363 003c 67666666 		.word	1717986919
+ 364              		.cfi_endproc
+ 365              	.LFE66:
+ 366              		.size	intostring, .-intostring
+ 367              		.section	.text.stringtoint,"ax",%progbits
+ 368              		.align	2
+ 369              		.global	stringtoint
+ 370              		.thumb
+ 371              		.thumb_func
+ 372              		.type	stringtoint, %function
+ 373              	stringtoint:
+ 374              	.LFB67:
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 10
+
+
+ 129:main.c        **** }
+ 130:main.c        **** //Funcion de str a int
+ 131:main.c        **** 
+ 132:main.c        **** int stringtoint(char *str, int lv, int hv){
+ 375              		.loc 1 132 0
+ 376              		.cfi_startproc
+ 377              		@ args = 0, pretend = 0, frame = 0
+ 378              		@ frame_needed = 0, uses_anonymous_args = 0
+ 379              		@ link register save eliminated.
+ 380              	.LVL34:
+ 381 0000 F0B4     		push	{r4, r5, r6, r7}
+ 382              		.cfi_def_cfa_offset 16
+ 383              		.cfi_offset 4, -16
+ 384              		.cfi_offset 5, -12
+ 385              		.cfi_offset 6, -8
+ 386              		.cfi_offset 7, -4
+ 387              	.LVL35:
+ 133:main.c        ****     int pos = 1;
+ 134:main.c        ****     char temp;
+ 135:main.c        ****     int numtemp;
+ 136:main.c        ****     int result = 0;
+ 388              		.loc 1 136 0
+ 389 0002 0025     		movs	r5, #0
+ 133:main.c        ****     int pos = 1;
+ 390              		.loc 1 133 0
+ 391 0004 0124     		movs	r4, #1
+ 392              	.LBB3:
+ 137:main.c        ****     
+ 138:main.c        ****     for(int i = lv; i <= hv; i++){
+ 393              		.loc 1 138 0
+ 394 0006 33E0     		b	.L34
+ 395              	.LVL36:
+ 396              	.L38:
+ 139:main.c        ****     temp = *(str + i);
+ 397              		.loc 1 139 0
+ 398 0008 435C     		ldrb	r3, [r0, r1]	@ zero_extendqisi2
+ 399              	.LVL37:
+ 140:main.c        ****      if (temp == '0'){ numtemp = 0; }
+ 400              		.loc 1 140 0
+ 401 000a 302B     		cmp	r3, #48
+ 402 000c 13D0     		beq	.L39
+ 141:main.c        ****     else if(temp == '1'){numtemp = 1;}
+ 403              		.loc 1 141 0
+ 404 000e 312B     		cmp	r3, #49
+ 405 0010 13D0     		beq	.L40
+ 142:main.c        ****     else if(temp == '2'){numtemp = 2;}
+ 406              		.loc 1 142 0
+ 407 0012 322B     		cmp	r3, #50
+ 408 0014 13D0     		beq	.L41
+ 143:main.c        ****     else if(temp == '3'){numtemp = 3;}
+ 409              		.loc 1 143 0
+ 410 0016 332B     		cmp	r3, #51
+ 411 0018 13D0     		beq	.L42
+ 144:main.c        ****     else if(temp == '4'){numtemp = 4;}
+ 412              		.loc 1 144 0
+ 413 001a 342B     		cmp	r3, #52
+ 414 001c 13D0     		beq	.L43
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 11
+
+
+ 145:main.c        ****     else if(temp == '5'){numtemp = 5;}
+ 415              		.loc 1 145 0
+ 416 001e 352B     		cmp	r3, #53
+ 417 0020 13D0     		beq	.L44
+ 146:main.c        ****     else if(temp == '6'){numtemp = 6;}
+ 418              		.loc 1 146 0
+ 419 0022 362B     		cmp	r3, #54
+ 420 0024 13D0     		beq	.L45
+ 147:main.c        ****     else if(temp == '7'){numtemp = 7;}
+ 421              		.loc 1 147 0
+ 422 0026 372B     		cmp	r3, #55
+ 423 0028 13D0     		beq	.L46
+ 148:main.c        ****     else if(temp == '8'){numtemp = 8;}
+ 424              		.loc 1 148 0
+ 425 002a 382B     		cmp	r3, #56
+ 426 002c 13D0     		beq	.L47
+ 149:main.c        ****     else if(temp == '9'){numtemp = 9;}
+ 427              		.loc 1 149 0
+ 428 002e 392B     		cmp	r3, #57
+ 429 0030 13D1     		bne	.L48
+ 430 0032 0923     		movs	r3, #9
+ 431              	.LVL38:
+ 432 0034 12E0     		b	.L35
+ 433              	.LVL39:
+ 434              	.L39:
+ 140:main.c        ****     else if(temp == '1'){numtemp = 1;}
+ 435              		.loc 1 140 0
+ 436 0036 0023     		movs	r3, #0
+ 437              	.LVL40:
+ 438 0038 10E0     		b	.L35
+ 439              	.LVL41:
+ 440              	.L40:
+ 141:main.c        ****     else if(temp == '2'){numtemp = 2;}
+ 441              		.loc 1 141 0
+ 442 003a 0123     		movs	r3, #1
+ 443              	.LVL42:
+ 444 003c 0EE0     		b	.L35
+ 445              	.LVL43:
+ 446              	.L41:
+ 142:main.c        ****     else if(temp == '3'){numtemp = 3;}
+ 447              		.loc 1 142 0
+ 448 003e 0223     		movs	r3, #2
+ 449              	.LVL44:
+ 450 0040 0CE0     		b	.L35
+ 451              	.LVL45:
+ 452              	.L42:
+ 143:main.c        ****     else if(temp == '4'){numtemp = 4;}
+ 453              		.loc 1 143 0
+ 454 0042 0323     		movs	r3, #3
+ 455              	.LVL46:
+ 456 0044 0AE0     		b	.L35
+ 457              	.LVL47:
+ 458              	.L43:
+ 144:main.c        ****     else if(temp == '5'){numtemp = 5;}
+ 459              		.loc 1 144 0
+ 460 0046 0423     		movs	r3, #4
+ 461              	.LVL48:
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 12
+
+
+ 462 0048 08E0     		b	.L35
+ 463              	.LVL49:
+ 464              	.L44:
+ 145:main.c        ****     else if(temp == '6'){numtemp = 6;}
+ 465              		.loc 1 145 0
+ 466 004a 0523     		movs	r3, #5
+ 467              	.LVL50:
+ 468 004c 06E0     		b	.L35
+ 469              	.LVL51:
+ 470              	.L45:
+ 146:main.c        ****     else if(temp == '7'){numtemp = 7;}
+ 471              		.loc 1 146 0
+ 472 004e 0623     		movs	r3, #6
+ 473              	.LVL52:
+ 474 0050 04E0     		b	.L35
+ 475              	.LVL53:
+ 476              	.L46:
+ 147:main.c        ****     else if(temp == '8'){numtemp = 8;}
+ 477              		.loc 1 147 0
+ 478 0052 0723     		movs	r3, #7
+ 479              	.LVL54:
+ 480 0054 02E0     		b	.L35
+ 481              	.LVL55:
+ 482              	.L47:
+ 148:main.c        ****     else if(temp == '9'){numtemp = 9;}
+ 483              		.loc 1 148 0
+ 484 0056 0823     		movs	r3, #8
+ 485              	.LVL56:
+ 486 0058 00E0     		b	.L35
+ 487              	.LVL57:
+ 488              	.L48:
+ 150:main.c        ****     else {numtemp = 0;}
+ 489              		.loc 1 150 0
+ 490 005a 0023     		movs	r3, #0
+ 491              	.LVL58:
+ 492              	.L35:
+ 151:main.c        ****     if(pos == 1){result += numtemp*10;}
+ 493              		.loc 1 151 0
+ 494 005c 012C     		cmp	r4, #1
+ 495 005e 03D1     		bne	.L36
+ 496              		.loc 1 151 0 is_stmt 0 discriminator 1
+ 497 0060 03EB8307 		add	r7, r3, r3, lsl #2
+ 498 0064 7E00     		lsls	r6, r7, #1
+ 499 0066 3544     		add	r5, r5, r6
+ 500              	.LVL59:
+ 501              	.L36:
+ 152:main.c        ****     if(pos == 0){result += numtemp;}
+ 502              		.loc 1 152 0 is_stmt 1
+ 503 0068 04B9     		cbnz	r4, .L37
+ 504              		.loc 1 152 0 is_stmt 0 discriminator 1
+ 505 006a 1D44     		add	r5, r5, r3
+ 506              	.LVL60:
+ 507              	.L37:
+ 153:main.c        ****     pos--;
+ 508              		.loc 1 153 0 is_stmt 1 discriminator 2
+ 509 006c 013C     		subs	r4, r4, #1
+ 510              	.LVL61:
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 13
+
+
+ 138:main.c        ****     temp = *(str + i);
+ 511              		.loc 1 138 0 discriminator 2
+ 512 006e 0131     		adds	r1, r1, #1
+ 513              	.LVL62:
+ 514              	.L34:
+ 138:main.c        ****     temp = *(str + i);
+ 515              		.loc 1 138 0 is_stmt 0 discriminator 1
+ 516 0070 9142     		cmp	r1, r2
+ 517 0072 C9DD     		ble	.L38
+ 518              	.LBE3:
+ 154:main.c        ****     }
+ 155:main.c        ****     return result;
+ 156:main.c        **** }...
+ 519              		.loc 1 156 0 is_stmt 1
+ 520 0074 2846     		mov	r0, r5
+ 521              	.LVL63:
+ 522 0076 F0BC     		pop	{r4, r5, r6, r7}
+ 523              		.cfi_restore 7
+ 524              		.cfi_restore 6
+ 525              		.cfi_restore 5
+ 526              		.cfi_restore 4
+ 527              		.cfi_def_cfa_offset 0
+ 528              	.LVL64:
+ 529 0078 7047     		bx	lr
+ 530              		.cfi_endproc
+ 531              	.LFE67:
+ 532              		.size	stringtoint, .-stringtoint
+ 533              		.global	__aeabi_i2d
+ 534              		.global	__aeabi_dmul
+ 535              		.global	__aeabi_dadd
+ 536              		.global	__aeabi_d2iz
+ 537 007a 00BF     		.section	.text.main,"ax",%progbits
+ 538              		.align	2
+ 539              		.global	main
+ 540              		.thumb
+ 541              		.thumb_func
+ 542              		.type	main, %function
+ 543              	main:
+ 544              	.LFB63:
+  19:main.c        **** {
+ 545              		.loc 1 19 0
+ 546              		.cfi_startproc
+ 547              		@ Volatile: function does not return.
+ 548              		@ args = 0, pretend = 0, frame = 0
+ 549              		@ frame_needed = 0, uses_anonymous_args = 0
+ 550 0000 80B5     		push	{r7, lr}
+ 551              		.cfi_def_cfa_offset 8
+ 552              		.cfi_offset 7, -8
+ 553              		.cfi_offset 14, -4
+  20:main.c        ****     CyGlobalIntEnable;
+ 554              		.loc 1 20 0
+ 555              		.syntax unified
+ 556              	@ 20 "main.c" 1
+ 557 0002 62B6     		CPSIE   i
+ 558              	@ 0 "" 2
+  21:main.c        ****     LCD_Start();
+ 559              		.loc 1 21 0
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 14
+
+
+ 560              		.thumb
+ 561              		.syntax unified
+ 562 0004 FFF7FEFF 		bl	LCD_Start
+ 563              	.LVL65:
+  22:main.c        ****     UART_Start();
+ 564              		.loc 1 22 0
+ 565 0008 FFF7FEFF 		bl	UART_Start
+ 566              	.LVL66:
+  23:main.c        ****     ADC_Start();
+ 567              		.loc 1 23 0
+ 568 000c FFF7FEFF 		bl	ADC_Start
+ 569              	.LVL67:
+  24:main.c        ****     ADC_StartConvert();
+ 570              		.loc 1 24 0
+ 571 0010 FFF7FEFF 		bl	ADC_StartConvert
+ 572              	.LVL68:
+  25:main.c        ****     Clock_1_Start();
+ 573              		.loc 1 25 0
+ 574 0014 FFF7FEFF 		bl	Clock_1_Start
+ 575              	.LVL69:
+  26:main.c        ****     PWM_1_Start();
+ 576              		.loc 1 26 0
+ 577 0018 FFF7FEFF 		bl	PWM_1_Start
+ 578              	.LVL70:
+  27:main.c        ****     PWM_2_Start();
+ 579              		.loc 1 27 0
+ 580 001c FFF7FEFF 		bl	PWM_2_Start
+ 581              	.LVL71:
+  28:main.c        ****     PWM_3_Start();
+ 582              		.loc 1 28 0
+ 583 0020 FFF7FEFF 		bl	PWM_3_Start
+ 584              	.LVL72:
+  29:main.c        ****     PWM_4_Start();
+ 585              		.loc 1 29 0
+ 586 0024 FFF7FEFF 		bl	PWM_4_Start
+ 587              	.LVL73:
+  30:main.c        ****     PWM_5_Start();
+ 588              		.loc 1 30 0
+ 589 0028 FFF7FEFF 		bl	PWM_5_Start
+ 590              	.LVL74:
+  31:main.c        ****     PWM_6_Start();
+ 591              		.loc 1 31 0
+ 592 002c FFF7FEFF 		bl	PWM_6_Start
+ 593              	.LVL75:
+  32:main.c        ****     PWM_7_Start();
+ 594              		.loc 1 32 0
+ 595 0030 FFF7FEFF 		bl	PWM_7_Start
+ 596              	.LVL76:
+  33:main.c        ****     PWM_8_Start();
+ 597              		.loc 1 33 0
+ 598 0034 FFF7FEFF 		bl	PWM_8_Start
+ 599              	.LVL77:
+  34:main.c        ****     PWM_9_Start();
+ 600              		.loc 1 34 0
+ 601 0038 FFF7FEFF 		bl	PWM_9_Start
+ 602              	.LVL78:
+  35:main.c        ****     com_StartEx(com_handler);
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 15
+
+
+ 603              		.loc 1 35 0
+ 604 003c 6848     		ldr	r0, .L55+8
+ 605 003e FFF7FEFF 		bl	com_StartEx
+ 606              	.LVL79:
+  36:main.c        ****     com_ClearPending();
+ 607              		.loc 1 36 0
+ 608 0042 FFF7FEFF 		bl	com_ClearPending
+ 609              	.LVL80:
+ 610              	.L53:
+  40:main.c        ****         adc[0] = (int)(((0.0055)*ADC_GetResult16(0)) + offset);
+ 611              		.loc 1 40 0
+ 612 0046 0020     		movs	r0, #0
+ 613 0048 FFF7FEFF 		bl	ADC_GetResult16
+ 614              	.LVL81:
+ 615 004c FFF7FEFF 		bl	__aeabi_i2d
+ 616              	.LVL82:
+ 617 0050 61A3     		adr	r3, .L55
+ 618 0052 D3E90023 		ldrd	r2, [r3]
+ 619 0056 FFF7FEFF 		bl	__aeabi_dmul
+ 620              	.LVL83:
+ 621 005a 0646     		mov	r6, r0
+ 622 005c 0F46     		mov	r7, r1
+ 623 005e 614C     		ldr	r4, .L55+12
+ 624 0060 A06C     		ldr	r0, [r4, #72]
+ 625 0062 FFF7FEFF 		bl	__aeabi_i2d
+ 626              	.LVL84:
+ 627 0066 3246     		mov	r2, r6
+ 628 0068 3B46     		mov	r3, r7
+ 629 006a FFF7FEFF 		bl	__aeabi_dadd
+ 630              	.LVL85:
+ 631 006e FFF7FEFF 		bl	__aeabi_d2iz
+ 632              	.LVL86:
+ 633 0072 5D4D     		ldr	r5, .L55+16
+ 634 0074 2860     		str	r0, [r5]
+  41:main.c        ****         adc[1] = (int)(((0.0055)*ADC_GetResult16(1)) + offset);
+ 635              		.loc 1 41 0
+ 636 0076 0120     		movs	r0, #1
+ 637 0078 FFF7FEFF 		bl	ADC_GetResult16
+ 638              	.LVL87:
+ 639 007c FFF7FEFF 		bl	__aeabi_i2d
+ 640              	.LVL88:
+ 641 0080 55A3     		adr	r3, .L55
+ 642 0082 D3E90023 		ldrd	r2, [r3]
+ 643 0086 FFF7FEFF 		bl	__aeabi_dmul
+ 644              	.LVL89:
+ 645 008a 0646     		mov	r6, r0
+ 646 008c 0F46     		mov	r7, r1
+ 647 008e A06C     		ldr	r0, [r4, #72]
+ 648 0090 FFF7FEFF 		bl	__aeabi_i2d
+ 649              	.LVL90:
+ 650 0094 3246     		mov	r2, r6
+ 651 0096 3B46     		mov	r3, r7
+ 652 0098 FFF7FEFF 		bl	__aeabi_dadd
+ 653              	.LVL91:
+ 654 009c FFF7FEFF 		bl	__aeabi_d2iz
+ 655              	.LVL92:
+ 656 00a0 6860     		str	r0, [r5, #4]
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 16
+
+
+  42:main.c        ****         adc[2] = (int)(((0.0055)*ADC_GetResult16(2)) + offset);
+ 657              		.loc 1 42 0
+ 658 00a2 0220     		movs	r0, #2
+ 659 00a4 FFF7FEFF 		bl	ADC_GetResult16
+ 660              	.LVL93:
+ 661 00a8 FFF7FEFF 		bl	__aeabi_i2d
+ 662              	.LVL94:
+ 663 00ac 4AA3     		adr	r3, .L55
+ 664 00ae D3E90023 		ldrd	r2, [r3]
+ 665 00b2 FFF7FEFF 		bl	__aeabi_dmul
+ 666              	.LVL95:
+ 667 00b6 0646     		mov	r6, r0
+ 668 00b8 0F46     		mov	r7, r1
+ 669 00ba A06C     		ldr	r0, [r4, #72]
+ 670 00bc FFF7FEFF 		bl	__aeabi_i2d
+ 671              	.LVL96:
+ 672 00c0 3246     		mov	r2, r6
+ 673 00c2 3B46     		mov	r3, r7
+ 674 00c4 FFF7FEFF 		bl	__aeabi_dadd
+ 675              	.LVL97:
+ 676 00c8 FFF7FEFF 		bl	__aeabi_d2iz
+ 677              	.LVL98:
+ 678 00cc A860     		str	r0, [r5, #8]
+  43:main.c        ****         adc[3] = (int)(((0.0055)*ADC_GetResult16(3)) + offset);
+ 679              		.loc 1 43 0
+ 680 00ce 0320     		movs	r0, #3
+ 681 00d0 FFF7FEFF 		bl	ADC_GetResult16
+ 682              	.LVL99:
+ 683 00d4 FFF7FEFF 		bl	__aeabi_i2d
+ 684              	.LVL100:
+ 685 00d8 3FA3     		adr	r3, .L55
+ 686 00da D3E90023 		ldrd	r2, [r3]
+ 687 00de FFF7FEFF 		bl	__aeabi_dmul
+ 688              	.LVL101:
+ 689 00e2 0646     		mov	r6, r0
+ 690 00e4 0F46     		mov	r7, r1
+ 691 00e6 A06C     		ldr	r0, [r4, #72]
+ 692 00e8 FFF7FEFF 		bl	__aeabi_i2d
+ 693              	.LVL102:
+ 694 00ec 3246     		mov	r2, r6
+ 695 00ee 3B46     		mov	r3, r7
+ 696 00f0 FFF7FEFF 		bl	__aeabi_dadd
+ 697              	.LVL103:
+ 698 00f4 FFF7FEFF 		bl	__aeabi_d2iz
+ 699              	.LVL104:
+ 700 00f8 E860     		str	r0, [r5, #12]
+  45:main.c        ****         PWM_1_WriteCompare(stringtoint(&codigo[0],4,5));
+ 701              		.loc 1 45 0
+ 702 00fa 2834     		adds	r4, r4, #40
+ 703 00fc 0522     		movs	r2, #5
+ 704 00fe 0421     		movs	r1, #4
+ 705 0100 2046     		mov	r0, r4
+ 706 0102 FFF7FEFF 		bl	stringtoint
+ 707              	.LVL105:
+ 708 0106 80B2     		uxth	r0, r0
+ 709 0108 FFF7FEFF 		bl	PWM_1_WriteCompare
+ 710              	.LVL106:
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 17
+
+
+  46:main.c        ****         PWM_2_WriteCompare(stringtoint(&codigo[0],7,8));
+ 711              		.loc 1 46 0
+ 712 010c 0822     		movs	r2, #8
+ 713 010e 0721     		movs	r1, #7
+ 714 0110 2046     		mov	r0, r4
+ 715 0112 FFF7FEFF 		bl	stringtoint
+ 716              	.LVL107:
+ 717 0116 80B2     		uxth	r0, r0
+ 718 0118 FFF7FEFF 		bl	PWM_2_WriteCompare
+ 719              	.LVL108:
+  47:main.c        ****         PWM_3_WriteCompare(stringtoint(&codigo[0],10,11));
+ 720              		.loc 1 47 0
+ 721 011c 0B22     		movs	r2, #11
+ 722 011e 0A21     		movs	r1, #10
+ 723 0120 2046     		mov	r0, r4
+ 724 0122 FFF7FEFF 		bl	stringtoint
+ 725              	.LVL109:
+ 726 0126 80B2     		uxth	r0, r0
+ 727 0128 FFF7FEFF 		bl	PWM_3_WriteCompare
+ 728              	.LVL110:
+  48:main.c        ****         PWM_4_WriteCompare(stringtoint(&codigo[0],13,14));
+ 729              		.loc 1 48 0
+ 730 012c 0E22     		movs	r2, #14
+ 731 012e 0D21     		movs	r1, #13
+ 732 0130 2046     		mov	r0, r4
+ 733 0132 FFF7FEFF 		bl	stringtoint
+ 734              	.LVL111:
+ 735 0136 80B2     		uxth	r0, r0
+ 736 0138 FFF7FEFF 		bl	PWM_4_WriteCompare
+ 737              	.LVL112:
+  49:main.c        ****         PWM_5_WriteCompare(stringtoint(&codigo[0],16,17));
+ 738              		.loc 1 49 0
+ 739 013c 1122     		movs	r2, #17
+ 740 013e 1021     		movs	r1, #16
+ 741 0140 2046     		mov	r0, r4
+ 742 0142 FFF7FEFF 		bl	stringtoint
+ 743              	.LVL113:
+ 744 0146 80B2     		uxth	r0, r0
+ 745 0148 FFF7FEFF 		bl	PWM_5_WriteCompare
+ 746              	.LVL114:
+  50:main.c        ****         PWM_9_WriteCompare(stringtoint(&codigo[0],28,29));
+ 747              		.loc 1 50 0
+ 748 014c 1D22     		movs	r2, #29
+ 749 014e 1C21     		movs	r1, #28
+ 750 0150 2046     		mov	r0, r4
+ 751 0152 FFF7FEFF 		bl	stringtoint
+ 752              	.LVL115:
+ 753 0156 80B2     		uxth	r0, r0
+ 754 0158 FFF7FEFF 		bl	PWM_9_WriteCompare
+ 755              	.LVL116:
+  52:main.c        ****         if(MODE_Read() == 1){
+ 756              		.loc 1 52 0
+ 757 015c FFF7FEFF 		bl	MODE_Read
+ 758              	.LVL117:
+ 759 0160 0128     		cmp	r0, #1
+ 760 0162 18D1     		bne	.L51
+  54:main.c        ****         PWM_6_WriteCompare(stringtoint(&codigo[0],19,20));
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 18
+
+
+ 761              		.loc 1 54 0
+ 762 0164 1422     		movs	r2, #20
+ 763 0166 1321     		movs	r1, #19
+ 764 0168 2046     		mov	r0, r4
+ 765 016a FFF7FEFF 		bl	stringtoint
+ 766              	.LVL118:
+ 767 016e 80B2     		uxth	r0, r0
+ 768 0170 FFF7FEFF 		bl	PWM_6_WriteCompare
+ 769              	.LVL119:
+  55:main.c        ****         PWM_7_WriteCompare(stringtoint(&codigo[0],22,23));
+ 770              		.loc 1 55 0
+ 771 0174 1722     		movs	r2, #23
+ 772 0176 1621     		movs	r1, #22
+ 773 0178 2046     		mov	r0, r4
+ 774 017a FFF7FEFF 		bl	stringtoint
+ 775              	.LVL120:
+ 776 017e 80B2     		uxth	r0, r0
+ 777 0180 FFF7FEFF 		bl	PWM_7_WriteCompare
+ 778              	.LVL121:
+  56:main.c        ****         PWM_8_WriteCompare(stringtoint(&codigo[0],25,26));
+ 779              		.loc 1 56 0
+ 780 0184 1A22     		movs	r2, #26
+ 781 0186 1921     		movs	r1, #25
+ 782 0188 2046     		mov	r0, r4
+ 783 018a FFF7FEFF 		bl	stringtoint
+ 784              	.LVL122:
+ 785 018e 80B2     		uxth	r0, r0
+ 786 0190 FFF7FEFF 		bl	PWM_8_WriteCompare
+ 787              	.LVL123:
+ 788 0194 09E0     		b	.L52
+ 789              	.L51:
+  59:main.c        ****         PWM_6_WriteCompare(adc[0]);
+ 790              		.loc 1 59 0
+ 791 0196 144C     		ldr	r4, .L55+16
+ 792 0198 2088     		ldrh	r0, [r4]
+ 793 019a FFF7FEFF 		bl	PWM_6_WriteCompare
+ 794              	.LVL124:
+  60:main.c        ****         PWM_7_WriteCompare(adc[1]);
+ 795              		.loc 1 60 0
+ 796 019e A088     		ldrh	r0, [r4, #4]
+ 797 01a0 FFF7FEFF 		bl	PWM_7_WriteCompare
+ 798              	.LVL125:
+  61:main.c        ****         PWM_8_WriteCompare(adc[2]); 
+ 799              		.loc 1 61 0
+ 800 01a4 2089     		ldrh	r0, [r4, #8]
+ 801 01a6 FFF7FEFF 		bl	PWM_8_WriteCompare
+ 802              	.LVL126:
+ 803              	.L52:
+  64:main.c        ****         LCD_ClearDisplay();
+ 804              		.loc 1 64 0
+ 805 01aa 0120     		movs	r0, #1
+ 806 01ac FFF7FEFF 		bl	LCD_WriteControl
+ 807              	.LVL127:
+  65:main.c        ****         LCD_Position(0,0);
+ 808              		.loc 1 65 0
+ 809 01b0 0021     		movs	r1, #0
+ 810 01b2 0846     		mov	r0, r1
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 19
+
+
+ 811 01b4 FFF7FEFF 		bl	LCD_Position
+ 812              	.LVL128:
+  66:main.c        ****         LCD_PrintString(codigo);
+ 813              		.loc 1 66 0
+ 814 01b8 0C48     		ldr	r0, .L55+20
+ 815 01ba FFF7FEFF 		bl	LCD_PrintString
+ 816              	.LVL129:
+  67:main.c        ****         LCD_Position(1,0);
+ 817              		.loc 1 67 0
+ 818 01be 0021     		movs	r1, #0
+ 819 01c0 0120     		movs	r0, #1
+ 820 01c2 FFF7FEFF 		bl	LCD_Position
+ 821              	.LVL130:
+  68:main.c        ****         LCD_PrintNumber(comas);
+ 822              		.loc 1 68 0
+ 823 01c6 0A4B     		ldr	r3, .L55+24
+ 824 01c8 9888     		ldrh	r0, [r3, #4]
+ 825 01ca FFF7FEFF 		bl	LCD_PrintU32Number
+ 826              	.LVL131:
+  69:main.c        ****         CyDelay(30);
+ 827              		.loc 1 69 0
+ 828 01ce 1E20     		movs	r0, #30
+ 829 01d0 FFF7FEFF 		bl	CyDelay
+ 830              	.LVL132:
+  70:main.c        ****     }
+ 831              		.loc 1 70 0
+ 832 01d4 37E7     		b	.L53
+ 833              	.L56:
+ 834 01d6 00BF     		.align	3
+ 835              	.L55:
+ 836 01d8 BA490C02 		.word	34359738
+ 837 01dc 2B87763F 		.word	1064732459
+ 838 01e0 00000000 		.word	com_handler
+ 839 01e4 00000000 		.word	.LANCHOR1
+ 840 01e8 00000000 		.word	adc
+ 841 01ec 28000000 		.word	.LANCHOR1+40
+ 842 01f0 00000000 		.word	.LANCHOR0
+ 843              		.cfi_endproc
+ 844              	.LFE63:
+ 845              		.size	main, .-main
+ 846              		.comm	adc,16,4
+ 847              		.global	offset
+ 848              		.global	read
+ 849              		.global	comas
+ 850              		.global	pass
+ 851              		.global	cs
+ 852              		.comm	foo,1,1
+ 853              		.global	check
+ 854              		.global	codigo
+ 855              		.data
+ 856              		.align	2
+ 857              		.set	.LANCHOR1,. + 0
+ 858              		.type	pass, %object
+ 859              		.size	pass, 4
+ 860              	pass:
+ 861 0000 01000000 		.word	1
+ 862              		.type	read, %object
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 20
+
+
+ 863              		.size	read, 4
+ 864              	read:
+ 865 0004 01000000 		.word	1
+ 866              		.type	check, %object
+ 867              		.size	check, 32
+ 868              	check:
+ 869 0008 30303030 		.ascii	"00000000000000000000000000000000"
+ 869      30303030 
+ 869      30303030 
+ 869      30303030 
+ 869      30303030 
+ 870              		.type	codigo, %object
+ 871              		.size	codigo, 32
+ 872              	codigo:
+ 873 0028 5752452C 		.ascii	"WRE,08,08,08,08,08,08,08,08,08,F"
+ 873      30382C30 
+ 873      382C3038 
+ 873      2C30382C 
+ 873      30382C30 
+ 874              		.type	offset, %object
+ 875              		.size	offset, 4
+ 876              	offset:
+ 877 0048 08000000 		.word	8
+ 878              		.bss
+ 879              		.align	2
+ 880              		.set	.LANCHOR0,. + 0
+ 881              		.type	cs, %object
+ 882              		.size	cs, 4
+ 883              	cs:
+ 884 0000 00000000 		.space	4
+ 885              		.type	comas, %object
+ 886              		.size	comas, 4
+ 887              	comas:
+ 888 0004 00000000 		.space	4
+ 889              		.text
+ 890              	.Letext0:
+ 891              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 892              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 893              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 894              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 895              		.file 6 "Generated_Source\\PSoC5/UART.h"
+ 896              		.file 7 "Generated_Source\\PSoC5/com.h"
+ 897              		.file 8 "Generated_Source\\PSoC5/LCD.h"
+ 898              		.file 9 "Generated_Source\\PSoC5/ADC.h"
+ 899              		.file 10 "Generated_Source\\PSoC5/Clock_1.h"
+ 900              		.file 11 "Generated_Source\\PSoC5/PWM_1.h"
+ 901              		.file 12 "Generated_Source\\PSoC5/PWM_2.h"
+ 902              		.file 13 "Generated_Source\\PSoC5/PWM_3.h"
+ 903              		.file 14 "Generated_Source\\PSoC5/PWM_4.h"
+ 904              		.file 15 "Generated_Source\\PSoC5/PWM_5.h"
+ 905              		.file 16 "Generated_Source\\PSoC5/PWM_6.h"
+ 906              		.file 17 "Generated_Source\\PSoC5/PWM_7.h"
+ 907              		.file 18 "Generated_Source\\PSoC5/PWM_8.h"
+ 908              		.file 19 "Generated_Source\\PSoC5/PWM_9.h"
+ 909              		.file 20 "Generated_Source\\PSoC5/MODE.h"
+ 910              		.file 21 "Generated_Source\\PSoC5/CyLib.h"
+ 911              		.section	.debug_info,"",%progbits
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 21
+
+
+ 912              	.Ldebug_info0:
+ 913 0000 5E070000 		.4byte	0x75e
+ 914 0004 0400     		.2byte	0x4
+ 915 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 916 000a 04       		.byte	0x4
+ 917 000b 01       		.uleb128 0x1
+ 918 000c 23030000 		.4byte	.LASF64
+ 919 0010 0C       		.byte	0xc
+ 920 0011 96020000 		.4byte	.LASF65
+ 921 0015 C8010000 		.4byte	.LASF66
+ 922 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 923 001d 00000000 		.4byte	0
+ 924 0021 00000000 		.4byte	.Ldebug_line0
+ 925 0025 02       		.uleb128 0x2
+ 926 0026 08       		.byte	0x8
+ 927 0027 07       		.byte	0x7
+ 928 0028 B1010000 		.4byte	.LASF0
+ 929 002c 02       		.uleb128 0x2
+ 930 002d 04       		.byte	0x4
+ 931 002e 07       		.byte	0x7
+ 932 002f 06020000 		.4byte	.LASF1
+ 933 0033 03       		.uleb128 0x3
+ 934 0034 04       		.byte	0x4
+ 935 0035 05       		.byte	0x5
+ 936 0036 696E7400 		.ascii	"int\000"
+ 937 003a 02       		.uleb128 0x2
+ 938 003b 01       		.byte	0x1
+ 939 003c 06       		.byte	0x6
+ 940 003d A5010000 		.4byte	.LASF2
+ 941 0041 02       		.uleb128 0x2
+ 942 0042 01       		.byte	0x1
+ 943 0043 08       		.byte	0x8
+ 944 0044 8C010000 		.4byte	.LASF3
+ 945 0048 02       		.uleb128 0x2
+ 946 0049 02       		.byte	0x2
+ 947 004a 05       		.byte	0x5
+ 948 004b 72000000 		.4byte	.LASF4
+ 949 004f 02       		.uleb128 0x2
+ 950 0050 02       		.byte	0x2
+ 951 0051 07       		.byte	0x7
+ 952 0052 2F020000 		.4byte	.LASF5
+ 953 0056 04       		.uleb128 0x4
+ 954 0057 D5020000 		.4byte	.LASF9
+ 955 005b 02       		.byte	0x2
+ 956 005c 3F       		.byte	0x3f
+ 957 005d 61000000 		.4byte	0x61
+ 958 0061 02       		.uleb128 0x2
+ 959 0062 04       		.byte	0x4
+ 960 0063 05       		.byte	0x5
+ 961 0064 08010000 		.4byte	.LASF6
+ 962 0068 02       		.uleb128 0x2
+ 963 0069 04       		.byte	0x4
+ 964 006a 07       		.byte	0x7
+ 965 006b 9D020000 		.4byte	.LASF7
+ 966 006f 02       		.uleb128 0x2
+ 967 0070 08       		.byte	0x8
+ 968 0071 05       		.byte	0x5
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 22
+
+
+ 969 0072 F0000000 		.4byte	.LASF8
+ 970 0076 04       		.uleb128 0x4
+ 971 0077 6A020000 		.4byte	.LASF10
+ 972 007b 03       		.byte	0x3
+ 973 007c 2C       		.byte	0x2c
+ 974 007d 56000000 		.4byte	0x56
+ 975 0081 05       		.uleb128 0x5
+ 976 0082 7E020000 		.4byte	.LASF11
+ 977 0086 04       		.byte	0x4
+ 978 0087 E501     		.2byte	0x1e5
+ 979 0089 4F000000 		.4byte	0x4f
+ 980 008d 02       		.uleb128 0x2
+ 981 008e 04       		.byte	0x4
+ 982 008f 04       		.byte	0x4
+ 983 0090 E5000000 		.4byte	.LASF12
+ 984 0094 02       		.uleb128 0x2
+ 985 0095 08       		.byte	0x8
+ 986 0096 04       		.byte	0x4
+ 987 0097 0F030000 		.4byte	.LASF13
+ 988 009b 02       		.uleb128 0x2
+ 989 009c 01       		.byte	0x1
+ 990 009d 08       		.byte	0x8
+ 991 009e 5A020000 		.4byte	.LASF14
+ 992 00a2 02       		.uleb128 0x2
+ 993 00a3 08       		.byte	0x8
+ 994 00a4 04       		.byte	0x4
+ 995 00a5 80010000 		.4byte	.LASF15
+ 996 00a9 02       		.uleb128 0x2
+ 997 00aa 04       		.byte	0x4
+ 998 00ab 07       		.byte	0x7
+ 999 00ac 7C000000 		.4byte	.LASF16
+ 1000 00b0 06       		.uleb128 0x6
+ 1001 00b1 04       		.byte	0x4
+ 1002 00b2 9B000000 		.4byte	0x9b
+ 1003 00b6 07       		.uleb128 0x7
+ 1004 00b7 37010000 		.4byte	.LASF17
+ 1005 00bb 01       		.byte	0x1
+ 1006 00bc 49       		.byte	0x49
+ 1007 00bd 00000000 		.4byte	.LFB64
+ 1008 00c1 E4000000 		.4byte	.LFE64-.LFB64
+ 1009 00c5 01       		.uleb128 0x1
+ 1010 00c6 9C       		.byte	0x9c
+ 1011 00c7 F9000000 		.4byte	0xf9
+ 1012 00cb 08       		.uleb128 0x8
+ 1013 00cc BA000000 		.4byte	.LBB2
+ 1014 00d0 12000000 		.4byte	.LBE2-.LBB2
+ 1015 00d4 E6000000 		.4byte	0xe6
+ 1016 00d8 09       		.uleb128 0x9
+ 1017 00d9 6900     		.ascii	"i\000"
+ 1018 00db 01       		.byte	0x1
+ 1019 00dc 64       		.byte	0x64
+ 1020 00dd 33000000 		.4byte	0x33
+ 1021 00e1 00000000 		.4byte	.LLST0
+ 1022 00e5 00       		.byte	0
+ 1023 00e6 0A       		.uleb128 0xa
+ 1024 00e7 06000000 		.4byte	.LVL0
+ 1025 00eb F6050000 		.4byte	0x5f6
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 23
+
+
+ 1026 00ef 0A       		.uleb128 0xa
+ 1027 00f0 D6000000 		.4byte	.LVL5
+ 1028 00f4 01060000 		.4byte	0x601
+ 1029 00f8 00       		.byte	0
+ 1030 00f9 0B       		.uleb128 0xb
+ 1031 00fa 34000000 		.4byte	.LASF20
+ 1032 00fe 01       		.byte	0x1
+ 1033 00ff 6F       		.byte	0x6f
+ 1034 0100 9B000000 		.4byte	0x9b
+ 1035 0104 00000000 		.4byte	.LFB65
+ 1036 0108 52000000 		.4byte	.LFE65-.LFB65
+ 1037 010c 01       		.uleb128 0x1
+ 1038 010d 9C       		.byte	0x9c
+ 1039 010e 22010000 		.4byte	0x122
+ 1040 0112 0C       		.uleb128 0xc
+ 1041 0113 6D000000 		.4byte	.LASF19
+ 1042 0117 01       		.byte	0x1
+ 1043 0118 6F       		.byte	0x6f
+ 1044 0119 33000000 		.4byte	0x33
+ 1045 011d 1F000000 		.4byte	.LLST1
+ 1046 0121 00       		.byte	0
+ 1047 0122 07       		.uleb128 0x7
+ 1048 0123 9A010000 		.4byte	.LASF18
+ 1049 0127 01       		.byte	0x1
+ 1050 0128 7D       		.byte	0x7d
+ 1051 0129 00000000 		.4byte	.LFB66
+ 1052 012d 40000000 		.4byte	.LFE66-.LFB66
+ 1053 0131 01       		.uleb128 0x1
+ 1054 0132 9C       		.byte	0x9c
+ 1055 0133 A0010000 		.4byte	0x1a0
+ 1056 0137 0C       		.uleb128 0xc
+ 1057 0138 6D000000 		.4byte	.LASF19
+ 1058 013c 01       		.byte	0x1
+ 1059 013d 7D       		.byte	0x7d
+ 1060 013e 33000000 		.4byte	0x33
+ 1061 0142 3A010000 		.4byte	.LLST2
+ 1062 0146 0D       		.uleb128 0xd
+ 1063 0147 73747200 		.ascii	"str\000"
+ 1064 014b 01       		.byte	0x1
+ 1065 014c 7D       		.byte	0x7d
+ 1066 014d B0000000 		.4byte	0xb0
+ 1067 0151 66010000 		.4byte	.LLST3
+ 1068 0155 0E       		.uleb128 0xe
+ 1069 0156 28000000 		.4byte	.LVL30
+ 1070 015a F9000000 		.4byte	0xf9
+ 1071 015e 8A010000 		.4byte	0x18a
+ 1072 0162 0F       		.uleb128 0xf
+ 1073 0163 01       		.uleb128 0x1
+ 1074 0164 50       		.byte	0x50
+ 1075 0165 23       		.uleb128 0x23
+ 1076 0166 74       		.byte	0x74
+ 1077 0167 00       		.sleb128 0
+ 1078 0168 74       		.byte	0x74
+ 1079 0169 00       		.sleb128 0
+ 1080 016a F7       		.byte	0xf7
+ 1081 016b 33       		.uleb128 0x33
+ 1082 016c F7       		.byte	0xf7
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 24
+
+
+ 1083 016d 25       		.uleb128 0x25
+ 1084 016e 0C       		.byte	0xc
+ 1085 016f 67666666 		.4byte	0x66666667
+ 1086 0173 F7       		.byte	0xf7
+ 1087 0174 25       		.uleb128 0x25
+ 1088 0175 1E       		.byte	0x1e
+ 1089 0176 08       		.byte	0x8
+ 1090 0177 20       		.byte	0x20
+ 1091 0178 F7       		.byte	0xf7
+ 1092 0179 25       		.uleb128 0x25
+ 1093 017a 25       		.byte	0x25
+ 1094 017b F7       		.byte	0xf7
+ 1095 017c 2C       		.uleb128 0x2c
+ 1096 017d 32       		.byte	0x32
+ 1097 017e 26       		.byte	0x26
+ 1098 017f 74       		.byte	0x74
+ 1099 0180 00       		.sleb128 0
+ 1100 0181 4F       		.byte	0x4f
+ 1101 0182 26       		.byte	0x26
+ 1102 0183 1C       		.byte	0x1c
+ 1103 0184 35       		.byte	0x35
+ 1104 0185 1E       		.byte	0x1e
+ 1105 0186 31       		.byte	0x31
+ 1106 0187 24       		.byte	0x24
+ 1107 0188 1C       		.byte	0x1c
+ 1108 0189 00       		.byte	0
+ 1109 018a 10       		.uleb128 0x10
+ 1110 018b 36000000 		.4byte	.LVL32
+ 1111 018f F9000000 		.4byte	0xf9
+ 1112 0193 0F       		.uleb128 0xf
+ 1113 0194 01       		.uleb128 0x1
+ 1114 0195 50       		.byte	0x50
+ 1115 0196 07       		.uleb128 0x7
+ 1116 0197 75       		.byte	0x75
+ 1117 0198 00       		.sleb128 0
+ 1118 0199 74       		.byte	0x74
+ 1119 019a 00       		.sleb128 0
+ 1120 019b 31       		.byte	0x31
+ 1121 019c 24       		.byte	0x24
+ 1122 019d 1C       		.byte	0x1c
+ 1123 019e 00       		.byte	0
+ 1124 019f 00       		.byte	0
+ 1125 01a0 0B       		.uleb128 0xb
+ 1126 01a1 43010000 		.4byte	.LASF21
+ 1127 01a5 01       		.byte	0x1
+ 1128 01a6 84       		.byte	0x84
+ 1129 01a7 33000000 		.4byte	0x33
+ 1130 01ab 00000000 		.4byte	.LFB67
+ 1131 01af 7A000000 		.4byte	.LFE67-.LFB67
+ 1132 01b3 01       		.uleb128 0x1
+ 1133 01b4 9C       		.byte	0x9c
+ 1134 01b5 34020000 		.4byte	0x234
+ 1135 01b9 0D       		.uleb128 0xd
+ 1136 01ba 73747200 		.ascii	"str\000"
+ 1137 01be 01       		.byte	0x1
+ 1138 01bf 84       		.byte	0x84
+ 1139 01c0 B0000000 		.4byte	0xb0
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 25
+
+
+ 1140 01c4 A1010000 		.4byte	.LLST4
+ 1141 01c8 0D       		.uleb128 0xd
+ 1142 01c9 6C7600   		.ascii	"lv\000"
+ 1143 01cc 01       		.byte	0x1
+ 1144 01cd 84       		.byte	0x84
+ 1145 01ce 33000000 		.4byte	0x33
+ 1146 01d2 C2010000 		.4byte	.LLST5
+ 1147 01d6 11       		.uleb128 0x11
+ 1148 01d7 687600   		.ascii	"hv\000"
+ 1149 01da 01       		.byte	0x1
+ 1150 01db 84       		.byte	0x84
+ 1151 01dc 33000000 		.4byte	0x33
+ 1152 01e0 01       		.uleb128 0x1
+ 1153 01e1 52       		.byte	0x52
+ 1154 01e2 09       		.uleb128 0x9
+ 1155 01e3 706F7300 		.ascii	"pos\000"
+ 1156 01e7 01       		.byte	0x1
+ 1157 01e8 85       		.byte	0x85
+ 1158 01e9 33000000 		.4byte	0x33
+ 1159 01ed E3010000 		.4byte	.LLST6
+ 1160 01f1 12       		.uleb128 0x12
+ 1161 01f2 6D000000 		.4byte	.LASF19
+ 1162 01f6 01       		.byte	0x1
+ 1163 01f7 86       		.byte	0x86
+ 1164 01f8 9B000000 		.4byte	0x9b
+ 1165 01fc 02020000 		.4byte	.LLST7
+ 1166 0200 12       		.uleb128 0x12
+ 1167 0201 4F010000 		.4byte	.LASF22
+ 1168 0205 01       		.byte	0x1
+ 1169 0206 87       		.byte	0x87
+ 1170 0207 33000000 		.4byte	0x33
+ 1171 020b 28030000 		.4byte	.LLST8
+ 1172 020f 12       		.uleb128 0x12
+ 1173 0210 0C000000 		.4byte	.LASF23
+ 1174 0214 01       		.byte	0x1
+ 1175 0215 88       		.byte	0x88
+ 1176 0216 33000000 		.4byte	0x33
+ 1177 021a 3B030000 		.4byte	.LLST9
+ 1178 021e 13       		.uleb128 0x13
+ 1179 021f 06000000 		.4byte	.LBB3
+ 1180 0223 6E000000 		.4byte	.LBE3-.LBB3
+ 1181 0227 14       		.uleb128 0x14
+ 1182 0228 6900     		.ascii	"i\000"
+ 1183 022a 01       		.byte	0x1
+ 1184 022b 8A       		.byte	0x8a
+ 1185 022c 33000000 		.4byte	0x33
+ 1186 0230 01       		.uleb128 0x1
+ 1187 0231 51       		.byte	0x51
+ 1188 0232 00       		.byte	0
+ 1189 0233 00       		.byte	0
+ 1190 0234 15       		.uleb128 0x15
+ 1191 0235 9B000000 		.4byte	.LASF67
+ 1192 0239 01       		.byte	0x1
+ 1193 023a 12       		.byte	0x12
+ 1194 023b 33000000 		.4byte	0x33
+ 1195 023f 00000000 		.4byte	.LFB63
+ 1196 0243 F4010000 		.4byte	.LFE63-.LFB63
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 26
+
+
+ 1197 0247 01       		.uleb128 0x1
+ 1198 0248 9C       		.byte	0x9c
+ 1199 0249 2D050000 		.4byte	0x52d
+ 1200 024d 0A       		.uleb128 0xa
+ 1201 024e 08000000 		.4byte	.LVL65
+ 1202 0252 0C060000 		.4byte	0x60c
+ 1203 0256 0A       		.uleb128 0xa
+ 1204 0257 0C000000 		.4byte	.LVL66
+ 1205 025b 17060000 		.4byte	0x617
+ 1206 025f 0A       		.uleb128 0xa
+ 1207 0260 10000000 		.4byte	.LVL67
+ 1208 0264 22060000 		.4byte	0x622
+ 1209 0268 0A       		.uleb128 0xa
+ 1210 0269 14000000 		.4byte	.LVL68
+ 1211 026d 2D060000 		.4byte	0x62d
+ 1212 0271 0A       		.uleb128 0xa
+ 1213 0272 18000000 		.4byte	.LVL69
+ 1214 0276 38060000 		.4byte	0x638
+ 1215 027a 0A       		.uleb128 0xa
+ 1216 027b 1C000000 		.4byte	.LVL70
+ 1217 027f 43060000 		.4byte	0x643
+ 1218 0283 0A       		.uleb128 0xa
+ 1219 0284 20000000 		.4byte	.LVL71
+ 1220 0288 4E060000 		.4byte	0x64e
+ 1221 028c 0A       		.uleb128 0xa
+ 1222 028d 24000000 		.4byte	.LVL72
+ 1223 0291 59060000 		.4byte	0x659
+ 1224 0295 0A       		.uleb128 0xa
+ 1225 0296 28000000 		.4byte	.LVL73
+ 1226 029a 64060000 		.4byte	0x664
+ 1227 029e 0A       		.uleb128 0xa
+ 1228 029f 2C000000 		.4byte	.LVL74
+ 1229 02a3 6F060000 		.4byte	0x66f
+ 1230 02a7 0A       		.uleb128 0xa
+ 1231 02a8 30000000 		.4byte	.LVL75
+ 1232 02ac 7A060000 		.4byte	0x67a
+ 1233 02b0 0A       		.uleb128 0xa
+ 1234 02b1 34000000 		.4byte	.LVL76
+ 1235 02b5 85060000 		.4byte	0x685
+ 1236 02b9 0A       		.uleb128 0xa
+ 1237 02ba 38000000 		.4byte	.LVL77
+ 1238 02be 90060000 		.4byte	0x690
+ 1239 02c2 0A       		.uleb128 0xa
+ 1240 02c3 3C000000 		.4byte	.LVL78
+ 1241 02c7 9B060000 		.4byte	0x69b
+ 1242 02cb 0E       		.uleb128 0xe
+ 1243 02cc 42000000 		.4byte	.LVL79
+ 1244 02d0 A6060000 		.4byte	0x6a6
+ 1245 02d4 E2020000 		.4byte	0x2e2
+ 1246 02d8 0F       		.uleb128 0xf
+ 1247 02d9 01       		.uleb128 0x1
+ 1248 02da 50       		.byte	0x50
+ 1249 02db 05       		.uleb128 0x5
+ 1250 02dc 03       		.byte	0x3
+ 1251 02dd 00000000 		.4byte	com_handler
+ 1252 02e1 00       		.byte	0
+ 1253 02e2 0A       		.uleb128 0xa
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 27
+
+
+ 1254 02e3 46000000 		.4byte	.LVL80
+ 1255 02e7 01060000 		.4byte	0x601
+ 1256 02eb 0E       		.uleb128 0xe
+ 1257 02ec 4C000000 		.4byte	.LVL81
+ 1258 02f0 B1060000 		.4byte	0x6b1
+ 1259 02f4 FE020000 		.4byte	0x2fe
+ 1260 02f8 0F       		.uleb128 0xf
+ 1261 02f9 01       		.uleb128 0x1
+ 1262 02fa 50       		.byte	0x50
+ 1263 02fb 01       		.uleb128 0x1
+ 1264 02fc 30       		.byte	0x30
+ 1265 02fd 00       		.byte	0
+ 1266 02fe 0E       		.uleb128 0xe
+ 1267 02ff 7C000000 		.4byte	.LVL87
+ 1268 0303 B1060000 		.4byte	0x6b1
+ 1269 0307 11030000 		.4byte	0x311
+ 1270 030b 0F       		.uleb128 0xf
+ 1271 030c 01       		.uleb128 0x1
+ 1272 030d 50       		.byte	0x50
+ 1273 030e 01       		.uleb128 0x1
+ 1274 030f 31       		.byte	0x31
+ 1275 0310 00       		.byte	0
+ 1276 0311 0E       		.uleb128 0xe
+ 1277 0312 A8000000 		.4byte	.LVL93
+ 1278 0316 B1060000 		.4byte	0x6b1
+ 1279 031a 24030000 		.4byte	0x324
+ 1280 031e 0F       		.uleb128 0xf
+ 1281 031f 01       		.uleb128 0x1
+ 1282 0320 50       		.byte	0x50
+ 1283 0321 01       		.uleb128 0x1
+ 1284 0322 32       		.byte	0x32
+ 1285 0323 00       		.byte	0
+ 1286 0324 0E       		.uleb128 0xe
+ 1287 0325 D4000000 		.4byte	.LVL99
+ 1288 0329 B1060000 		.4byte	0x6b1
+ 1289 032d 37030000 		.4byte	0x337
+ 1290 0331 0F       		.uleb128 0xf
+ 1291 0332 01       		.uleb128 0x1
+ 1292 0333 50       		.byte	0x50
+ 1293 0334 01       		.uleb128 0x1
+ 1294 0335 33       		.byte	0x33
+ 1295 0336 00       		.byte	0
+ 1296 0337 0E       		.uleb128 0xe
+ 1297 0338 06010000 		.4byte	.LVL105
+ 1298 033c A0010000 		.4byte	0x1a0
+ 1299 0340 55030000 		.4byte	0x355
+ 1300 0344 0F       		.uleb128 0xf
+ 1301 0345 01       		.uleb128 0x1
+ 1302 0346 50       		.byte	0x50
+ 1303 0347 02       		.uleb128 0x2
+ 1304 0348 74       		.byte	0x74
+ 1305 0349 00       		.sleb128 0
+ 1306 034a 0F       		.uleb128 0xf
+ 1307 034b 01       		.uleb128 0x1
+ 1308 034c 51       		.byte	0x51
+ 1309 034d 01       		.uleb128 0x1
+ 1310 034e 34       		.byte	0x34
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 28
+
+
+ 1311 034f 0F       		.uleb128 0xf
+ 1312 0350 01       		.uleb128 0x1
+ 1313 0351 52       		.byte	0x52
+ 1314 0352 01       		.uleb128 0x1
+ 1315 0353 35       		.byte	0x35
+ 1316 0354 00       		.byte	0
+ 1317 0355 0A       		.uleb128 0xa
+ 1318 0356 0C010000 		.4byte	.LVL106
+ 1319 035a BC060000 		.4byte	0x6bc
+ 1320 035e 0E       		.uleb128 0xe
+ 1321 035f 16010000 		.4byte	.LVL107
+ 1322 0363 A0010000 		.4byte	0x1a0
+ 1323 0367 7C030000 		.4byte	0x37c
+ 1324 036b 0F       		.uleb128 0xf
+ 1325 036c 01       		.uleb128 0x1
+ 1326 036d 50       		.byte	0x50
+ 1327 036e 02       		.uleb128 0x2
+ 1328 036f 74       		.byte	0x74
+ 1329 0370 00       		.sleb128 0
+ 1330 0371 0F       		.uleb128 0xf
+ 1331 0372 01       		.uleb128 0x1
+ 1332 0373 51       		.byte	0x51
+ 1333 0374 01       		.uleb128 0x1
+ 1334 0375 37       		.byte	0x37
+ 1335 0376 0F       		.uleb128 0xf
+ 1336 0377 01       		.uleb128 0x1
+ 1337 0378 52       		.byte	0x52
+ 1338 0379 01       		.uleb128 0x1
+ 1339 037a 38       		.byte	0x38
+ 1340 037b 00       		.byte	0
+ 1341 037c 0A       		.uleb128 0xa
+ 1342 037d 1C010000 		.4byte	.LVL108
+ 1343 0381 C7060000 		.4byte	0x6c7
+ 1344 0385 0E       		.uleb128 0xe
+ 1345 0386 26010000 		.4byte	.LVL109
+ 1346 038a A0010000 		.4byte	0x1a0
+ 1347 038e A3030000 		.4byte	0x3a3
+ 1348 0392 0F       		.uleb128 0xf
+ 1349 0393 01       		.uleb128 0x1
+ 1350 0394 50       		.byte	0x50
+ 1351 0395 02       		.uleb128 0x2
+ 1352 0396 74       		.byte	0x74
+ 1353 0397 00       		.sleb128 0
+ 1354 0398 0F       		.uleb128 0xf
+ 1355 0399 01       		.uleb128 0x1
+ 1356 039a 51       		.byte	0x51
+ 1357 039b 01       		.uleb128 0x1
+ 1358 039c 3A       		.byte	0x3a
+ 1359 039d 0F       		.uleb128 0xf
+ 1360 039e 01       		.uleb128 0x1
+ 1361 039f 52       		.byte	0x52
+ 1362 03a0 01       		.uleb128 0x1
+ 1363 03a1 3B       		.byte	0x3b
+ 1364 03a2 00       		.byte	0
+ 1365 03a3 0A       		.uleb128 0xa
+ 1366 03a4 2C010000 		.4byte	.LVL110
+ 1367 03a8 D2060000 		.4byte	0x6d2
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 29
+
+
+ 1368 03ac 0E       		.uleb128 0xe
+ 1369 03ad 36010000 		.4byte	.LVL111
+ 1370 03b1 A0010000 		.4byte	0x1a0
+ 1371 03b5 CA030000 		.4byte	0x3ca
+ 1372 03b9 0F       		.uleb128 0xf
+ 1373 03ba 01       		.uleb128 0x1
+ 1374 03bb 50       		.byte	0x50
+ 1375 03bc 02       		.uleb128 0x2
+ 1376 03bd 74       		.byte	0x74
+ 1377 03be 00       		.sleb128 0
+ 1378 03bf 0F       		.uleb128 0xf
+ 1379 03c0 01       		.uleb128 0x1
+ 1380 03c1 51       		.byte	0x51
+ 1381 03c2 01       		.uleb128 0x1
+ 1382 03c3 3D       		.byte	0x3d
+ 1383 03c4 0F       		.uleb128 0xf
+ 1384 03c5 01       		.uleb128 0x1
+ 1385 03c6 52       		.byte	0x52
+ 1386 03c7 01       		.uleb128 0x1
+ 1387 03c8 3E       		.byte	0x3e
+ 1388 03c9 00       		.byte	0
+ 1389 03ca 0A       		.uleb128 0xa
+ 1390 03cb 3C010000 		.4byte	.LVL112
+ 1391 03cf DD060000 		.4byte	0x6dd
+ 1392 03d3 0E       		.uleb128 0xe
+ 1393 03d4 46010000 		.4byte	.LVL113
+ 1394 03d8 A0010000 		.4byte	0x1a0
+ 1395 03dc F1030000 		.4byte	0x3f1
+ 1396 03e0 0F       		.uleb128 0xf
+ 1397 03e1 01       		.uleb128 0x1
+ 1398 03e2 50       		.byte	0x50
+ 1399 03e3 02       		.uleb128 0x2
+ 1400 03e4 74       		.byte	0x74
+ 1401 03e5 00       		.sleb128 0
+ 1402 03e6 0F       		.uleb128 0xf
+ 1403 03e7 01       		.uleb128 0x1
+ 1404 03e8 51       		.byte	0x51
+ 1405 03e9 01       		.uleb128 0x1
+ 1406 03ea 40       		.byte	0x40
+ 1407 03eb 0F       		.uleb128 0xf
+ 1408 03ec 01       		.uleb128 0x1
+ 1409 03ed 52       		.byte	0x52
+ 1410 03ee 01       		.uleb128 0x1
+ 1411 03ef 41       		.byte	0x41
+ 1412 03f0 00       		.byte	0
+ 1413 03f1 0A       		.uleb128 0xa
+ 1414 03f2 4C010000 		.4byte	.LVL114
+ 1415 03f6 E8060000 		.4byte	0x6e8
+ 1416 03fa 0E       		.uleb128 0xe
+ 1417 03fb 56010000 		.4byte	.LVL115
+ 1418 03ff A0010000 		.4byte	0x1a0
+ 1419 0403 18040000 		.4byte	0x418
+ 1420 0407 0F       		.uleb128 0xf
+ 1421 0408 01       		.uleb128 0x1
+ 1422 0409 50       		.byte	0x50
+ 1423 040a 02       		.uleb128 0x2
+ 1424 040b 74       		.byte	0x74
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 30
+
+
+ 1425 040c 00       		.sleb128 0
+ 1426 040d 0F       		.uleb128 0xf
+ 1427 040e 01       		.uleb128 0x1
+ 1428 040f 51       		.byte	0x51
+ 1429 0410 01       		.uleb128 0x1
+ 1430 0411 4C       		.byte	0x4c
+ 1431 0412 0F       		.uleb128 0xf
+ 1432 0413 01       		.uleb128 0x1
+ 1433 0414 52       		.byte	0x52
+ 1434 0415 01       		.uleb128 0x1
+ 1435 0416 4D       		.byte	0x4d
+ 1436 0417 00       		.byte	0
+ 1437 0418 0A       		.uleb128 0xa
+ 1438 0419 5C010000 		.4byte	.LVL116
+ 1439 041d F3060000 		.4byte	0x6f3
+ 1440 0421 0A       		.uleb128 0xa
+ 1441 0422 60010000 		.4byte	.LVL117
+ 1442 0426 FE060000 		.4byte	0x6fe
+ 1443 042a 0E       		.uleb128 0xe
+ 1444 042b 6E010000 		.4byte	.LVL118
+ 1445 042f A0010000 		.4byte	0x1a0
+ 1446 0433 48040000 		.4byte	0x448
+ 1447 0437 0F       		.uleb128 0xf
+ 1448 0438 01       		.uleb128 0x1
+ 1449 0439 50       		.byte	0x50
+ 1450 043a 02       		.uleb128 0x2
+ 1451 043b 74       		.byte	0x74
+ 1452 043c 00       		.sleb128 0
+ 1453 043d 0F       		.uleb128 0xf
+ 1454 043e 01       		.uleb128 0x1
+ 1455 043f 51       		.byte	0x51
+ 1456 0440 01       		.uleb128 0x1
+ 1457 0441 43       		.byte	0x43
+ 1458 0442 0F       		.uleb128 0xf
+ 1459 0443 01       		.uleb128 0x1
+ 1460 0444 52       		.byte	0x52
+ 1461 0445 01       		.uleb128 0x1
+ 1462 0446 44       		.byte	0x44
+ 1463 0447 00       		.byte	0
+ 1464 0448 0A       		.uleb128 0xa
+ 1465 0449 74010000 		.4byte	.LVL119
+ 1466 044d 09070000 		.4byte	0x709
+ 1467 0451 0E       		.uleb128 0xe
+ 1468 0452 7E010000 		.4byte	.LVL120
+ 1469 0456 A0010000 		.4byte	0x1a0
+ 1470 045a 6F040000 		.4byte	0x46f
+ 1471 045e 0F       		.uleb128 0xf
+ 1472 045f 01       		.uleb128 0x1
+ 1473 0460 50       		.byte	0x50
+ 1474 0461 02       		.uleb128 0x2
+ 1475 0462 74       		.byte	0x74
+ 1476 0463 00       		.sleb128 0
+ 1477 0464 0F       		.uleb128 0xf
+ 1478 0465 01       		.uleb128 0x1
+ 1479 0466 51       		.byte	0x51
+ 1480 0467 01       		.uleb128 0x1
+ 1481 0468 46       		.byte	0x46
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 31
+
+
+ 1482 0469 0F       		.uleb128 0xf
+ 1483 046a 01       		.uleb128 0x1
+ 1484 046b 52       		.byte	0x52
+ 1485 046c 01       		.uleb128 0x1
+ 1486 046d 47       		.byte	0x47
+ 1487 046e 00       		.byte	0
+ 1488 046f 0A       		.uleb128 0xa
+ 1489 0470 84010000 		.4byte	.LVL121
+ 1490 0474 14070000 		.4byte	0x714
+ 1491 0478 0E       		.uleb128 0xe
+ 1492 0479 8E010000 		.4byte	.LVL122
+ 1493 047d A0010000 		.4byte	0x1a0
+ 1494 0481 96040000 		.4byte	0x496
+ 1495 0485 0F       		.uleb128 0xf
+ 1496 0486 01       		.uleb128 0x1
+ 1497 0487 50       		.byte	0x50
+ 1498 0488 02       		.uleb128 0x2
+ 1499 0489 74       		.byte	0x74
+ 1500 048a 00       		.sleb128 0
+ 1501 048b 0F       		.uleb128 0xf
+ 1502 048c 01       		.uleb128 0x1
+ 1503 048d 51       		.byte	0x51
+ 1504 048e 01       		.uleb128 0x1
+ 1505 048f 49       		.byte	0x49
+ 1506 0490 0F       		.uleb128 0xf
+ 1507 0491 01       		.uleb128 0x1
+ 1508 0492 52       		.byte	0x52
+ 1509 0493 01       		.uleb128 0x1
+ 1510 0494 4A       		.byte	0x4a
+ 1511 0495 00       		.byte	0
+ 1512 0496 0A       		.uleb128 0xa
+ 1513 0497 94010000 		.4byte	.LVL123
+ 1514 049b 1F070000 		.4byte	0x71f
+ 1515 049f 0A       		.uleb128 0xa
+ 1516 04a0 9E010000 		.4byte	.LVL124
+ 1517 04a4 09070000 		.4byte	0x709
+ 1518 04a8 0A       		.uleb128 0xa
+ 1519 04a9 A4010000 		.4byte	.LVL125
+ 1520 04ad 14070000 		.4byte	0x714
+ 1521 04b1 0A       		.uleb128 0xa
+ 1522 04b2 AA010000 		.4byte	.LVL126
+ 1523 04b6 1F070000 		.4byte	0x71f
+ 1524 04ba 0E       		.uleb128 0xe
+ 1525 04bb B0010000 		.4byte	.LVL127
+ 1526 04bf 2A070000 		.4byte	0x72a
+ 1527 04c3 CD040000 		.4byte	0x4cd
+ 1528 04c7 0F       		.uleb128 0xf
+ 1529 04c8 01       		.uleb128 0x1
+ 1530 04c9 50       		.byte	0x50
+ 1531 04ca 01       		.uleb128 0x1
+ 1532 04cb 31       		.byte	0x31
+ 1533 04cc 00       		.byte	0
+ 1534 04cd 0E       		.uleb128 0xe
+ 1535 04ce B8010000 		.4byte	.LVL128
+ 1536 04d2 35070000 		.4byte	0x735
+ 1537 04d6 E5040000 		.4byte	0x4e5
+ 1538 04da 0F       		.uleb128 0xf
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 32
+
+
+ 1539 04db 01       		.uleb128 0x1
+ 1540 04dc 50       		.byte	0x50
+ 1541 04dd 01       		.uleb128 0x1
+ 1542 04de 30       		.byte	0x30
+ 1543 04df 0F       		.uleb128 0xf
+ 1544 04e0 01       		.uleb128 0x1
+ 1545 04e1 51       		.byte	0x51
+ 1546 04e2 01       		.uleb128 0x1
+ 1547 04e3 30       		.byte	0x30
+ 1548 04e4 00       		.byte	0
+ 1549 04e5 0E       		.uleb128 0xe
+ 1550 04e6 BE010000 		.4byte	.LVL129
+ 1551 04ea 40070000 		.4byte	0x740
+ 1552 04ee FC040000 		.4byte	0x4fc
+ 1553 04f2 0F       		.uleb128 0xf
+ 1554 04f3 01       		.uleb128 0x1
+ 1555 04f4 50       		.byte	0x50
+ 1556 04f5 05       		.uleb128 0x5
+ 1557 04f6 03       		.byte	0x3
+ 1558 04f7 28000000 		.4byte	.LANCHOR1+40
+ 1559 04fb 00       		.byte	0
+ 1560 04fc 0E       		.uleb128 0xe
+ 1561 04fd C6010000 		.4byte	.LVL130
+ 1562 0501 35070000 		.4byte	0x735
+ 1563 0505 14050000 		.4byte	0x514
+ 1564 0509 0F       		.uleb128 0xf
+ 1565 050a 01       		.uleb128 0x1
+ 1566 050b 50       		.byte	0x50
+ 1567 050c 01       		.uleb128 0x1
+ 1568 050d 31       		.byte	0x31
+ 1569 050e 0F       		.uleb128 0xf
+ 1570 050f 01       		.uleb128 0x1
+ 1571 0510 51       		.byte	0x51
+ 1572 0511 01       		.uleb128 0x1
+ 1573 0512 30       		.byte	0x30
+ 1574 0513 00       		.byte	0
+ 1575 0514 0A       		.uleb128 0xa
+ 1576 0515 CE010000 		.4byte	.LVL131
+ 1577 0519 4B070000 		.4byte	0x74b
+ 1578 051d 10       		.uleb128 0x10
+ 1579 051e D4010000 		.4byte	.LVL132
+ 1580 0522 56070000 		.4byte	0x756
+ 1581 0526 0F       		.uleb128 0xf
+ 1582 0527 01       		.uleb128 0x1
+ 1583 0528 50       		.byte	0x50
+ 1584 0529 01       		.uleb128 0x1
+ 1585 052a 4E       		.byte	0x4e
+ 1586 052b 00       		.byte	0
+ 1587 052c 00       		.byte	0
+ 1588 052d 16       		.uleb128 0x16
+ 1589 052e 16030000 		.4byte	.LASF24
+ 1590 0532 05       		.byte	0x5
+ 1591 0533 1207     		.2byte	0x712
+ 1592 0535 39050000 		.4byte	0x539
+ 1593 0539 17       		.uleb128 0x17
+ 1594 053a 76000000 		.4byte	0x76
+ 1595 053e 18       		.uleb128 0x18
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 33
+
+
+ 1596 053f 9B000000 		.4byte	0x9b
+ 1597 0543 4E050000 		.4byte	0x54e
+ 1598 0547 19       		.uleb128 0x19
+ 1599 0548 A9000000 		.4byte	0xa9
+ 1600 054c 1F       		.byte	0x1f
+ 1601 054d 00       		.byte	0
+ 1602 054e 1A       		.uleb128 0x1a
+ 1603 054f BB020000 		.4byte	.LASF25
+ 1604 0553 01       		.byte	0x1
+ 1605 0554 03       		.byte	0x3
+ 1606 0555 3E050000 		.4byte	0x53e
+ 1607 0559 05       		.uleb128 0x5
+ 1608 055a 03       		.byte	0x3
+ 1609 055b 00000000 		.4byte	codigo
+ 1610 055f 1A       		.uleb128 0x1a
+ 1611 0560 F8020000 		.4byte	.LASF26
+ 1612 0564 01       		.byte	0x1
+ 1613 0565 04       		.byte	0x4
+ 1614 0566 3E050000 		.4byte	0x53e
+ 1615 056a 05       		.uleb128 0x5
+ 1616 056b 03       		.byte	0x3
+ 1617 056c 00000000 		.4byte	check
+ 1618 0570 1B       		.uleb128 0x1b
+ 1619 0571 666F6F00 		.ascii	"foo\000"
+ 1620 0575 01       		.byte	0x1
+ 1621 0576 05       		.byte	0x5
+ 1622 0577 9B000000 		.4byte	0x9b
+ 1623 057b 05       		.uleb128 0x5
+ 1624 057c 03       		.byte	0x3
+ 1625 057d 00000000 		.4byte	foo
+ 1626 0581 1B       		.uleb128 0x1b
+ 1627 0582 637300   		.ascii	"cs\000"
+ 1628 0585 01       		.byte	0x1
+ 1629 0586 06       		.byte	0x6
+ 1630 0587 33000000 		.4byte	0x33
+ 1631 058b 05       		.uleb128 0x5
+ 1632 058c 03       		.byte	0x3
+ 1633 058d 00000000 		.4byte	cs
+ 1634 0591 1A       		.uleb128 0x1a
+ 1635 0592 42020000 		.4byte	.LASF27
+ 1636 0596 01       		.byte	0x1
+ 1637 0597 07       		.byte	0x7
+ 1638 0598 33000000 		.4byte	0x33
+ 1639 059c 05       		.uleb128 0x5
+ 1640 059d 03       		.byte	0x3
+ 1641 059e 00000000 		.4byte	pass
+ 1642 05a2 1A       		.uleb128 0x1a
+ 1643 05a3 CC000000 		.4byte	.LASF28
+ 1644 05a7 01       		.byte	0x1
+ 1645 05a8 08       		.byte	0x8
+ 1646 05a9 33000000 		.4byte	0x33
+ 1647 05ad 05       		.uleb128 0x5
+ 1648 05ae 03       		.byte	0x3
+ 1649 05af 00000000 		.4byte	comas
+ 1650 05b3 1A       		.uleb128 0x1a
+ 1651 05b4 EB000000 		.4byte	.LASF29
+ 1652 05b8 01       		.byte	0x1
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 34
+
+
+ 1653 05b9 09       		.byte	0x9
+ 1654 05ba 33000000 		.4byte	0x33
+ 1655 05be 05       		.uleb128 0x5
+ 1656 05bf 03       		.byte	0x3
+ 1657 05c0 00000000 		.4byte	read
+ 1658 05c4 1A       		.uleb128 0x1a
+ 1659 05c5 11010000 		.4byte	.LASF30
+ 1660 05c9 01       		.byte	0x1
+ 1661 05ca 0A       		.byte	0xa
+ 1662 05cb 33000000 		.4byte	0x33
+ 1663 05cf 05       		.uleb128 0x5
+ 1664 05d0 03       		.byte	0x3
+ 1665 05d1 00000000 		.4byte	offset
+ 1666 05d5 18       		.uleb128 0x18
+ 1667 05d6 33000000 		.4byte	0x33
+ 1668 05da E5050000 		.4byte	0x5e5
+ 1669 05de 19       		.uleb128 0x19
+ 1670 05df A9000000 		.4byte	0xa9
+ 1671 05e3 03       		.byte	0x3
+ 1672 05e4 00       		.byte	0
+ 1673 05e5 1B       		.uleb128 0x1b
+ 1674 05e6 61646300 		.ascii	"adc\000"
+ 1675 05ea 01       		.byte	0x1
+ 1676 05eb 0B       		.byte	0xb
+ 1677 05ec D5050000 		.4byte	0x5d5
+ 1678 05f0 05       		.uleb128 0x5
+ 1679 05f1 03       		.byte	0x3
+ 1680 05f2 00000000 		.4byte	adc
+ 1681 05f6 1C       		.uleb128 0x1c
+ 1682 05f7 B3000000 		.4byte	.LASF31
+ 1683 05fb B3000000 		.4byte	.LASF31
+ 1684 05ff 06       		.byte	0x6
+ 1685 0600 71       		.byte	0x71
+ 1686 0601 1C       		.uleb128 0x1c
+ 1687 0602 85020000 		.4byte	.LASF32
+ 1688 0606 85020000 		.4byte	.LASF32
+ 1689 060a 07       		.byte	0x7
+ 1690 060b 28       		.byte	0x28
+ 1691 060c 1C       		.uleb128 0x1c
+ 1692 060d 57010000 		.4byte	.LASF33
+ 1693 0611 57010000 		.4byte	.LASF33
+ 1694 0615 08       		.byte	0x8
+ 1695 0616 38       		.byte	0x38
+ 1696 0617 1C       		.uleb128 0x1c
+ 1697 0618 5F020000 		.4byte	.LASF34
+ 1698 061c 5F020000 		.4byte	.LASF34
+ 1699 0620 06       		.byte	0x6
+ 1700 0621 54       		.byte	0x54
+ 1701 0622 1C       		.uleb128 0x1c
+ 1702 0623 FE000000 		.4byte	.LASF35
+ 1703 0627 FE000000 		.4byte	.LASF35
+ 1704 062b 09       		.byte	0x9
+ 1705 062c 31       		.byte	0x31
+ 1706 062d 1C       		.uleb128 0x1c
+ 1707 062e FE020000 		.4byte	.LASF36
+ 1708 0632 FE020000 		.4byte	.LASF36
+ 1709 0636 09       		.byte	0x9
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 35
+
+
+ 1710 0637 A1       		.byte	0xa1
+ 1711 0638 1C       		.uleb128 0x1c
+ 1712 0639 26000000 		.4byte	.LASF37
+ 1713 063d 26000000 		.4byte	.LASF37
+ 1714 0641 0A       		.byte	0xa
+ 1715 0642 27       		.byte	0x27
+ 1716 0643 1C       		.uleb128 0x1c
+ 1717 0644 3D000000 		.4byte	.LASF38
+ 1718 0648 3D000000 		.4byte	.LASF38
+ 1719 064c 0B       		.byte	0xb
+ 1720 064d 92       		.byte	0x92
+ 1721 064e 1C       		.uleb128 0x1c
+ 1722 064f 23020000 		.4byte	.LASF39
+ 1723 0653 23020000 		.4byte	.LASF39
+ 1724 0657 0C       		.byte	0xc
+ 1725 0658 92       		.byte	0x92
+ 1726 0659 1C       		.uleb128 0x1c
+ 1727 065a 8F000000 		.4byte	.LASF40
+ 1728 065e 8F000000 		.4byte	.LASF40
+ 1729 0662 0D       		.byte	0xd
+ 1730 0663 92       		.byte	0x92
+ 1731 0664 1C       		.uleb128 0x1c
+ 1732 0665 72020000 		.4byte	.LASF41
+ 1733 0669 72020000 		.4byte	.LASF41
+ 1734 066d 0E       		.byte	0xe
+ 1735 066e 92       		.byte	0x92
+ 1736 066f 1C       		.uleb128 0x1c
+ 1737 0670 C0000000 		.4byte	.LASF42
+ 1738 0674 C0000000 		.4byte	.LASF42
+ 1739 0678 0F       		.byte	0xf
+ 1740 0679 92       		.byte	0x92
+ 1741 067a 1C       		.uleb128 0x1c
+ 1742 067b AF020000 		.4byte	.LASF43
+ 1743 067f AF020000 		.4byte	.LASF43
+ 1744 0683 10       		.byte	0x10
+ 1745 0684 92       		.byte	0x92
+ 1746 0685 1C       		.uleb128 0x1c
+ 1747 0686 74010000 		.4byte	.LASF44
+ 1748 068a 74010000 		.4byte	.LASF44
+ 1749 068e 11       		.byte	0x11
+ 1750 068f 92       		.byte	0x92
+ 1751 0690 1C       		.uleb128 0x1c
+ 1752 0691 DF020000 		.4byte	.LASF45
+ 1753 0695 DF020000 		.4byte	.LASF45
+ 1754 0699 12       		.byte	0x12
+ 1755 069a 92       		.byte	0x92
+ 1756 069b 1C       		.uleb128 0x1c
+ 1757 069c 18010000 		.4byte	.LASF46
+ 1758 06a0 18010000 		.4byte	.LASF46
+ 1759 06a4 13       		.byte	0x13
+ 1760 06a5 92       		.byte	0x92
+ 1761 06a6 1C       		.uleb128 0x1c
+ 1762 06a7 00000000 		.4byte	.LASF47
+ 1763 06ab 00000000 		.4byte	.LASF47
+ 1764 06af 07       		.byte	0x7
+ 1765 06b0 18       		.byte	0x18
+ 1766 06b1 1C       		.uleb128 0x1c
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 36
+
+
+ 1767 06b2 CC030000 		.4byte	.LASF48
+ 1768 06b6 CC030000 		.4byte	.LASF48
+ 1769 06ba 09       		.byte	0x9
+ 1770 06bb 35       		.byte	0x35
+ 1771 06bc 1C       		.uleb128 0x1c
+ 1772 06bd 61010000 		.4byte	.LASF49
+ 1773 06c1 61010000 		.4byte	.LASF49
+ 1774 06c5 0B       		.byte	0xb
+ 1775 06c6 C3       		.byte	0xc3
+ 1776 06c7 1C       		.uleb128 0x1c
+ 1777 06c8 D2000000 		.4byte	.LASF50
+ 1778 06cc D2000000 		.4byte	.LASF50
+ 1779 06d0 0C       		.byte	0xc
+ 1780 06d1 C3       		.byte	0xc3
+ 1781 06d2 1C       		.uleb128 0x1c
+ 1782 06d3 A0000000 		.4byte	.LASF51
+ 1783 06d7 A0000000 		.4byte	.LASF51
+ 1784 06db 0D       		.byte	0xd
+ 1785 06dc C3       		.byte	0xc3
+ 1786 06dd 1C       		.uleb128 0x1c
+ 1787 06de 13000000 		.4byte	.LASF52
+ 1788 06e2 13000000 		.4byte	.LASF52
+ 1789 06e6 0E       		.byte	0xe
+ 1790 06e7 C3       		.byte	0xc3
+ 1791 06e8 1C       		.uleb128 0x1c
+ 1792 06e9 DC030000 		.4byte	.LASF53
+ 1793 06ed DC030000 		.4byte	.LASF53
+ 1794 06f1 0F       		.byte	0xf
+ 1795 06f2 C3       		.byte	0xc3
+ 1796 06f3 1C       		.uleb128 0x1c
+ 1797 06f4 C2020000 		.4byte	.LASF54
+ 1798 06f8 C2020000 		.4byte	.LASF54
+ 1799 06fc 13       		.byte	0x13
+ 1800 06fd C3       		.byte	0xc3
+ 1801 06fe 1C       		.uleb128 0x1c
+ 1802 06ff 85000000 		.4byte	.LASF55
+ 1803 0703 85000000 		.4byte	.LASF55
+ 1804 0707 14       		.byte	0x14
+ 1805 0708 29       		.byte	0x29
+ 1806 0709 1C       		.uleb128 0x1c
+ 1807 070a 24010000 		.4byte	.LASF56
+ 1808 070e 24010000 		.4byte	.LASF56
+ 1809 0712 10       		.byte	0x10
+ 1810 0713 C3       		.byte	0xc3
+ 1811 0714 1C       		.uleb128 0x1c
+ 1812 0715 49000000 		.4byte	.LASF57
+ 1813 0719 49000000 		.4byte	.LASF57
+ 1814 071d 11       		.byte	0x11
+ 1815 071e C3       		.byte	0xc3
+ 1816 071f 1C       		.uleb128 0x1c
+ 1817 0720 B1030000 		.4byte	.LASF58
+ 1818 0724 B1030000 		.4byte	.LASF58
+ 1819 0728 12       		.byte	0x12
+ 1820 0729 C3       		.byte	0xc3
+ 1821 072a 1C       		.uleb128 0x1c
+ 1822 072b 5C000000 		.4byte	.LASF59
+ 1823 072f 5C000000 		.4byte	.LASF59
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 37
+
+
+ 1824 0733 08       		.byte	0x8
+ 1825 0734 3A       		.byte	0x3a
+ 1826 0735 1C       		.uleb128 0x1c
+ 1827 0736 EB020000 		.4byte	.LASF60
+ 1828 073a EB020000 		.4byte	.LASF60
+ 1829 073e 08       		.byte	0x8
+ 1830 073f 3D       		.byte	0x3d
+ 1831 0740 1C       		.uleb128 0x1c
+ 1832 0741 13020000 		.4byte	.LASF61
+ 1833 0745 13020000 		.4byte	.LASF61
+ 1834 0749 08       		.byte	0x8
+ 1835 074a 3C       		.byte	0x3c
+ 1836 074b 1C       		.uleb128 0x1c
+ 1837 074c 47020000 		.4byte	.LASF62
+ 1838 0750 47020000 		.4byte	.LASF62
+ 1839 0754 08       		.byte	0x8
+ 1840 0755 61       		.byte	0x61
+ 1841 0756 1C       		.uleb128 0x1c
+ 1842 0757 C4030000 		.4byte	.LASF63
+ 1843 075b C4030000 		.4byte	.LASF63
+ 1844 075f 15       		.byte	0x15
+ 1845 0760 76       		.byte	0x76
+ 1846 0761 00       		.byte	0
+ 1847              		.section	.debug_abbrev,"",%progbits
+ 1848              	.Ldebug_abbrev0:
+ 1849 0000 01       		.uleb128 0x1
+ 1850 0001 11       		.uleb128 0x11
+ 1851 0002 01       		.byte	0x1
+ 1852 0003 25       		.uleb128 0x25
+ 1853 0004 0E       		.uleb128 0xe
+ 1854 0005 13       		.uleb128 0x13
+ 1855 0006 0B       		.uleb128 0xb
+ 1856 0007 03       		.uleb128 0x3
+ 1857 0008 0E       		.uleb128 0xe
+ 1858 0009 1B       		.uleb128 0x1b
+ 1859 000a 0E       		.uleb128 0xe
+ 1860 000b 55       		.uleb128 0x55
+ 1861 000c 17       		.uleb128 0x17
+ 1862 000d 11       		.uleb128 0x11
+ 1863 000e 01       		.uleb128 0x1
+ 1864 000f 10       		.uleb128 0x10
+ 1865 0010 17       		.uleb128 0x17
+ 1866 0011 00       		.byte	0
+ 1867 0012 00       		.byte	0
+ 1868 0013 02       		.uleb128 0x2
+ 1869 0014 24       		.uleb128 0x24
+ 1870 0015 00       		.byte	0
+ 1871 0016 0B       		.uleb128 0xb
+ 1872 0017 0B       		.uleb128 0xb
+ 1873 0018 3E       		.uleb128 0x3e
+ 1874 0019 0B       		.uleb128 0xb
+ 1875 001a 03       		.uleb128 0x3
+ 1876 001b 0E       		.uleb128 0xe
+ 1877 001c 00       		.byte	0
+ 1878 001d 00       		.byte	0
+ 1879 001e 03       		.uleb128 0x3
+ 1880 001f 24       		.uleb128 0x24
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 38
+
+
+ 1881 0020 00       		.byte	0
+ 1882 0021 0B       		.uleb128 0xb
+ 1883 0022 0B       		.uleb128 0xb
+ 1884 0023 3E       		.uleb128 0x3e
+ 1885 0024 0B       		.uleb128 0xb
+ 1886 0025 03       		.uleb128 0x3
+ 1887 0026 08       		.uleb128 0x8
+ 1888 0027 00       		.byte	0
+ 1889 0028 00       		.byte	0
+ 1890 0029 04       		.uleb128 0x4
+ 1891 002a 16       		.uleb128 0x16
+ 1892 002b 00       		.byte	0
+ 1893 002c 03       		.uleb128 0x3
+ 1894 002d 0E       		.uleb128 0xe
+ 1895 002e 3A       		.uleb128 0x3a
+ 1896 002f 0B       		.uleb128 0xb
+ 1897 0030 3B       		.uleb128 0x3b
+ 1898 0031 0B       		.uleb128 0xb
+ 1899 0032 49       		.uleb128 0x49
+ 1900 0033 13       		.uleb128 0x13
+ 1901 0034 00       		.byte	0
+ 1902 0035 00       		.byte	0
+ 1903 0036 05       		.uleb128 0x5
+ 1904 0037 16       		.uleb128 0x16
+ 1905 0038 00       		.byte	0
+ 1906 0039 03       		.uleb128 0x3
+ 1907 003a 0E       		.uleb128 0xe
+ 1908 003b 3A       		.uleb128 0x3a
+ 1909 003c 0B       		.uleb128 0xb
+ 1910 003d 3B       		.uleb128 0x3b
+ 1911 003e 05       		.uleb128 0x5
+ 1912 003f 49       		.uleb128 0x49
+ 1913 0040 13       		.uleb128 0x13
+ 1914 0041 00       		.byte	0
+ 1915 0042 00       		.byte	0
+ 1916 0043 06       		.uleb128 0x6
+ 1917 0044 0F       		.uleb128 0xf
+ 1918 0045 00       		.byte	0
+ 1919 0046 0B       		.uleb128 0xb
+ 1920 0047 0B       		.uleb128 0xb
+ 1921 0048 49       		.uleb128 0x49
+ 1922 0049 13       		.uleb128 0x13
+ 1923 004a 00       		.byte	0
+ 1924 004b 00       		.byte	0
+ 1925 004c 07       		.uleb128 0x7
+ 1926 004d 2E       		.uleb128 0x2e
+ 1927 004e 01       		.byte	0x1
+ 1928 004f 3F       		.uleb128 0x3f
+ 1929 0050 19       		.uleb128 0x19
+ 1930 0051 03       		.uleb128 0x3
+ 1931 0052 0E       		.uleb128 0xe
+ 1932 0053 3A       		.uleb128 0x3a
+ 1933 0054 0B       		.uleb128 0xb
+ 1934 0055 3B       		.uleb128 0x3b
+ 1935 0056 0B       		.uleb128 0xb
+ 1936 0057 27       		.uleb128 0x27
+ 1937 0058 19       		.uleb128 0x19
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 39
+
+
+ 1938 0059 11       		.uleb128 0x11
+ 1939 005a 01       		.uleb128 0x1
+ 1940 005b 12       		.uleb128 0x12
+ 1941 005c 06       		.uleb128 0x6
+ 1942 005d 40       		.uleb128 0x40
+ 1943 005e 18       		.uleb128 0x18
+ 1944 005f 9742     		.uleb128 0x2117
+ 1945 0061 19       		.uleb128 0x19
+ 1946 0062 01       		.uleb128 0x1
+ 1947 0063 13       		.uleb128 0x13
+ 1948 0064 00       		.byte	0
+ 1949 0065 00       		.byte	0
+ 1950 0066 08       		.uleb128 0x8
+ 1951 0067 0B       		.uleb128 0xb
+ 1952 0068 01       		.byte	0x1
+ 1953 0069 11       		.uleb128 0x11
+ 1954 006a 01       		.uleb128 0x1
+ 1955 006b 12       		.uleb128 0x12
+ 1956 006c 06       		.uleb128 0x6
+ 1957 006d 01       		.uleb128 0x1
+ 1958 006e 13       		.uleb128 0x13
+ 1959 006f 00       		.byte	0
+ 1960 0070 00       		.byte	0
+ 1961 0071 09       		.uleb128 0x9
+ 1962 0072 34       		.uleb128 0x34
+ 1963 0073 00       		.byte	0
+ 1964 0074 03       		.uleb128 0x3
+ 1965 0075 08       		.uleb128 0x8
+ 1966 0076 3A       		.uleb128 0x3a
+ 1967 0077 0B       		.uleb128 0xb
+ 1968 0078 3B       		.uleb128 0x3b
+ 1969 0079 0B       		.uleb128 0xb
+ 1970 007a 49       		.uleb128 0x49
+ 1971 007b 13       		.uleb128 0x13
+ 1972 007c 02       		.uleb128 0x2
+ 1973 007d 17       		.uleb128 0x17
+ 1974 007e 00       		.byte	0
+ 1975 007f 00       		.byte	0
+ 1976 0080 0A       		.uleb128 0xa
+ 1977 0081 898201   		.uleb128 0x4109
+ 1978 0084 00       		.byte	0
+ 1979 0085 11       		.uleb128 0x11
+ 1980 0086 01       		.uleb128 0x1
+ 1981 0087 31       		.uleb128 0x31
+ 1982 0088 13       		.uleb128 0x13
+ 1983 0089 00       		.byte	0
+ 1984 008a 00       		.byte	0
+ 1985 008b 0B       		.uleb128 0xb
+ 1986 008c 2E       		.uleb128 0x2e
+ 1987 008d 01       		.byte	0x1
+ 1988 008e 3F       		.uleb128 0x3f
+ 1989 008f 19       		.uleb128 0x19
+ 1990 0090 03       		.uleb128 0x3
+ 1991 0091 0E       		.uleb128 0xe
+ 1992 0092 3A       		.uleb128 0x3a
+ 1993 0093 0B       		.uleb128 0xb
+ 1994 0094 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 40
+
+
+ 1995 0095 0B       		.uleb128 0xb
+ 1996 0096 27       		.uleb128 0x27
+ 1997 0097 19       		.uleb128 0x19
+ 1998 0098 49       		.uleb128 0x49
+ 1999 0099 13       		.uleb128 0x13
+ 2000 009a 11       		.uleb128 0x11
+ 2001 009b 01       		.uleb128 0x1
+ 2002 009c 12       		.uleb128 0x12
+ 2003 009d 06       		.uleb128 0x6
+ 2004 009e 40       		.uleb128 0x40
+ 2005 009f 18       		.uleb128 0x18
+ 2006 00a0 9742     		.uleb128 0x2117
+ 2007 00a2 19       		.uleb128 0x19
+ 2008 00a3 01       		.uleb128 0x1
+ 2009 00a4 13       		.uleb128 0x13
+ 2010 00a5 00       		.byte	0
+ 2011 00a6 00       		.byte	0
+ 2012 00a7 0C       		.uleb128 0xc
+ 2013 00a8 05       		.uleb128 0x5
+ 2014 00a9 00       		.byte	0
+ 2015 00aa 03       		.uleb128 0x3
+ 2016 00ab 0E       		.uleb128 0xe
+ 2017 00ac 3A       		.uleb128 0x3a
+ 2018 00ad 0B       		.uleb128 0xb
+ 2019 00ae 3B       		.uleb128 0x3b
+ 2020 00af 0B       		.uleb128 0xb
+ 2021 00b0 49       		.uleb128 0x49
+ 2022 00b1 13       		.uleb128 0x13
+ 2023 00b2 02       		.uleb128 0x2
+ 2024 00b3 17       		.uleb128 0x17
+ 2025 00b4 00       		.byte	0
+ 2026 00b5 00       		.byte	0
+ 2027 00b6 0D       		.uleb128 0xd
+ 2028 00b7 05       		.uleb128 0x5
+ 2029 00b8 00       		.byte	0
+ 2030 00b9 03       		.uleb128 0x3
+ 2031 00ba 08       		.uleb128 0x8
+ 2032 00bb 3A       		.uleb128 0x3a
+ 2033 00bc 0B       		.uleb128 0xb
+ 2034 00bd 3B       		.uleb128 0x3b
+ 2035 00be 0B       		.uleb128 0xb
+ 2036 00bf 49       		.uleb128 0x49
+ 2037 00c0 13       		.uleb128 0x13
+ 2038 00c1 02       		.uleb128 0x2
+ 2039 00c2 17       		.uleb128 0x17
+ 2040 00c3 00       		.byte	0
+ 2041 00c4 00       		.byte	0
+ 2042 00c5 0E       		.uleb128 0xe
+ 2043 00c6 898201   		.uleb128 0x4109
+ 2044 00c9 01       		.byte	0x1
+ 2045 00ca 11       		.uleb128 0x11
+ 2046 00cb 01       		.uleb128 0x1
+ 2047 00cc 31       		.uleb128 0x31
+ 2048 00cd 13       		.uleb128 0x13
+ 2049 00ce 01       		.uleb128 0x1
+ 2050 00cf 13       		.uleb128 0x13
+ 2051 00d0 00       		.byte	0
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 41
+
+
+ 2052 00d1 00       		.byte	0
+ 2053 00d2 0F       		.uleb128 0xf
+ 2054 00d3 8A8201   		.uleb128 0x410a
+ 2055 00d6 00       		.byte	0
+ 2056 00d7 02       		.uleb128 0x2
+ 2057 00d8 18       		.uleb128 0x18
+ 2058 00d9 9142     		.uleb128 0x2111
+ 2059 00db 18       		.uleb128 0x18
+ 2060 00dc 00       		.byte	0
+ 2061 00dd 00       		.byte	0
+ 2062 00de 10       		.uleb128 0x10
+ 2063 00df 898201   		.uleb128 0x4109
+ 2064 00e2 01       		.byte	0x1
+ 2065 00e3 11       		.uleb128 0x11
+ 2066 00e4 01       		.uleb128 0x1
+ 2067 00e5 31       		.uleb128 0x31
+ 2068 00e6 13       		.uleb128 0x13
+ 2069 00e7 00       		.byte	0
+ 2070 00e8 00       		.byte	0
+ 2071 00e9 11       		.uleb128 0x11
+ 2072 00ea 05       		.uleb128 0x5
+ 2073 00eb 00       		.byte	0
+ 2074 00ec 03       		.uleb128 0x3
+ 2075 00ed 08       		.uleb128 0x8
+ 2076 00ee 3A       		.uleb128 0x3a
+ 2077 00ef 0B       		.uleb128 0xb
+ 2078 00f0 3B       		.uleb128 0x3b
+ 2079 00f1 0B       		.uleb128 0xb
+ 2080 00f2 49       		.uleb128 0x49
+ 2081 00f3 13       		.uleb128 0x13
+ 2082 00f4 02       		.uleb128 0x2
+ 2083 00f5 18       		.uleb128 0x18
+ 2084 00f6 00       		.byte	0
+ 2085 00f7 00       		.byte	0
+ 2086 00f8 12       		.uleb128 0x12
+ 2087 00f9 34       		.uleb128 0x34
+ 2088 00fa 00       		.byte	0
+ 2089 00fb 03       		.uleb128 0x3
+ 2090 00fc 0E       		.uleb128 0xe
+ 2091 00fd 3A       		.uleb128 0x3a
+ 2092 00fe 0B       		.uleb128 0xb
+ 2093 00ff 3B       		.uleb128 0x3b
+ 2094 0100 0B       		.uleb128 0xb
+ 2095 0101 49       		.uleb128 0x49
+ 2096 0102 13       		.uleb128 0x13
+ 2097 0103 02       		.uleb128 0x2
+ 2098 0104 17       		.uleb128 0x17
+ 2099 0105 00       		.byte	0
+ 2100 0106 00       		.byte	0
+ 2101 0107 13       		.uleb128 0x13
+ 2102 0108 0B       		.uleb128 0xb
+ 2103 0109 01       		.byte	0x1
+ 2104 010a 11       		.uleb128 0x11
+ 2105 010b 01       		.uleb128 0x1
+ 2106 010c 12       		.uleb128 0x12
+ 2107 010d 06       		.uleb128 0x6
+ 2108 010e 00       		.byte	0
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 42
+
+
+ 2109 010f 00       		.byte	0
+ 2110 0110 14       		.uleb128 0x14
+ 2111 0111 34       		.uleb128 0x34
+ 2112 0112 00       		.byte	0
+ 2113 0113 03       		.uleb128 0x3
+ 2114 0114 08       		.uleb128 0x8
+ 2115 0115 3A       		.uleb128 0x3a
+ 2116 0116 0B       		.uleb128 0xb
+ 2117 0117 3B       		.uleb128 0x3b
+ 2118 0118 0B       		.uleb128 0xb
+ 2119 0119 49       		.uleb128 0x49
+ 2120 011a 13       		.uleb128 0x13
+ 2121 011b 02       		.uleb128 0x2
+ 2122 011c 18       		.uleb128 0x18
+ 2123 011d 00       		.byte	0
+ 2124 011e 00       		.byte	0
+ 2125 011f 15       		.uleb128 0x15
+ 2126 0120 2E       		.uleb128 0x2e
+ 2127 0121 01       		.byte	0x1
+ 2128 0122 3F       		.uleb128 0x3f
+ 2129 0123 19       		.uleb128 0x19
+ 2130 0124 03       		.uleb128 0x3
+ 2131 0125 0E       		.uleb128 0xe
+ 2132 0126 3A       		.uleb128 0x3a
+ 2133 0127 0B       		.uleb128 0xb
+ 2134 0128 3B       		.uleb128 0x3b
+ 2135 0129 0B       		.uleb128 0xb
+ 2136 012a 27       		.uleb128 0x27
+ 2137 012b 19       		.uleb128 0x19
+ 2138 012c 49       		.uleb128 0x49
+ 2139 012d 13       		.uleb128 0x13
+ 2140 012e 8701     		.uleb128 0x87
+ 2141 0130 19       		.uleb128 0x19
+ 2142 0131 11       		.uleb128 0x11
+ 2143 0132 01       		.uleb128 0x1
+ 2144 0133 12       		.uleb128 0x12
+ 2145 0134 06       		.uleb128 0x6
+ 2146 0135 40       		.uleb128 0x40
+ 2147 0136 18       		.uleb128 0x18
+ 2148 0137 9642     		.uleb128 0x2116
+ 2149 0139 19       		.uleb128 0x19
+ 2150 013a 01       		.uleb128 0x1
+ 2151 013b 13       		.uleb128 0x13
+ 2152 013c 00       		.byte	0
+ 2153 013d 00       		.byte	0
+ 2154 013e 16       		.uleb128 0x16
+ 2155 013f 34       		.uleb128 0x34
+ 2156 0140 00       		.byte	0
+ 2157 0141 03       		.uleb128 0x3
+ 2158 0142 0E       		.uleb128 0xe
+ 2159 0143 3A       		.uleb128 0x3a
+ 2160 0144 0B       		.uleb128 0xb
+ 2161 0145 3B       		.uleb128 0x3b
+ 2162 0146 05       		.uleb128 0x5
+ 2163 0147 49       		.uleb128 0x49
+ 2164 0148 13       		.uleb128 0x13
+ 2165 0149 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 43
+
+
+ 2166 014a 19       		.uleb128 0x19
+ 2167 014b 3C       		.uleb128 0x3c
+ 2168 014c 19       		.uleb128 0x19
+ 2169 014d 00       		.byte	0
+ 2170 014e 00       		.byte	0
+ 2171 014f 17       		.uleb128 0x17
+ 2172 0150 35       		.uleb128 0x35
+ 2173 0151 00       		.byte	0
+ 2174 0152 49       		.uleb128 0x49
+ 2175 0153 13       		.uleb128 0x13
+ 2176 0154 00       		.byte	0
+ 2177 0155 00       		.byte	0
+ 2178 0156 18       		.uleb128 0x18
+ 2179 0157 01       		.uleb128 0x1
+ 2180 0158 01       		.byte	0x1
+ 2181 0159 49       		.uleb128 0x49
+ 2182 015a 13       		.uleb128 0x13
+ 2183 015b 01       		.uleb128 0x1
+ 2184 015c 13       		.uleb128 0x13
+ 2185 015d 00       		.byte	0
+ 2186 015e 00       		.byte	0
+ 2187 015f 19       		.uleb128 0x19
+ 2188 0160 21       		.uleb128 0x21
+ 2189 0161 00       		.byte	0
+ 2190 0162 49       		.uleb128 0x49
+ 2191 0163 13       		.uleb128 0x13
+ 2192 0164 2F       		.uleb128 0x2f
+ 2193 0165 0B       		.uleb128 0xb
+ 2194 0166 00       		.byte	0
+ 2195 0167 00       		.byte	0
+ 2196 0168 1A       		.uleb128 0x1a
+ 2197 0169 34       		.uleb128 0x34
+ 2198 016a 00       		.byte	0
+ 2199 016b 03       		.uleb128 0x3
+ 2200 016c 0E       		.uleb128 0xe
+ 2201 016d 3A       		.uleb128 0x3a
+ 2202 016e 0B       		.uleb128 0xb
+ 2203 016f 3B       		.uleb128 0x3b
+ 2204 0170 0B       		.uleb128 0xb
+ 2205 0171 49       		.uleb128 0x49
+ 2206 0172 13       		.uleb128 0x13
+ 2207 0173 3F       		.uleb128 0x3f
+ 2208 0174 19       		.uleb128 0x19
+ 2209 0175 02       		.uleb128 0x2
+ 2210 0176 18       		.uleb128 0x18
+ 2211 0177 00       		.byte	0
+ 2212 0178 00       		.byte	0
+ 2213 0179 1B       		.uleb128 0x1b
+ 2214 017a 34       		.uleb128 0x34
+ 2215 017b 00       		.byte	0
+ 2216 017c 03       		.uleb128 0x3
+ 2217 017d 08       		.uleb128 0x8
+ 2218 017e 3A       		.uleb128 0x3a
+ 2219 017f 0B       		.uleb128 0xb
+ 2220 0180 3B       		.uleb128 0x3b
+ 2221 0181 0B       		.uleb128 0xb
+ 2222 0182 49       		.uleb128 0x49
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 44
+
+
+ 2223 0183 13       		.uleb128 0x13
+ 2224 0184 3F       		.uleb128 0x3f
+ 2225 0185 19       		.uleb128 0x19
+ 2226 0186 02       		.uleb128 0x2
+ 2227 0187 18       		.uleb128 0x18
+ 2228 0188 00       		.byte	0
+ 2229 0189 00       		.byte	0
+ 2230 018a 1C       		.uleb128 0x1c
+ 2231 018b 2E       		.uleb128 0x2e
+ 2232 018c 00       		.byte	0
+ 2233 018d 3F       		.uleb128 0x3f
+ 2234 018e 19       		.uleb128 0x19
+ 2235 018f 3C       		.uleb128 0x3c
+ 2236 0190 19       		.uleb128 0x19
+ 2237 0191 6E       		.uleb128 0x6e
+ 2238 0192 0E       		.uleb128 0xe
+ 2239 0193 03       		.uleb128 0x3
+ 2240 0194 0E       		.uleb128 0xe
+ 2241 0195 3A       		.uleb128 0x3a
+ 2242 0196 0B       		.uleb128 0xb
+ 2243 0197 3B       		.uleb128 0x3b
+ 2244 0198 0B       		.uleb128 0xb
+ 2245 0199 00       		.byte	0
+ 2246 019a 00       		.byte	0
+ 2247 019b 00       		.byte	0
+ 2248              		.section	.debug_loc,"",%progbits
+ 2249              	.Ldebug_loc0:
+ 2250              	.LLST0:
+ 2251 0000 BA000000 		.4byte	.LVL1
+ 2252 0004 BC000000 		.4byte	.LVL2
+ 2253 0008 0200     		.2byte	0x2
+ 2254 000a 30       		.byte	0x30
+ 2255 000b 9F       		.byte	0x9f
+ 2256 000c BC000000 		.4byte	.LVL2
+ 2257 0010 CC000000 		.4byte	.LVL4
+ 2258 0014 0100     		.2byte	0x1
+ 2259 0016 51       		.byte	0x51
+ 2260 0017 00000000 		.4byte	0
+ 2261 001b 00000000 		.4byte	0
+ 2262              	.LLST1:
+ 2263 001f 00000000 		.4byte	.LVL6
+ 2264 0023 28000000 		.4byte	.LVL7
+ 2265 0027 0100     		.2byte	0x1
+ 2266 0029 50       		.byte	0x50
+ 2267 002a 28000000 		.4byte	.LVL7
+ 2268 002e 2A000000 		.4byte	.LVL8
+ 2269 0032 0400     		.2byte	0x4
+ 2270 0034 F3       		.byte	0xf3
+ 2271 0035 01       		.uleb128 0x1
+ 2272 0036 50       		.byte	0x50
+ 2273 0037 9F       		.byte	0x9f
+ 2274 0038 2A000000 		.4byte	.LVL8
+ 2275 003c 2C000000 		.4byte	.LVL9
+ 2276 0040 0100     		.2byte	0x1
+ 2277 0042 50       		.byte	0x50
+ 2278 0043 2C000000 		.4byte	.LVL9
+ 2279 0047 2E000000 		.4byte	.LVL10
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 45
+
+
+ 2280 004b 0400     		.2byte	0x4
+ 2281 004d F3       		.byte	0xf3
+ 2282 004e 01       		.uleb128 0x1
+ 2283 004f 50       		.byte	0x50
+ 2284 0050 9F       		.byte	0x9f
+ 2285 0051 2E000000 		.4byte	.LVL10
+ 2286 0055 30000000 		.4byte	.LVL11
+ 2287 0059 0100     		.2byte	0x1
+ 2288 005b 50       		.byte	0x50
+ 2289 005c 30000000 		.4byte	.LVL11
+ 2290 0060 32000000 		.4byte	.LVL12
+ 2291 0064 0400     		.2byte	0x4
+ 2292 0066 F3       		.byte	0xf3
+ 2293 0067 01       		.uleb128 0x1
+ 2294 0068 50       		.byte	0x50
+ 2295 0069 9F       		.byte	0x9f
+ 2296 006a 32000000 		.4byte	.LVL12
+ 2297 006e 34000000 		.4byte	.LVL13
+ 2298 0072 0100     		.2byte	0x1
+ 2299 0074 50       		.byte	0x50
+ 2300 0075 34000000 		.4byte	.LVL13
+ 2301 0079 36000000 		.4byte	.LVL14
+ 2302 007d 0400     		.2byte	0x4
+ 2303 007f F3       		.byte	0xf3
+ 2304 0080 01       		.uleb128 0x1
+ 2305 0081 50       		.byte	0x50
+ 2306 0082 9F       		.byte	0x9f
+ 2307 0083 36000000 		.4byte	.LVL14
+ 2308 0087 38000000 		.4byte	.LVL15
+ 2309 008b 0100     		.2byte	0x1
+ 2310 008d 50       		.byte	0x50
+ 2311 008e 38000000 		.4byte	.LVL15
+ 2312 0092 3A000000 		.4byte	.LVL16
+ 2313 0096 0400     		.2byte	0x4
+ 2314 0098 F3       		.byte	0xf3
+ 2315 0099 01       		.uleb128 0x1
+ 2316 009a 50       		.byte	0x50
+ 2317 009b 9F       		.byte	0x9f
+ 2318 009c 3A000000 		.4byte	.LVL16
+ 2319 00a0 3C000000 		.4byte	.LVL17
+ 2320 00a4 0100     		.2byte	0x1
+ 2321 00a6 50       		.byte	0x50
+ 2322 00a7 3C000000 		.4byte	.LVL17
+ 2323 00ab 3E000000 		.4byte	.LVL18
+ 2324 00af 0400     		.2byte	0x4
+ 2325 00b1 F3       		.byte	0xf3
+ 2326 00b2 01       		.uleb128 0x1
+ 2327 00b3 50       		.byte	0x50
+ 2328 00b4 9F       		.byte	0x9f
+ 2329 00b5 3E000000 		.4byte	.LVL18
+ 2330 00b9 40000000 		.4byte	.LVL19
+ 2331 00bd 0100     		.2byte	0x1
+ 2332 00bf 50       		.byte	0x50
+ 2333 00c0 40000000 		.4byte	.LVL19
+ 2334 00c4 42000000 		.4byte	.LVL20
+ 2335 00c8 0400     		.2byte	0x4
+ 2336 00ca F3       		.byte	0xf3
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 46
+
+
+ 2337 00cb 01       		.uleb128 0x1
+ 2338 00cc 50       		.byte	0x50
+ 2339 00cd 9F       		.byte	0x9f
+ 2340 00ce 42000000 		.4byte	.LVL20
+ 2341 00d2 44000000 		.4byte	.LVL21
+ 2342 00d6 0100     		.2byte	0x1
+ 2343 00d8 50       		.byte	0x50
+ 2344 00d9 44000000 		.4byte	.LVL21
+ 2345 00dd 46000000 		.4byte	.LVL22
+ 2346 00e1 0400     		.2byte	0x4
+ 2347 00e3 F3       		.byte	0xf3
+ 2348 00e4 01       		.uleb128 0x1
+ 2349 00e5 50       		.byte	0x50
+ 2350 00e6 9F       		.byte	0x9f
+ 2351 00e7 46000000 		.4byte	.LVL22
+ 2352 00eb 48000000 		.4byte	.LVL23
+ 2353 00ef 0100     		.2byte	0x1
+ 2354 00f1 50       		.byte	0x50
+ 2355 00f2 48000000 		.4byte	.LVL23
+ 2356 00f6 4A000000 		.4byte	.LVL24
+ 2357 00fa 0400     		.2byte	0x4
+ 2358 00fc F3       		.byte	0xf3
+ 2359 00fd 01       		.uleb128 0x1
+ 2360 00fe 50       		.byte	0x50
+ 2361 00ff 9F       		.byte	0x9f
+ 2362 0100 4A000000 		.4byte	.LVL24
+ 2363 0104 4C000000 		.4byte	.LVL25
+ 2364 0108 0100     		.2byte	0x1
+ 2365 010a 50       		.byte	0x50
+ 2366 010b 4C000000 		.4byte	.LVL25
+ 2367 010f 4E000000 		.4byte	.LVL26
+ 2368 0113 0400     		.2byte	0x4
+ 2369 0115 F3       		.byte	0xf3
+ 2370 0116 01       		.uleb128 0x1
+ 2371 0117 50       		.byte	0x50
+ 2372 0118 9F       		.byte	0x9f
+ 2373 0119 4E000000 		.4byte	.LVL26
+ 2374 011d 50000000 		.4byte	.LVL27
+ 2375 0121 0100     		.2byte	0x1
+ 2376 0123 50       		.byte	0x50
+ 2377 0124 50000000 		.4byte	.LVL27
+ 2378 0128 52000000 		.4byte	.LFE65
+ 2379 012c 0400     		.2byte	0x4
+ 2380 012e F3       		.byte	0xf3
+ 2381 012f 01       		.uleb128 0x1
+ 2382 0130 50       		.byte	0x50
+ 2383 0131 9F       		.byte	0x9f
+ 2384 0132 00000000 		.4byte	0
+ 2385 0136 00000000 		.4byte	0
+ 2386              	.LLST2:
+ 2387 013a 00000000 		.4byte	.LVL28
+ 2388 013e 22000000 		.4byte	.LVL29
+ 2389 0142 0100     		.2byte	0x1
+ 2390 0144 50       		.byte	0x50
+ 2391 0145 22000000 		.4byte	.LVL29
+ 2392 0149 3A000000 		.4byte	.LVL33
+ 2393 014d 0100     		.2byte	0x1
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 47
+
+
+ 2394 014f 55       		.byte	0x55
+ 2395 0150 3A000000 		.4byte	.LVL33
+ 2396 0154 40000000 		.4byte	.LFE66
+ 2397 0158 0400     		.2byte	0x4
+ 2398 015a F3       		.byte	0xf3
+ 2399 015b 01       		.uleb128 0x1
+ 2400 015c 50       		.byte	0x50
+ 2401 015d 9F       		.byte	0x9f
+ 2402 015e 00000000 		.4byte	0
+ 2403 0162 00000000 		.4byte	0
+ 2404              	.LLST3:
+ 2405 0166 00000000 		.4byte	.LVL28
+ 2406 016a 27000000 		.4byte	.LVL30-1
+ 2407 016e 0100     		.2byte	0x1
+ 2408 0170 51       		.byte	0x51
+ 2409 0171 27000000 		.4byte	.LVL30-1
+ 2410 0175 2A000000 		.4byte	.LVL31
+ 2411 0179 0100     		.2byte	0x1
+ 2412 017b 56       		.byte	0x56
+ 2413 017c 2A000000 		.4byte	.LVL31
+ 2414 0180 3A000000 		.4byte	.LVL33
+ 2415 0184 0300     		.2byte	0x3
+ 2416 0186 76       		.byte	0x76
+ 2417 0187 01       		.sleb128 1
+ 2418 0188 9F       		.byte	0x9f
+ 2419 0189 3A000000 		.4byte	.LVL33
+ 2420 018d 40000000 		.4byte	.LFE66
+ 2421 0191 0600     		.2byte	0x6
+ 2422 0193 F3       		.byte	0xf3
+ 2423 0194 01       		.uleb128 0x1
+ 2424 0195 51       		.byte	0x51
+ 2425 0196 23       		.byte	0x23
+ 2426 0197 01       		.uleb128 0x1
+ 2427 0198 9F       		.byte	0x9f
+ 2428 0199 00000000 		.4byte	0
+ 2429 019d 00000000 		.4byte	0
+ 2430              	.LLST4:
+ 2431 01a1 00000000 		.4byte	.LVL34
+ 2432 01a5 76000000 		.4byte	.LVL63
+ 2433 01a9 0100     		.2byte	0x1
+ 2434 01ab 50       		.byte	0x50
+ 2435 01ac 76000000 		.4byte	.LVL63
+ 2436 01b0 7A000000 		.4byte	.LFE67
+ 2437 01b4 0400     		.2byte	0x4
+ 2438 01b6 F3       		.byte	0xf3
+ 2439 01b7 01       		.uleb128 0x1
+ 2440 01b8 50       		.byte	0x50
+ 2441 01b9 9F       		.byte	0x9f
+ 2442 01ba 00000000 		.4byte	0
+ 2443 01be 00000000 		.4byte	0
+ 2444              	.LLST5:
+ 2445 01c2 00000000 		.4byte	.LVL34
+ 2446 01c6 08000000 		.4byte	.LVL36
+ 2447 01ca 0100     		.2byte	0x1
+ 2448 01cc 51       		.byte	0x51
+ 2449 01cd 08000000 		.4byte	.LVL36
+ 2450 01d1 7A000000 		.4byte	.LFE67
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 48
+
+
+ 2451 01d5 0400     		.2byte	0x4
+ 2452 01d7 F3       		.byte	0xf3
+ 2453 01d8 01       		.uleb128 0x1
+ 2454 01d9 51       		.byte	0x51
+ 2455 01da 9F       		.byte	0x9f
+ 2456 01db 00000000 		.4byte	0
+ 2457 01df 00000000 		.4byte	0
+ 2458              	.LLST6:
+ 2459 01e3 02000000 		.4byte	.LVL35
+ 2460 01e7 08000000 		.4byte	.LVL36
+ 2461 01eb 0200     		.2byte	0x2
+ 2462 01ed 31       		.byte	0x31
+ 2463 01ee 9F       		.byte	0x9f
+ 2464 01ef 08000000 		.4byte	.LVL36
+ 2465 01f3 78000000 		.4byte	.LVL64
+ 2466 01f7 0100     		.2byte	0x1
+ 2467 01f9 54       		.byte	0x54
+ 2468 01fa 00000000 		.4byte	0
+ 2469 01fe 00000000 		.4byte	0
+ 2470              	.LLST7:
+ 2471 0202 0A000000 		.4byte	.LVL37
+ 2472 0206 34000000 		.4byte	.LVL38
+ 2473 020a 0100     		.2byte	0x1
+ 2474 020c 53       		.byte	0x53
+ 2475 020d 34000000 		.4byte	.LVL38
+ 2476 0211 36000000 		.4byte	.LVL39
+ 2477 0215 0500     		.2byte	0x5
+ 2478 0217 70       		.byte	0x70
+ 2479 0218 00       		.sleb128 0
+ 2480 0219 71       		.byte	0x71
+ 2481 021a 00       		.sleb128 0
+ 2482 021b 22       		.byte	0x22
+ 2483 021c 36000000 		.4byte	.LVL39
+ 2484 0220 38000000 		.4byte	.LVL40
+ 2485 0224 0100     		.2byte	0x1
+ 2486 0226 53       		.byte	0x53
+ 2487 0227 38000000 		.4byte	.LVL40
+ 2488 022b 3A000000 		.4byte	.LVL41
+ 2489 022f 0500     		.2byte	0x5
+ 2490 0231 70       		.byte	0x70
+ 2491 0232 00       		.sleb128 0
+ 2492 0233 71       		.byte	0x71
+ 2493 0234 00       		.sleb128 0
+ 2494 0235 22       		.byte	0x22
+ 2495 0236 3A000000 		.4byte	.LVL41
+ 2496 023a 3C000000 		.4byte	.LVL42
+ 2497 023e 0100     		.2byte	0x1
+ 2498 0240 53       		.byte	0x53
+ 2499 0241 3C000000 		.4byte	.LVL42
+ 2500 0245 3E000000 		.4byte	.LVL43
+ 2501 0249 0500     		.2byte	0x5
+ 2502 024b 70       		.byte	0x70
+ 2503 024c 00       		.sleb128 0
+ 2504 024d 71       		.byte	0x71
+ 2505 024e 00       		.sleb128 0
+ 2506 024f 22       		.byte	0x22
+ 2507 0250 3E000000 		.4byte	.LVL43
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 49
+
+
+ 2508 0254 40000000 		.4byte	.LVL44
+ 2509 0258 0100     		.2byte	0x1
+ 2510 025a 53       		.byte	0x53
+ 2511 025b 40000000 		.4byte	.LVL44
+ 2512 025f 42000000 		.4byte	.LVL45
+ 2513 0263 0500     		.2byte	0x5
+ 2514 0265 70       		.byte	0x70
+ 2515 0266 00       		.sleb128 0
+ 2516 0267 71       		.byte	0x71
+ 2517 0268 00       		.sleb128 0
+ 2518 0269 22       		.byte	0x22
+ 2519 026a 42000000 		.4byte	.LVL45
+ 2520 026e 44000000 		.4byte	.LVL46
+ 2521 0272 0100     		.2byte	0x1
+ 2522 0274 53       		.byte	0x53
+ 2523 0275 44000000 		.4byte	.LVL46
+ 2524 0279 46000000 		.4byte	.LVL47
+ 2525 027d 0500     		.2byte	0x5
+ 2526 027f 70       		.byte	0x70
+ 2527 0280 00       		.sleb128 0
+ 2528 0281 71       		.byte	0x71
+ 2529 0282 00       		.sleb128 0
+ 2530 0283 22       		.byte	0x22
+ 2531 0284 46000000 		.4byte	.LVL47
+ 2532 0288 48000000 		.4byte	.LVL48
+ 2533 028c 0100     		.2byte	0x1
+ 2534 028e 53       		.byte	0x53
+ 2535 028f 48000000 		.4byte	.LVL48
+ 2536 0293 4A000000 		.4byte	.LVL49
+ 2537 0297 0500     		.2byte	0x5
+ 2538 0299 70       		.byte	0x70
+ 2539 029a 00       		.sleb128 0
+ 2540 029b 71       		.byte	0x71
+ 2541 029c 00       		.sleb128 0
+ 2542 029d 22       		.byte	0x22
+ 2543 029e 4A000000 		.4byte	.LVL49
+ 2544 02a2 4C000000 		.4byte	.LVL50
+ 2545 02a6 0100     		.2byte	0x1
+ 2546 02a8 53       		.byte	0x53
+ 2547 02a9 4C000000 		.4byte	.LVL50
+ 2548 02ad 4E000000 		.4byte	.LVL51
+ 2549 02b1 0500     		.2byte	0x5
+ 2550 02b3 70       		.byte	0x70
+ 2551 02b4 00       		.sleb128 0
+ 2552 02b5 71       		.byte	0x71
+ 2553 02b6 00       		.sleb128 0
+ 2554 02b7 22       		.byte	0x22
+ 2555 02b8 4E000000 		.4byte	.LVL51
+ 2556 02bc 50000000 		.4byte	.LVL52
+ 2557 02c0 0100     		.2byte	0x1
+ 2558 02c2 53       		.byte	0x53
+ 2559 02c3 50000000 		.4byte	.LVL52
+ 2560 02c7 52000000 		.4byte	.LVL53
+ 2561 02cb 0500     		.2byte	0x5
+ 2562 02cd 70       		.byte	0x70
+ 2563 02ce 00       		.sleb128 0
+ 2564 02cf 71       		.byte	0x71
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 50
+
+
+ 2565 02d0 00       		.sleb128 0
+ 2566 02d1 22       		.byte	0x22
+ 2567 02d2 52000000 		.4byte	.LVL53
+ 2568 02d6 54000000 		.4byte	.LVL54
+ 2569 02da 0100     		.2byte	0x1
+ 2570 02dc 53       		.byte	0x53
+ 2571 02dd 54000000 		.4byte	.LVL54
+ 2572 02e1 56000000 		.4byte	.LVL55
+ 2573 02e5 0500     		.2byte	0x5
+ 2574 02e7 70       		.byte	0x70
+ 2575 02e8 00       		.sleb128 0
+ 2576 02e9 71       		.byte	0x71
+ 2577 02ea 00       		.sleb128 0
+ 2578 02eb 22       		.byte	0x22
+ 2579 02ec 56000000 		.4byte	.LVL55
+ 2580 02f0 58000000 		.4byte	.LVL56
+ 2581 02f4 0100     		.2byte	0x1
+ 2582 02f6 53       		.byte	0x53
+ 2583 02f7 58000000 		.4byte	.LVL56
+ 2584 02fb 5A000000 		.4byte	.LVL57
+ 2585 02ff 0500     		.2byte	0x5
+ 2586 0301 70       		.byte	0x70
+ 2587 0302 00       		.sleb128 0
+ 2588 0303 71       		.byte	0x71
+ 2589 0304 00       		.sleb128 0
+ 2590 0305 22       		.byte	0x22
+ 2591 0306 5A000000 		.4byte	.LVL57
+ 2592 030a 5C000000 		.4byte	.LVL58
+ 2593 030e 0100     		.2byte	0x1
+ 2594 0310 53       		.byte	0x53
+ 2595 0311 5C000000 		.4byte	.LVL58
+ 2596 0315 70000000 		.4byte	.LVL62
+ 2597 0319 0500     		.2byte	0x5
+ 2598 031b 70       		.byte	0x70
+ 2599 031c 00       		.sleb128 0
+ 2600 031d 71       		.byte	0x71
+ 2601 031e 00       		.sleb128 0
+ 2602 031f 22       		.byte	0x22
+ 2603 0320 00000000 		.4byte	0
+ 2604 0324 00000000 		.4byte	0
+ 2605              	.LLST8:
+ 2606 0328 5C000000 		.4byte	.LVL58
+ 2607 032c 70000000 		.4byte	.LVL62
+ 2608 0330 0100     		.2byte	0x1
+ 2609 0332 53       		.byte	0x53
+ 2610 0333 00000000 		.4byte	0
+ 2611 0337 00000000 		.4byte	0
+ 2612              	.LLST9:
+ 2613 033b 02000000 		.4byte	.LVL35
+ 2614 033f 08000000 		.4byte	.LVL36
+ 2615 0343 0200     		.2byte	0x2
+ 2616 0345 30       		.byte	0x30
+ 2617 0346 9F       		.byte	0x9f
+ 2618 0347 08000000 		.4byte	.LVL36
+ 2619 034b 78000000 		.4byte	.LVL64
+ 2620 034f 0100     		.2byte	0x1
+ 2621 0351 55       		.byte	0x55
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 51
+
+
+ 2622 0352 78000000 		.4byte	.LVL64
+ 2623 0356 7A000000 		.4byte	.LFE67
+ 2624 035a 0100     		.2byte	0x1
+ 2625 035c 50       		.byte	0x50
+ 2626 035d 00000000 		.4byte	0
+ 2627 0361 00000000 		.4byte	0
+ 2628              		.section	.debug_aranges,"",%progbits
+ 2629 0000 3C000000 		.4byte	0x3c
+ 2630 0004 0200     		.2byte	0x2
+ 2631 0006 00000000 		.4byte	.Ldebug_info0
+ 2632 000a 04       		.byte	0x4
+ 2633 000b 00       		.byte	0
+ 2634 000c 0000     		.2byte	0
+ 2635 000e 0000     		.2byte	0
+ 2636 0010 00000000 		.4byte	.LFB64
+ 2637 0014 E4000000 		.4byte	.LFE64-.LFB64
+ 2638 0018 00000000 		.4byte	.LFB65
+ 2639 001c 52000000 		.4byte	.LFE65-.LFB65
+ 2640 0020 00000000 		.4byte	.LFB66
+ 2641 0024 40000000 		.4byte	.LFE66-.LFB66
+ 2642 0028 00000000 		.4byte	.LFB67
+ 2643 002c 7A000000 		.4byte	.LFE67-.LFB67
+ 2644 0030 00000000 		.4byte	.LFB63
+ 2645 0034 F4010000 		.4byte	.LFE63-.LFB63
+ 2646 0038 00000000 		.4byte	0
+ 2647 003c 00000000 		.4byte	0
+ 2648              		.section	.debug_ranges,"",%progbits
+ 2649              	.Ldebug_ranges0:
+ 2650 0000 00000000 		.4byte	.LFB64
+ 2651 0004 E4000000 		.4byte	.LFE64
+ 2652 0008 00000000 		.4byte	.LFB65
+ 2653 000c 52000000 		.4byte	.LFE65
+ 2654 0010 00000000 		.4byte	.LFB66
+ 2655 0014 40000000 		.4byte	.LFE66
+ 2656 0018 00000000 		.4byte	.LFB67
+ 2657 001c 7A000000 		.4byte	.LFE67
+ 2658 0020 00000000 		.4byte	.LFB63
+ 2659 0024 F4010000 		.4byte	.LFE63
+ 2660 0028 00000000 		.4byte	0
+ 2661 002c 00000000 		.4byte	0
+ 2662              		.section	.debug_line,"",%progbits
+ 2663              	.Ldebug_line0:
+ 2664 0000 35030000 		.section	.debug_str,"MS",%progbits,1
+ 2664      0200F601 
+ 2664      00000201 
+ 2664      FB0E0D00 
+ 2664      01010101 
+ 2665              	.LASF47:
+ 2666 0000 636F6D5F 		.ascii	"com_StartEx\000"
+ 2666      53746172 
+ 2666      74457800 
+ 2667              	.LASF23:
+ 2668 000c 72657375 		.ascii	"result\000"
+ 2668      6C7400
+ 2669              	.LASF52:
+ 2670 0013 50574D5F 		.ascii	"PWM_4_WriteCompare\000"
+ 2670      345F5772 
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 52
+
+
+ 2670      69746543 
+ 2670      6F6D7061 
+ 2670      726500
+ 2671              	.LASF37:
+ 2672 0026 436C6F63 		.ascii	"Clock_1_Start\000"
+ 2672      6B5F315F 
+ 2672      53746172 
+ 2672      7400
+ 2673              	.LASF20:
+ 2674 0034 696E746F 		.ascii	"intochar\000"
+ 2674      63686172 
+ 2674      00
+ 2675              	.LASF38:
+ 2676 003d 50574D5F 		.ascii	"PWM_1_Start\000"
+ 2676      315F5374 
+ 2676      61727400 
+ 2677              	.LASF57:
+ 2678 0049 50574D5F 		.ascii	"PWM_7_WriteCompare\000"
+ 2678      375F5772 
+ 2678      69746543 
+ 2678      6F6D7061 
+ 2678      726500
+ 2679              	.LASF59:
+ 2680 005c 4C43445F 		.ascii	"LCD_WriteControl\000"
+ 2680      57726974 
+ 2680      65436F6E 
+ 2680      74726F6C 
+ 2680      00
+ 2681              	.LASF19:
+ 2682 006d 74656D70 		.ascii	"temp\000"
+ 2682      00
+ 2683              	.LASF4:
+ 2684 0072 73686F72 		.ascii	"short int\000"
+ 2684      7420696E 
+ 2684      7400
+ 2685              	.LASF16:
+ 2686 007c 73697A65 		.ascii	"sizetype\000"
+ 2686      74797065 
+ 2686      00
+ 2687              	.LASF55:
+ 2688 0085 4D4F4445 		.ascii	"MODE_Read\000"
+ 2688      5F526561 
+ 2688      6400
+ 2689              	.LASF40:
+ 2690 008f 50574D5F 		.ascii	"PWM_3_Start\000"
+ 2690      335F5374 
+ 2690      61727400 
+ 2691              	.LASF67:
+ 2692 009b 6D61696E 		.ascii	"main\000"
+ 2692      00
+ 2693              	.LASF51:
+ 2694 00a0 50574D5F 		.ascii	"PWM_3_WriteCompare\000"
+ 2694      335F5772 
+ 2694      69746543 
+ 2694      6F6D7061 
+ 2694      726500
+ 2695              	.LASF31:
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 53
+
+
+ 2696 00b3 55415254 		.ascii	"UART_GetChar\000"
+ 2696      5F476574 
+ 2696      43686172 
+ 2696      00
+ 2697              	.LASF42:
+ 2698 00c0 50574D5F 		.ascii	"PWM_5_Start\000"
+ 2698      355F5374 
+ 2698      61727400 
+ 2699              	.LASF28:
+ 2700 00cc 636F6D61 		.ascii	"comas\000"
+ 2700      7300
+ 2701              	.LASF50:
+ 2702 00d2 50574D5F 		.ascii	"PWM_2_WriteCompare\000"
+ 2702      325F5772 
+ 2702      69746543 
+ 2702      6F6D7061 
+ 2702      726500
+ 2703              	.LASF12:
+ 2704 00e5 666C6F61 		.ascii	"float\000"
+ 2704      7400
+ 2705              	.LASF29:
+ 2706 00eb 72656164 		.ascii	"read\000"
+ 2706      00
+ 2707              	.LASF8:
+ 2708 00f0 6C6F6E67 		.ascii	"long long int\000"
+ 2708      206C6F6E 
+ 2708      6720696E 
+ 2708      7400
+ 2709              	.LASF35:
+ 2710 00fe 4144435F 		.ascii	"ADC_Start\000"
+ 2710      53746172 
+ 2710      7400
+ 2711              	.LASF6:
+ 2712 0108 6C6F6E67 		.ascii	"long int\000"
+ 2712      20696E74 
+ 2712      00
+ 2713              	.LASF30:
+ 2714 0111 6F666673 		.ascii	"offset\000"
+ 2714      657400
+ 2715              	.LASF46:
+ 2716 0118 50574D5F 		.ascii	"PWM_9_Start\000"
+ 2716      395F5374 
+ 2716      61727400 
+ 2717              	.LASF56:
+ 2718 0124 50574D5F 		.ascii	"PWM_6_WriteCompare\000"
+ 2718      365F5772 
+ 2718      69746543 
+ 2718      6F6D7061 
+ 2718      726500
+ 2719              	.LASF17:
+ 2720 0137 636F6D5F 		.ascii	"com_handler\000"
+ 2720      68616E64 
+ 2720      6C657200 
+ 2721              	.LASF21:
+ 2722 0143 73747269 		.ascii	"stringtoint\000"
+ 2722      6E67746F 
+ 2722      696E7400 
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 54
+
+
+ 2723              	.LASF22:
+ 2724 014f 6E756D74 		.ascii	"numtemp\000"
+ 2724      656D7000 
+ 2725              	.LASF33:
+ 2726 0157 4C43445F 		.ascii	"LCD_Start\000"
+ 2726      53746172 
+ 2726      7400
+ 2727              	.LASF49:
+ 2728 0161 50574D5F 		.ascii	"PWM_1_WriteCompare\000"
+ 2728      315F5772 
+ 2728      69746543 
+ 2728      6F6D7061 
+ 2728      726500
+ 2729              	.LASF44:
+ 2730 0174 50574D5F 		.ascii	"PWM_7_Start\000"
+ 2730      375F5374 
+ 2730      61727400 
+ 2731              	.LASF15:
+ 2732 0180 6C6F6E67 		.ascii	"long double\000"
+ 2732      20646F75 
+ 2732      626C6500 
+ 2733              	.LASF3:
+ 2734 018c 756E7369 		.ascii	"unsigned char\000"
+ 2734      676E6564 
+ 2734      20636861 
+ 2734      7200
+ 2735              	.LASF18:
+ 2736 019a 696E746F 		.ascii	"intostring\000"
+ 2736      73747269 
+ 2736      6E6700
+ 2737              	.LASF2:
+ 2738 01a5 7369676E 		.ascii	"signed char\000"
+ 2738      65642063 
+ 2738      68617200 
+ 2739              	.LASF0:
+ 2740 01b1 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2740      206C6F6E 
+ 2740      6720756E 
+ 2740      7369676E 
+ 2740      65642069 
+ 2741              	.LASF66:
+ 2742 01c8 433A5C55 		.ascii	"C:\\Users\\isaac\\Documents\\PSoC Creator\\Reciever"
+ 2742      73657273 
+ 2742      5C697361 
+ 2742      61635C44 
+ 2742      6F63756D 
+ 2743 01f6 5C526563 		.ascii	"\\Reciever.cydsn\000"
+ 2743      69657665 
+ 2743      722E6379 
+ 2743      64736E00 
+ 2744              	.LASF1:
+ 2745 0206 756E7369 		.ascii	"unsigned int\000"
+ 2745      676E6564 
+ 2745      20696E74 
+ 2745      00
+ 2746              	.LASF61:
+ 2747 0213 4C43445F 		.ascii	"LCD_PrintString\000"
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 55
+
+
+ 2747      5072696E 
+ 2747      74537472 
+ 2747      696E6700 
+ 2748              	.LASF39:
+ 2749 0223 50574D5F 		.ascii	"PWM_2_Start\000"
+ 2749      325F5374 
+ 2749      61727400 
+ 2750              	.LASF5:
+ 2751 022f 73686F72 		.ascii	"short unsigned int\000"
+ 2751      7420756E 
+ 2751      7369676E 
+ 2751      65642069 
+ 2751      6E7400
+ 2752              	.LASF27:
+ 2753 0242 70617373 		.ascii	"pass\000"
+ 2753      00
+ 2754              	.LASF62:
+ 2755 0247 4C43445F 		.ascii	"LCD_PrintU32Number\000"
+ 2755      5072696E 
+ 2755      74553332 
+ 2755      4E756D62 
+ 2755      657200
+ 2756              	.LASF14:
+ 2757 025a 63686172 		.ascii	"char\000"
+ 2757      00
+ 2758              	.LASF34:
+ 2759 025f 55415254 		.ascii	"UART_Start\000"
+ 2759      5F537461 
+ 2759      727400
+ 2760              	.LASF10:
+ 2761 026a 696E7433 		.ascii	"int32_t\000"
+ 2761      325F7400 
+ 2762              	.LASF41:
+ 2763 0272 50574D5F 		.ascii	"PWM_4_Start\000"
+ 2763      345F5374 
+ 2763      61727400 
+ 2764              	.LASF11:
+ 2765 027e 75696E74 		.ascii	"uint16\000"
+ 2765      313600
+ 2766              	.LASF32:
+ 2767 0285 636F6D5F 		.ascii	"com_ClearPending\000"
+ 2767      436C6561 
+ 2767      7250656E 
+ 2767      64696E67 
+ 2767      00
+ 2768              	.LASF65:
+ 2769 0296 6D61696E 		.ascii	"main.c\000"
+ 2769      2E6300
+ 2770              	.LASF7:
+ 2771 029d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2771      20756E73 
+ 2771      69676E65 
+ 2771      6420696E 
+ 2771      7400
+ 2772              	.LASF43:
+ 2773 02af 50574D5F 		.ascii	"PWM_6_Start\000"
+ 2773      365F5374 
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 56
+
+
+ 2773      61727400 
+ 2774              	.LASF25:
+ 2775 02bb 636F6469 		.ascii	"codigo\000"
+ 2775      676F00
+ 2776              	.LASF54:
+ 2777 02c2 50574D5F 		.ascii	"PWM_9_WriteCompare\000"
+ 2777      395F5772 
+ 2777      69746543 
+ 2777      6F6D7061 
+ 2777      726500
+ 2778              	.LASF9:
+ 2779 02d5 5F5F696E 		.ascii	"__int32_t\000"
+ 2779      7433325F 
+ 2779      7400
+ 2780              	.LASF45:
+ 2781 02df 50574D5F 		.ascii	"PWM_8_Start\000"
+ 2781      385F5374 
+ 2781      61727400 
+ 2782              	.LASF60:
+ 2783 02eb 4C43445F 		.ascii	"LCD_Position\000"
+ 2783      506F7369 
+ 2783      74696F6E 
+ 2783      00
+ 2784              	.LASF26:
+ 2785 02f8 63686563 		.ascii	"check\000"
+ 2785      6B00
+ 2786              	.LASF36:
+ 2787 02fe 4144435F 		.ascii	"ADC_StartConvert\000"
+ 2787      53746172 
+ 2787      74436F6E 
+ 2787      76657274 
+ 2787      00
+ 2788              	.LASF13:
+ 2789 030f 646F7562 		.ascii	"double\000"
+ 2789      6C6500
+ 2790              	.LASF24:
+ 2791 0316 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2791      52784275 
+ 2791      66666572 
+ 2791      00
+ 2792              	.LASF64:
+ 2793 0323 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2793      43313120 
+ 2793      352E342E 
+ 2793      31203230 
+ 2793      31363036 
+ 2794 0356 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2794      20726576 
+ 2794      6973696F 
+ 2794      6E203233 
+ 2794      37373135 
+ 2795 0389 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2795      66756E63 
+ 2795      74696F6E 
+ 2795      2D736563 
+ 2795      74696F6E 
+ 2796              	.LASF58:
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\cchmdw5j.s 			page 57
+
+
+ 2797 03b1 50574D5F 		.ascii	"PWM_8_WriteCompare\000"
+ 2797      385F5772 
+ 2797      69746543 
+ 2797      6F6D7061 
+ 2797      726500
+ 2798              	.LASF63:
+ 2799 03c4 43794465 		.ascii	"CyDelay\000"
+ 2799      6C617900 
+ 2800              	.LASF48:
+ 2801 03cc 4144435F 		.ascii	"ADC_GetResult16\000"
+ 2801      47657452 
+ 2801      6573756C 
+ 2801      74313600 
+ 2802              	.LASF53:
+ 2803 03dc 50574D5F 		.ascii	"PWM_5_WriteCompare\000"
+ 2803      355F5772 
+ 2803      69746543 
+ 2803      6F6D7061 
+ 2803      726500
+ 2804              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

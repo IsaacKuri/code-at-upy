@@ -1,0 +1,6 @@
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|ca26e70a-205d-471b-a33f-caa707f09a0c
+C:\Users\isaac\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|cec2f1ab-60ae-4e3e-998c-0587ef4f8531
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|f15943d5-36bb-4567-842e-0cccd1d593e0
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|5a678f82-cb20-47ff-b263-b90bca4c1047
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|4abb432f-b694-4e82-b3a3-26a85f9f25ae
+C:\Users\isaac\Documents\PSoC Creator\P2_CapSense\CapSense.cydsn\CapSense.cyprj|9ae73e84-9292-44e4-98df-3283e157e765

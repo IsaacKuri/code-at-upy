@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="P7_ClassManager">
+<ExpandedNodeIds>
+<v>P7_ClassManager</v>
+<v>P7_ClassManager\ClassManager</v>
+<v>P7_ClassManager\ClassManager\TopDesign</v>
+<v>P7_ClassManager\ClassManager\ClassManager.cydwr</v>
+<v>P7_ClassManager\ClassManager\ClassManager.cydwr\Pins</v>
+<v>P7_ClassManager\ClassManager\ClassManager.cydwr\Analog</v>
+<v>P7_ClassManager\ClassManager\ClassManager.cydwr\Clocks</v>
+<v>P7_ClassManager\ClassManager\ClassManager.cydwr\Interrupts</v>
+<v>P7_ClassManager\ClassManager\ClassManager.cydwr\DMA</v>
+<v>P7_ClassManager\ClassManager\ClassManager.cydwr\System</v>
+<v>P7_ClassManager\ClassManager\ClassManager.cydwr\Directives</v>
+<v>P7_ClassManager\ClassManager\ClassManager.cydwr\Flash Security</v>
+<v>P7_ClassManager\ClassManager\ClassManager.cydwr\EEPROM</v>
+<v>P7_ClassManager\ClassManager\Header Files</v>
+<v>P7_ClassManager\ClassManager\Header Files\cyapicallbacks.h</v>
+<v>P7_ClassManager\ClassManager\Source Files</v>
+<v>P7_ClassManager\ClassManager\Source Files\main.c</v>
+<v>P7_ClassManager\ClassManager\Generated_Source</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>P7_ClassManager</v>
+<v>P7_ClassManager\ClassManager</v>
+<v>P7_ClassManager\ClassManager\TopDesign</v>
+<v>P7_ClassManager\ClassManager\ClassManager.cydwr</v>
+<v>P7_ClassManager\ClassManager\ClassManager.cydwr\Pins</v>
+<v>P7_ClassManager\ClassManager\ClassManager.cydwr\Analog</v>
+<v>P7_ClassManager\ClassManager\ClassManager.cydwr\Clocks</v>
+<v>P7_ClassManager\ClassManager\ClassManager.cydwr\Interrupts</v>
+<v>P7_ClassManager\ClassManager\ClassManager.cydwr\DMA</v>
+<v>P7_ClassManager\ClassManager\ClassManager.cydwr\System</v>
+<v>P7_ClassManager\ClassManager\ClassManager.cydwr\Directives</v>
+<v>P7_ClassManager\ClassManager\ClassManager.cydwr\Flash Security</v>
+<v>P7_ClassManager\ClassManager\ClassManager.cydwr\EEPROM</v>
+<v>P7_ClassManager\ClassManager\Header Files</v>
+<v>P7_ClassManager\ClassManager\Header Files\cyapicallbacks.h</v>
+<v>P7_ClassManager\ClassManager\Source Files</v>
+<v>P7_ClassManager\ClassManager\Source Files\main.c</v>
+<v>P7_ClassManager\ClassManager\Generated_Source</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\BTN</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\counting</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\cy_boot</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\Em_EEPROM_Dynamic</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\I2C</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\LED_0</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\LED_1</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\ListC</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\SCL</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\SDA</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\time_isr</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\Timer</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\timer_clock</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\UART</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\UART_IntClock</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\cycodeshareexport.ld</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\cycodeshareimport.ld</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\cycodeshareimport.scat</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\cydevice.h</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\cydevice_trm.h</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\cydevicegnu.inc</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\cydevicegnu_trm.inc</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\cydeviceiar.inc</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\cydeviceiar_trm.inc</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\cydevicerv.inc</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\cydevicerv_trm.inc</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\cydisabledsheets.h</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\cyfitter.h</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\cyfitter_cfg.c</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\cyfitter_cfg.h</v>
+<v>P7_ClassManager\ClassManager\Generated_Source\PSoC5\cyfittergnu.inc</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>P7_ClassManager</v>
+<v>P7_ClassManager\ClassManager</v>
+<v>P7_ClassManager\ClassManager\TopDesign</v>
+<v>P7_ClassManager\ClassManager\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>P7_ClassManager</v>
+<v>P7_ClassManager\ClassManager</v>
+<v>P7_ClassManager\ClassManager\TopDesign</v>
+<v>P7_ClassManager\ClassManager\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>P7_ClassManager</v>
+<v>P7_ClassManager\ClassManager</v>
+<v>P7_ClassManager\ClassManager\CortexM3</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\BTN.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\counting.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_BOOT.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_INT.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_MASTER.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_PM.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_SLAVE.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\LED_0.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\LED_1.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\ListC.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\SCL.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\SDA.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\time_isr.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\timer_clock.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_PM.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_BOOT.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_INT.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_IntClock.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_PM.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\ClassManager.elf</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\ClassManager.hex</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\ClassManager.map</v>
+<v>P7_ClassManager\ClassManager\ClassManager.gpdsc</v>
+<v>P7_ClassManager\ClassManager\ClassManager.rpt</v>
+<v>P7_ClassManager\ClassManager\ClassManager_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>P7_ClassManager</v>
+<v>P7_ClassManager\ClassManager</v>
+<v>P7_ClassManager\ClassManager\CortexM3</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\BTN.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\counting.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_BOOT.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_INT.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_MASTER.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_PM.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_SLAVE.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\LED_0.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\LED_1.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\ListC.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\SCL.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\SDA.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\time_isr.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\timer_clock.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_PM.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_BOOT.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_INT.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_IntClock.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_PM.lst</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\ClassManager.elf</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\ClassManager.hex</v>
+<v>P7_ClassManager\ClassManager\CortexM3\ARM_GCC_541\Debug\ClassManager.map</v>
+<v>P7_ClassManager\ClassManager\ClassManager.gpdsc</v>
+<v>P7_ClassManager\ClassManager\ClassManager.rpt</v>
+<v>P7_ClassManager\ClassManager\ClassManager_timing.html</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>P7_ClassManager</v>
+<v>P7_ClassManager\ClassManager</v>
+<v>P7_ClassManager\ClassManager\PSoC 5LP Architecture TRM</v>
+<v>P7_ClassManager\ClassManager\CY8C58LP Family Datasheet</v>
+<v>P7_ClassManager\ClassManager\System Reference Guides</v>
+<v>P7_ClassManager\ClassManager\System Reference Guides\cy_boot_v5_70</v>
+<v>P7_ClassManager\ClassManager\cy_clock_v2_20.pdf</v>
+<v>P7_ClassManager\ClassManager\cy_constant_v1_0.pdf</v>
+<v>P7_ClassManager\ClassManager\cy_isr_v1_70</v>
+<v>P7_ClassManager\ClassManager\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
+<v>P7_ClassManager\ClassManager\cy_pins_v2_20</v>
+<v>P7_ClassManager\ClassManager\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>P7_ClassManager\ClassManager\I2C_v3_50.pdf</v>
+<v>P7_ClassManager\ClassManager\Timer_v2_80.pdf</v>
+<v>P7_ClassManager\ClassManager\UART_v2_50.pdf</v>
+<v>P7_ClassManager\ClassManager\ZeroTerminal.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>P7_ClassManager</v>
+<v>P7_ClassManager\ClassManager</v>
+<v>P7_ClassManager\ClassManager\PSoC 5LP Architecture TRM</v>
+<v>P7_ClassManager\ClassManager\CY8C58LP Family Datasheet</v>
+<v>P7_ClassManager\ClassManager\System Reference Guides</v>
+<v>P7_ClassManager\ClassManager\System Reference Guides\cy_boot_v5_70</v>
+<v>P7_ClassManager\ClassManager\cy_clock_v2_20.pdf</v>
+<v>P7_ClassManager\ClassManager\cy_constant_v1_0.pdf</v>
+<v>P7_ClassManager\ClassManager\cy_isr_v1_70</v>
+<v>P7_ClassManager\ClassManager\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
+<v>P7_ClassManager\ClassManager\cy_pins_v2_20</v>
+<v>P7_ClassManager\ClassManager\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>P7_ClassManager\ClassManager\I2C_v3_50.pdf</v>
+<v>P7_ClassManager\ClassManager\Timer_v2_80.pdf</v>
+<v>P7_ClassManager\ClassManager\UART_v2_50.pdf</v>
+<v>P7_ClassManager\ClassManager\ZeroTerminal.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\ClassManager.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\ClassManager.cydsn\ClassManager.cydwr" />
+<name v=".\ClassManager.cydsn\main.c" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1461, 744" SelectedTabbedMdiWindow="d1a87e1a-3dfc-4460-8e87-949c4656582b"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="d2427f4c-ed97-46c7-9d22-cb46345cfc9c" /><DocumentWindow Key="C:\Users\isaac\Documents\PSoC Creator\P7_ClassManager\ClassManager.cydsn\TopDesign\TopDesign.cysch" Guid="34e864cb-8d84-4cd7-a3e2-244ed6ce5f2a" /><DocumentWindow Key="C:\Users\isaac\Documents\PSoC Creator\P7_ClassManager\ClassManager.cydsn\ClassManager.cydwr" Guid="b60e4958-1e1d-4dfe-94b1-e37172732b43" /><DocumentWindow Key="C:\Users\isaac\Documents\PSoC Creator\P7_ClassManager\ClassManager.cydsn\main.c" Guid="d1a87e1a-3dfc-4460-8e87-949c4656582b" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>

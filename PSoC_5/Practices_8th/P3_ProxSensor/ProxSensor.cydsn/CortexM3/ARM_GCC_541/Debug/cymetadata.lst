@@ -1,0 +1,1355 @@
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 824
+  28              	cy_meta_configecc:
+  29 0000 01       		.byte	1
+  30 0001 52       		.byte	82
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 08       		.byte	8
+  34 0005 64       		.byte	100
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 01       		.byte	1
+  38 0009 03       		.byte	3
+  39 000a 01       		.byte	1
+  40 000b 40       		.byte	64
+  41 000c 01       		.byte	1
+  42 000d 07       		.byte	7
+  43 000e 01       		.byte	1
+  44 000f 40       		.byte	64
+  45 0010 32       		.byte	50
+  46 0011 08       		.byte	8
+  47 0012 01       		.byte	1
+  48 0013 40       		.byte	64
+  49 0014 27       		.byte	39
+  50 0015 09       		.byte	9
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 45       		.byte	69
+  54 0019 0A       		.byte	10
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 2C       		.byte	44
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 2
+
+
+  58 001d 0B       		.byte	11
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 4D       		.byte	77
+  62 0021 0C       		.byte	12
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 2A       		.byte	42
+  66 0025 0D       		.byte	13
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 01       		.byte	1
+  70 0029 19       		.byte	25
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 02       		.byte	2
+  74 002d 40       		.byte	64
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 03       		.byte	3
+  78 0031 41       		.byte	65
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 02       		.byte	2
+  82 0035 43       		.byte	67
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 02       		.byte	2
+  86 0039 45       		.byte	69
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 02       		.byte	2
+  90 003d 46       		.byte	70
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 02       		.byte	2
+  94 0041 47       		.byte	71
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 01       		.byte	1
+  98 0045 48       		.byte	72
+  99 0046 01       		.byte	1
+ 100 0047 40       		.byte	64
+ 101 0048 03       		.byte	3
+ 102 0049 49       		.byte	73
+ 103 004a 01       		.byte	1
+ 104 004b 40       		.byte	64
+ 105 004c 02       		.byte	2
+ 106 004d 4C       		.byte	76
+ 107 004e 01       		.byte	1
+ 108 004f 40       		.byte	64
+ 109 0050 03       		.byte	3
+ 110 0051 50       		.byte	80
+ 111 0052 01       		.byte	1
+ 112 0053 40       		.byte	64
+ 113 0054 01       		.byte	1
+ 114 0055 51       		.byte	81
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 3
+
+
+ 115 0056 01       		.byte	1
+ 116 0057 40       		.byte	64
+ 117 0058 0E       		.byte	14
+ 118 0059 10       		.byte	16
+ 119 005a 08       		.byte	8
+ 120 005b FF       		.byte	-1
+ 121 005c 0C       		.byte	12
+ 122 005d FF       		.byte	-1
+ 123 005e 0D       		.byte	13
+ 124 005f FF       		.byte	-1
+ 125 0060 1C       		.byte	28
+ 126 0061 FF       		.byte	-1
+ 127 0062 1D       		.byte	29
+ 128 0063 FF       		.byte	-1
+ 129 0064 2C       		.byte	44
+ 130 0065 FF       		.byte	-1
+ 131 0066 2D       		.byte	45
+ 132 0067 FF       		.byte	-1
+ 133 0068 8A       		.byte	-118
+ 134 0069 1F       		.byte	31
+ 135 006a E2       		.byte	-30
+ 136 006b 08       		.byte	8
+ 137 006c E6       		.byte	-26
+ 138 006d 04       		.byte	4
+ 139 006e 0A       		.byte	10
+ 140 006f 01       		.byte	1
+ 141 0070 0C       		.byte	12
+ 142 0071 04       		.byte	4
+ 143 0072 1C       		.byte	28
+ 144 0073 04       		.byte	4
+ 145 0074 26       		.byte	38
+ 146 0075 02       		.byte	2
+ 147 0076 2C       		.byte	44
+ 148 0077 01       		.byte	1
+ 149 0078 2E       		.byte	46
+ 150 0079 02       		.byte	2
+ 151 007a 30       		.byte	48
+ 152 007b 03       		.byte	3
+ 153 007c 34       		.byte	52
+ 154 007d 04       		.byte	4
+ 155 007e 38       		.byte	56
+ 156 007f 20       		.byte	32
+ 157 0080 3E       		.byte	62
+ 158 0081 01       		.byte	1
+ 159 0082 40       		.byte	64
+ 160 0083 56       		.byte	86
+ 161 0084 45       		.byte	69
+ 162 0085 40       		.byte	64
+ 163 0086 46       		.byte	70
+ 164 0087 02       		.byte	2
+ 165 0088 47       		.byte	71
+ 166 0089 50       		.byte	80
+ 167 008a 48       		.byte	72
+ 168 008b 26       		.byte	38
+ 169 008c 49       		.byte	73
+ 170 008d FF       		.byte	-1
+ 171 008e 4A       		.byte	74
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 4
+
+
+ 172 008f FF       		.byte	-1
+ 173 0090 4B       		.byte	75
+ 174 0091 FF       		.byte	-1
+ 175 0092 4C       		.byte	76
+ 176 0093 02       		.byte	2
+ 177 0094 4D       		.byte	77
+ 178 0095 20       		.byte	32
+ 179 0096 4F       		.byte	79
+ 180 0097 05       		.byte	5
+ 181 0098 51       		.byte	81
+ 182 0099 10       		.byte	16
+ 183 009a 58       		.byte	88
+ 184 009b 04       		.byte	4
+ 185 009c 5A       		.byte	90
+ 186 009d 04       		.byte	4
+ 187 009e 5F       		.byte	95
+ 188 009f 01       		.byte	1
+ 189 00a0 60       		.byte	96
+ 190 00a1 40       		.byte	64
+ 191 00a2 61       		.byte	97
+ 192 00a3 40       		.byte	64
+ 193 00a4 62       		.byte	98
+ 194 00a5 80       		.byte	-128
+ 195 00a6 64       		.byte	100
+ 196 00a7 80       		.byte	-128
+ 197 00a8 66       		.byte	102
+ 198 00a9 80       		.byte	-128
+ 199 00aa 84       		.byte	-124
+ 200 00ab 03       		.byte	3
+ 201 00ac 85       		.byte	-123
+ 202 00ad 02       		.byte	2
+ 203 00ae 87       		.byte	-121
+ 204 00af 01       		.byte	1
+ 205 00b0 89       		.byte	-119
+ 206 00b1 02       		.byte	2
+ 207 00b2 8E       		.byte	-114
+ 208 00b3 01       		.byte	1
+ 209 00b4 91       		.byte	-111
+ 210 00b5 03       		.byte	3
+ 211 00b6 94       		.byte	-108
+ 212 00b7 01       		.byte	1
+ 213 00b8 96       		.byte	-106
+ 214 00b9 02       		.byte	2
+ 215 00ba 99       		.byte	-103
+ 216 00bb 01       		.byte	1
+ 217 00bc 9B       		.byte	-101
+ 218 00bd 02       		.byte	2
+ 219 00be 9C       		.byte	-100
+ 220 00bf 02       		.byte	2
+ 221 00c0 9E       		.byte	-98
+ 222 00c1 01       		.byte	1
+ 223 00c2 AA       		.byte	-86
+ 224 00c3 02       		.byte	2
+ 225 00c4 B5       		.byte	-75
+ 226 00c5 03       		.byte	3
+ 227 00c6 B6       		.byte	-74
+ 228 00c7 03       		.byte	3
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 5
+
+
+ 229 00c8 D2       		.byte	-46
+ 230 00c9 17       		.byte	23
+ 231 00ca D8       		.byte	-40
+ 232 00cb 04       		.byte	4
+ 233 00cc D9       		.byte	-39
+ 234 00cd 04       		.byte	4
+ 235 00ce DB       		.byte	-37
+ 236 00cf 04       		.byte	4
+ 237 00d0 DF       		.byte	-33
+ 238 00d1 01       		.byte	1
+ 239 00d2 00       		.byte	0
+ 240 00d3 04       		.byte	4
+ 241 00d4 01       		.byte	1
+ 242 00d5 40       		.byte	64
+ 243 00d6 05       		.byte	5
+ 244 00d7 10       		.byte	16
+ 245 00d8 06       		.byte	6
+ 246 00d9 01       		.byte	1
+ 247 00da 0A       		.byte	10
+ 248 00db 22       		.byte	34
+ 249 00dc 0F       		.byte	15
+ 250 00dd 02       		.byte	2
+ 251 00de 10       		.byte	16
+ 252 00df 08       		.byte	8
+ 253 00e0 16       		.byte	22
+ 254 00e1 22       		.byte	34
+ 255 00e2 18       		.byte	24
+ 256 00e3 02       		.byte	2
+ 257 00e4 1A       		.byte	26
+ 258 00e5 02       		.byte	2
+ 259 00e6 1D       		.byte	29
+ 260 00e7 10       		.byte	16
+ 261 00e8 1E       		.byte	30
+ 262 00e9 08       		.byte	8
+ 263 00ea 1F       		.byte	31
+ 264 00eb 21       		.byte	33
+ 265 00ec 22       		.byte	34
+ 266 00ed 10       		.byte	16
+ 267 00ee 32       		.byte	50
+ 268 00ef 11       		.byte	17
+ 269 00f0 38       		.byte	56
+ 270 00f1 04       		.byte	4
+ 271 00f2 39       		.byte	57
+ 272 00f3 10       		.byte	16
+ 273 00f4 4F       		.byte	79
+ 274 00f5 A2       		.byte	-94
+ 275 00f6 56       		.byte	86
+ 276 00f7 01       		.byte	1
+ 277 00f8 57       		.byte	87
+ 278 00f9 40       		.byte	64
+ 279 00fa 68       		.byte	104
+ 280 00fb 08       		.byte	8
+ 281 00fc 69       		.byte	105
+ 282 00fd 54       		.byte	84
+ 283 00fe 72       		.byte	114
+ 284 00ff 02       		.byte	2
+ 285 0100 83       		.byte	-125
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 6
+
+
+ 286 0101 01       		.byte	1
+ 287 0102 90       		.byte	-112
+ 288 0103 04       		.byte	4
+ 289 0104 94       		.byte	-108
+ 290 0105 02       		.byte	2
+ 291 0106 95       		.byte	-107
+ 292 0107 44       		.byte	68
+ 293 0108 96       		.byte	-106
+ 294 0109 22       		.byte	34
+ 295 010a 9A       		.byte	-102
+ 296 010b 20       		.byte	32
+ 297 010c 9C       		.byte	-100
+ 298 010d 40       		.byte	64
+ 299 010e A3       		.byte	-93
+ 300 010f 10       		.byte	16
+ 301 0110 A6       		.byte	-90
+ 302 0111 04       		.byte	4
+ 303 0112 A7       		.byte	-89
+ 304 0113 20       		.byte	32
+ 305 0114 C0       		.byte	-64
+ 306 0115 C5       		.byte	-59
+ 307 0116 C2       		.byte	-62
+ 308 0117 85       		.byte	-123
+ 309 0118 C4       		.byte	-60
+ 310 0119 A2       		.byte	-94
+ 311 011a CC       		.byte	-52
+ 312 011b 05       		.byte	5
+ 313 011c CE       		.byte	-50
+ 314 011d 06       		.byte	6
+ 315 011e D2       		.byte	-46
+ 316 011f 30       		.byte	48
+ 317 0120 03       		.byte	3
+ 318 0121 02       		.byte	2
+ 319 0122 04       		.byte	4
+ 320 0123 01       		.byte	1
+ 321 0124 07       		.byte	7
+ 322 0125 02       		.byte	2
+ 323 0126 09       		.byte	9
+ 324 0127 3D       		.byte	61
+ 325 0128 0B       		.byte	11
+ 326 0129 02       		.byte	2
+ 327 012a 0D       		.byte	13
+ 328 012b 26       		.byte	38
+ 329 012c 0E       		.byte	14
+ 330 012d 01       		.byte	1
+ 331 012e 0F       		.byte	15
+ 332 012f 19       		.byte	25
+ 333 0130 14       		.byte	20
+ 334 0131 01       		.byte	1
+ 335 0132 15       		.byte	21
+ 336 0133 3F       		.byte	63
+ 337 0134 19       		.byte	25
+ 338 0135 3B       		.byte	59
+ 339 0136 1B       		.byte	27
+ 340 0137 04       		.byte	4
+ 341 0138 1C       		.byte	28
+ 342 0139 01       		.byte	1
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 7
+
+
+ 343 013a 21       		.byte	33
+ 344 013b 10       		.byte	16
+ 345 013c 23       		.byte	35
+ 346 013d 01       		.byte	1
+ 347 013e 25       		.byte	37
+ 348 013f 08       		.byte	8
+ 349 0140 27       		.byte	39
+ 350 0141 01       		.byte	1
+ 351 0142 29       		.byte	41
+ 352 0143 1F       		.byte	31
+ 353 0144 2B       		.byte	43
+ 354 0145 20       		.byte	32
+ 355 0146 2D       		.byte	45
+ 356 0147 04       		.byte	4
+ 357 0148 33       		.byte	51
+ 358 0149 03       		.byte	3
+ 359 014a 34       		.byte	52
+ 360 014b 01       		.byte	1
+ 361 014c 35       		.byte	53
+ 362 014d 3C       		.byte	60
+ 363 014e 40       		.byte	64
+ 364 014f 04       		.byte	4
+ 365 0150 41       		.byte	65
+ 366 0151 02       		.byte	2
+ 367 0152 49       		.byte	73
+ 368 0153 FF       		.byte	-1
+ 369 0154 4A       		.byte	74
+ 370 0155 FF       		.byte	-1
+ 371 0156 4B       		.byte	75
+ 372 0157 FF       		.byte	-1
+ 373 0158 4C       		.byte	76
+ 374 0159 02       		.byte	2
+ 375 015a 4D       		.byte	77
+ 376 015b 0C       		.byte	12
+ 377 015c 4E       		.byte	78
+ 378 015d F8       		.byte	-8
+ 379 015e 56       		.byte	86
+ 380 015f 02       		.byte	2
+ 381 0160 58       		.byte	88
+ 382 0161 04       		.byte	4
+ 383 0162 59       		.byte	89
+ 384 0163 04       		.byte	4
+ 385 0164 5A       		.byte	90
+ 386 0165 04       		.byte	4
+ 387 0166 5B       		.byte	91
+ 388 0167 04       		.byte	4
+ 389 0168 5E       		.byte	94
+ 390 0169 08       		.byte	8
+ 391 016a 5F       		.byte	95
+ 392 016b 01       		.byte	1
+ 393 016c 62       		.byte	98
+ 394 016d 48       		.byte	72
+ 395 016e 63       		.byte	99
+ 396 016f A1       		.byte	-95
+ 397 0170 68       		.byte	104
+ 398 0171 F0       		.byte	-16
+ 399 0172 6A       		.byte	106
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 8
+
+
+ 400 0173 F0       		.byte	-16
+ 401 0174 6C       		.byte	108
+ 402 0175 F0       		.byte	-16
+ 403 0176 6E       		.byte	110
+ 404 0177 F0       		.byte	-16
+ 405 0178 9A       		.byte	-102
+ 406 0179 01       		.byte	1
+ 407 017a A7       		.byte	-89
+ 408 017b 01       		.byte	1
+ 409 017c AC       		.byte	-84
+ 410 017d 01       		.byte	1
+ 411 017e B0       		.byte	-80
+ 412 017f 01       		.byte	1
+ 413 0180 B1       		.byte	-79
+ 414 0181 01       		.byte	1
+ 415 0182 B6       		.byte	-74
+ 416 0183 01       		.byte	1
+ 417 0184 C0       		.byte	-64
+ 418 0185 01       		.byte	1
+ 419 0186 C1       		.byte	-63
+ 420 0187 06       		.byte	6
+ 421 0188 C6       		.byte	-58
+ 422 0189 A0       		.byte	-96
+ 423 018a C9       		.byte	-55
+ 424 018b FF       		.byte	-1
+ 425 018c CA       		.byte	-54
+ 426 018d FF       		.byte	-1
+ 427 018e CB       		.byte	-53
+ 428 018f FF       		.byte	-1
+ 429 0190 CC       		.byte	-52
+ 430 0191 03       		.byte	3
+ 431 0192 CD       		.byte	-51
+ 432 0193 0C       		.byte	12
+ 433 0194 CE       		.byte	-50
+ 434 0195 F4       		.byte	-12
+ 435 0196 D8       		.byte	-40
+ 436 0197 04       		.byte	4
+ 437 0198 D9       		.byte	-39
+ 438 0199 04       		.byte	4
+ 439 019a DA       		.byte	-38
+ 440 019b 04       		.byte	4
+ 441 019c DF       		.byte	-33
+ 442 019d 01       		.byte	1
+ 443 019e E2       		.byte	-30
+ 444 019f 48       		.byte	72
+ 445 01a0 E3       		.byte	-29
+ 446 01a1 A1       		.byte	-95
+ 447 01a2 E8       		.byte	-24
+ 448 01a3 F0       		.byte	-16
+ 449 01a4 EA       		.byte	-22
+ 450 01a5 F0       		.byte	-16
+ 451 01a6 EC       		.byte	-20
+ 452 01a7 F0       		.byte	-16
+ 453 01a8 EE       		.byte	-18
+ 454 01a9 F0       		.byte	-16
+ 455 01aa 00       		.byte	0
+ 456 01ab 04       		.byte	4
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 9
+
+
+ 457 01ac 01       		.byte	1
+ 458 01ad 40       		.byte	64
+ 459 01ae 08       		.byte	8
+ 460 01af 04       		.byte	4
+ 461 01b0 0A       		.byte	10
+ 462 01b1 22       		.byte	34
+ 463 01b2 0E       		.byte	14
+ 464 01b3 08       		.byte	8
+ 465 01b4 17       		.byte	23
+ 466 01b5 80       		.byte	-128
+ 467 01b6 18       		.byte	24
+ 468 01b7 04       		.byte	4
+ 469 01b8 1B       		.byte	27
+ 470 01b9 10       		.byte	16
+ 471 01ba 1C       		.byte	28
+ 472 01bb 40       		.byte	64
+ 473 01bc 1D       		.byte	29
+ 474 01bd 80       		.byte	-128
+ 475 01be 20       		.byte	32
+ 476 01bf 10       		.byte	16
+ 477 01c0 22       		.byte	34
+ 478 01c1 28       		.byte	40
+ 479 01c2 27       		.byte	39
+ 480 01c3 80       		.byte	-128
+ 481 01c4 29       		.byte	41
+ 482 01c5 18       		.byte	24
+ 483 01c6 2A       		.byte	42
+ 484 01c7 80       		.byte	-128
+ 485 01c8 2B       		.byte	43
+ 486 01c9 40       		.byte	64
+ 487 01ca 2F       		.byte	47
+ 488 01cb 20       		.byte	32
+ 489 01cc 30       		.byte	48
+ 490 01cd 04       		.byte	4
+ 491 01ce 32       		.byte	50
+ 492 01cf 20       		.byte	32
+ 493 01d0 38       		.byte	56
+ 494 01d1 92       		.byte	-110
+ 495 01d2 39       		.byte	57
+ 496 01d3 04       		.byte	4
+ 497 01d4 40       		.byte	64
+ 498 01d5 44       		.byte	68
+ 499 01d6 45       		.byte	69
+ 500 01d7 80       		.byte	-128
+ 501 01d8 4F       		.byte	79
+ 502 01d9 20       		.byte	32
+ 503 01da 56       		.byte	86
+ 504 01db 20       		.byte	32
+ 505 01dc 72       		.byte	114
+ 506 01dd C0       		.byte	-64
+ 507 01de 7B       		.byte	123
+ 508 01df 10       		.byte	16
+ 509 01e0 90       		.byte	-112
+ 510 01e1 80       		.byte	-128
+ 511 01e2 95       		.byte	-107
+ 512 01e3 04       		.byte	4
+ 513 01e4 96       		.byte	-106
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 10
+
+
+ 514 01e5 62       		.byte	98
+ 515 01e6 99       		.byte	-103
+ 516 01e7 18       		.byte	24
+ 517 01e8 9C       		.byte	-100
+ 518 01e9 40       		.byte	64
+ 519 01ea A3       		.byte	-93
+ 520 01eb 40       		.byte	64
+ 521 01ec A6       		.byte	-90
+ 522 01ed 28       		.byte	40
+ 523 01ee B0       		.byte	-80
+ 524 01ef 02       		.byte	2
+ 525 01f0 C0       		.byte	-64
+ 526 01f1 05       		.byte	5
+ 527 01f2 C2       		.byte	-62
+ 528 01f3 45       		.byte	69
+ 529 01f4 C4       		.byte	-60
+ 530 01f5 80       		.byte	-128
+ 531 01f6 CA       		.byte	-54
+ 532 01f7 4F       		.byte	79
+ 533 01f8 CC       		.byte	-52
+ 534 01f9 06       		.byte	6
+ 535 01fa CE       		.byte	-50
+ 536 01fb 0F       		.byte	15
+ 537 01fc D0       		.byte	-48
+ 538 01fd 15       		.byte	21
+ 539 01fe D2       		.byte	-46
+ 540 01ff 20       		.byte	32
+ 541 0200 DE       		.byte	-34
+ 542 0201 02       		.byte	2
+ 543 0202 08       		.byte	8
+ 544 0203 19       		.byte	25
+ 545 0204 0A       		.byte	10
+ 546 0205 04       		.byte	4
+ 547 0206 0E       		.byte	14
+ 548 0207 1B       		.byte	27
+ 549 0208 10       		.byte	16
+ 550 0209 11       		.byte	17
+ 551 020a 12       		.byte	18
+ 552 020b 02       		.byte	2
+ 553 020c 18       		.byte	24
+ 554 020d 0A       		.byte	10
+ 555 020e 1A       		.byte	26
+ 556 020f 01       		.byte	1
+ 557 0210 32       		.byte	50
+ 558 0211 06       		.byte	6
+ 559 0212 34       		.byte	52
+ 560 0213 18       		.byte	24
+ 561 0214 36       		.byte	54
+ 562 0215 01       		.byte	1
+ 563 0216 3E       		.byte	62
+ 564 0217 54       		.byte	84
+ 565 0218 40       		.byte	64
+ 566 0219 13       		.byte	19
+ 567 021a 41       		.byte	65
+ 568 021b 02       		.byte	2
+ 569 021c 45       		.byte	69
+ 570 021d 02       		.byte	2
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 11
+
+
+ 571 021e 46       		.byte	70
+ 572 021f 26       		.byte	38
+ 573 0220 48       		.byte	72
+ 574 0221 0D       		.byte	13
+ 575 0222 58       		.byte	88
+ 576 0223 04       		.byte	4
+ 577 0224 5A       		.byte	90
+ 578 0225 04       		.byte	4
+ 579 0226 5F       		.byte	95
+ 580 0227 01       		.byte	1
+ 581 0228 61       		.byte	97
+ 582 0229 0C       		.byte	12
+ 583 022a 62       		.byte	98
+ 584 022b F0       		.byte	-16
+ 585 022c 63       		.byte	99
+ 586 022d 0C       		.byte	12
+ 587 022e 65       		.byte	101
+ 588 022f 0C       		.byte	12
+ 589 0230 67       		.byte	103
+ 590 0231 0C       		.byte	12
+ 591 0232 68       		.byte	104
+ 592 0233 40       		.byte	64
+ 593 0234 69       		.byte	105
+ 594 0235 4C       		.byte	76
+ 595 0236 6A       		.byte	106
+ 596 0237 40       		.byte	64
+ 597 0238 6B       		.byte	107
+ 598 0239 4C       		.byte	76
+ 599 023a 6C       		.byte	108
+ 600 023b 90       		.byte	-112
+ 601 023c 6D       		.byte	109
+ 602 023d 58       		.byte	88
+ 603 023e 6F       		.byte	111
+ 604 023f 0C       		.byte	12
+ 605 0240 86       		.byte	-122
+ 606 0241 01       		.byte	1
+ 607 0242 89       		.byte	-119
+ 608 0243 29       		.byte	41
+ 609 0244 8C       		.byte	-116
+ 610 0245 03       		.byte	3
+ 611 0246 92       		.byte	-110
+ 612 0247 02       		.byte	2
+ 613 0248 94       		.byte	-108
+ 614 0249 03       		.byte	3
+ 615 024a 97       		.byte	-105
+ 616 024b 60       		.byte	96
+ 617 024c 98       		.byte	-104
+ 618 024d 03       		.byte	3
+ 619 024e 9B       		.byte	-101
+ 620 024f 03       		.byte	3
+ 621 0250 9E       		.byte	-98
+ 622 0251 01       		.byte	1
+ 623 0252 9F       		.byte	-97
+ 624 0253 7B       		.byte	123
+ 625 0254 A1       		.byte	-95
+ 626 0255 52       		.byte	82
+ 627 0256 A4       		.byte	-92
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 12
+
+
+ 628 0257 01       		.byte	1
+ 629 0258 A6       		.byte	-90
+ 630 0259 02       		.byte	2
+ 631 025a A8       		.byte	-88
+ 632 025b 03       		.byte	3
+ 633 025c A9       		.byte	-87
+ 634 025d 78       		.byte	120
+ 635 025e AB       		.byte	-85
+ 636 025f 04       		.byte	4
+ 637 0260 AD       		.byte	-83
+ 638 0261 7B       		.byte	123
+ 639 0262 B0       		.byte	-80
+ 640 0263 02       		.byte	2
+ 641 0264 B1       		.byte	-79
+ 642 0265 60       		.byte	96
+ 643 0266 B3       		.byte	-77
+ 644 0267 18       		.byte	24
+ 645 0268 B4       		.byte	-76
+ 646 0269 01       		.byte	1
+ 647 026a B5       		.byte	-75
+ 648 026b 07       		.byte	7
+ 649 026c BF       		.byte	-65
+ 650 026d 15       		.byte	21
+ 651 026e C0       		.byte	-64
+ 652 026f 42       		.byte	66
+ 653 0270 C1       		.byte	-63
+ 654 0271 03       		.byte	3
+ 655 0272 C5       		.byte	-59
+ 656 0273 06       		.byte	6
+ 657 0274 C7       		.byte	-57
+ 658 0275 02       		.byte	2
+ 659 0276 C8       		.byte	-56
+ 660 0277 11       		.byte	17
+ 661 0278 D6       		.byte	-42
+ 662 0279 08       		.byte	8
+ 663 027a D8       		.byte	-40
+ 664 027b 04       		.byte	4
+ 665 027c D9       		.byte	-39
+ 666 027d 04       		.byte	4
+ 667 027e DA       		.byte	-38
+ 668 027f 04       		.byte	4
+ 669 0280 DB       		.byte	-37
+ 670 0281 0F       		.byte	15
+ 671 0282 DF       		.byte	-33
+ 672 0283 01       		.byte	1
+ 673 0284 E1       		.byte	-31
+ 674 0285 0C       		.byte	12
+ 675 0286 E2       		.byte	-30
+ 676 0287 F0       		.byte	-16
+ 677 0288 E3       		.byte	-29
+ 678 0289 0C       		.byte	12
+ 679 028a E5       		.byte	-27
+ 680 028b 0C       		.byte	12
+ 681 028c E7       		.byte	-25
+ 682 028d 0C       		.byte	12
+ 683 028e E8       		.byte	-24
+ 684 028f 40       		.byte	64
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 13
+
+
+ 685 0290 E9       		.byte	-23
+ 686 0291 4C       		.byte	76
+ 687 0292 EA       		.byte	-22
+ 688 0293 40       		.byte	64
+ 689 0294 EB       		.byte	-21
+ 690 0295 4C       		.byte	76
+ 691 0296 EC       		.byte	-20
+ 692 0297 90       		.byte	-112
+ 693 0298 ED       		.byte	-19
+ 694 0299 58       		.byte	88
+ 695 029a EF       		.byte	-17
+ 696 029b 0C       		.byte	12
+ 697 029c 01       		.byte	1
+ 698 029d 04       		.byte	4
+ 699 029e 03       		.byte	3
+ 700 029f 02       		.byte	2
+ 701 02a0 04       		.byte	4
+ 702 02a1 80       		.byte	-128
+ 703 02a2 05       		.byte	5
+ 704 02a3 10       		.byte	16
+ 705 02a4 08       		.byte	8
+ 706 02a5 01       		.byte	1
+ 707 02a6 0A       		.byte	10
+ 708 02a7 66       		.byte	102
+ 709 02a8 0F       		.byte	15
+ 710 02a9 88       		.byte	-120
+ 711 02aa 12       		.byte	18
+ 712 02ab 28       		.byte	40
+ 713 02ac 18       		.byte	24
+ 714 02ad 80       		.byte	-128
+ 715 02ae 19       		.byte	25
+ 716 02af 10       		.byte	16
+ 717 02b0 1A       		.byte	26
+ 718 02b1 84       		.byte	-124
+ 719 02b2 1B       		.byte	27
+ 720 02b3 02       		.byte	2
+ 721 02b4 1D       		.byte	29
+ 722 02b5 A8       		.byte	-88
+ 723 02b6 20       		.byte	32
+ 724 02b7 54       		.byte	84
+ 725 02b8 28       		.byte	40
+ 726 02b9 02       		.byte	2
+ 727 02ba 29       		.byte	41
+ 728 02bb 10       		.byte	16
+ 729 02bc 2B       		.byte	43
+ 730 02bd 40       		.byte	64
+ 731 02be 30       		.byte	48
+ 732 02bf 28       		.byte	40
+ 733 02c0 32       		.byte	50
+ 734 02c1 40       		.byte	64
+ 735 02c2 3A       		.byte	58
+ 736 02c3 20       		.byte	32
+ 737 02c4 40       		.byte	64
+ 738 02c5 54       		.byte	84
+ 739 02c6 45       		.byte	69
+ 740 02c7 A8       		.byte	-88
+ 741 02c8 48       		.byte	72
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 14
+
+
+ 742 02c9 20       		.byte	32
+ 743 02ca 4D       		.byte	77
+ 744 02cb 08       		.byte	8
+ 745 02cc 4F       		.byte	79
+ 746 02cd 08       		.byte	8
+ 747 02ce 50       		.byte	80
+ 748 02cf 08       		.byte	8
+ 749 02d0 56       		.byte	86
+ 750 02d1 20       		.byte	32
+ 751 02d2 57       		.byte	87
+ 752 02d3 40       		.byte	64
+ 753 02d4 58       		.byte	88
+ 754 02d5 40       		.byte	64
+ 755 02d6 60       		.byte	96
+ 756 02d7 02       		.byte	2
+ 757 02d8 78       		.byte	120
+ 758 02d9 01       		.byte	1
+ 759 02da 86       		.byte	-122
+ 760 02db 08       		.byte	8
+ 761 02dc C0       		.byte	-64
+ 762 02dd C5       		.byte	-59
+ 763 02de C2       		.byte	-62
+ 764 02df 5F       		.byte	95
+ 765 02e0 C4       		.byte	-60
+ 766 02e1 06       		.byte	6
+ 767 02e2 CA       		.byte	-54
+ 768 02e3 0D       		.byte	13
+ 769 02e4 CC       		.byte	-52
+ 770 02e5 0E       		.byte	14
+ 771 02e6 CE       		.byte	-50
+ 772 02e7 04       		.byte	4
+ 773 02e8 D0       		.byte	-48
+ 774 02e9 77       		.byte	119
+ 775 02ea D6       		.byte	-42
+ 776 02eb 08       		.byte	8
+ 777 02ec D8       		.byte	-40
+ 778 02ed 08       		.byte	8
+ 779 02ee DE       		.byte	-34
+ 780 02ef 01       		.byte	1
+ 781 02f0 B0       		.byte	-80
+ 782 02f1 40       		.byte	64
+ 783 02f2 31       		.byte	49
+ 784 02f3 20       		.byte	32
+ 785 02f4 CC       		.byte	-52
+ 786 02f5 10       		.byte	16
+ 787 02f6 85       		.byte	-123
+ 788 02f7 20       		.byte	32
+ 789 02f8 A5       		.byte	-91
+ 790 02f9 20       		.byte	32
+ 791 02fa E2       		.byte	-30
+ 792 02fb 10       		.byte	16
+ 793 02fc 83       		.byte	-125
+ 794 02fd 20       		.byte	32
+ 795 02fe E6       		.byte	-26
+ 796 02ff 20       		.byte	32
+ 797 0300 3B       		.byte	59
+ 798 0301 20       		.byte	32
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 15
+
+
+ 799 0302 CE       		.byte	-50
+ 800 0303 08       		.byte	8
+ 801 0304 B3       		.byte	-77
+ 802 0305 10       		.byte	16
+ 803 0306 E8       		.byte	-24
+ 804 0307 04       		.byte	4
+ 805 0308 00       		.byte	0
+ 806 0309 02       		.byte	2
+ 807 030a C0       		.byte	-64
+ 808 030b 08       		.byte	8
+ 809 030c A3       		.byte	-93
+ 810 030d 20       		.byte	32
+ 811 030e 7B       		.byte	123
+ 812 030f 20       		.byte	32
+ 813 0310 A3       		.byte	-93
+ 814 0311 20       		.byte	32
+ 815 0312 DE       		.byte	-34
+ 816 0313 40       		.byte	64
+ 817 0314 B0       		.byte	-80
+ 818 0315 01       		.byte	1
+ 819 0316 EA       		.byte	-22
+ 820 0317 01       		.byte	1
+ 821 0318 00       		.byte	0
+ 822 0319 01       		.byte	1
+ 823 031a 0C       		.byte	12
+ 824 031b 01       		.byte	1
+ 825 031c 0E       		.byte	14
+ 826 031d 01       		.byte	1
+ 827 031e 00       		.byte	0
+ 828 031f 03       		.byte	3
+ 829 0320 00       		.byte	0
+ 830 0321 01       		.byte	1
+ 831 0322 01       		.byte	1
+ 832 0323 00       		.byte	0
+ 833 0324 00       		.byte	0
+ 834 0325 00       		.byte	0
+ 835 0326 00       		.byte	0
+ 836 0327 00       		.byte	0
+ 837 0328 00       		.byte	0
+ 838 0329 00       		.byte	0
+ 839 032a 00       		.byte	0
+ 840 032b 00       		.byte	0
+ 841 032c 00       		.byte	0
+ 842 032d 00       		.byte	0
+ 843 032e 10       		.byte	16
+ 844 032f 00       		.byte	0
+ 845 0330 00       		.byte	0
+ 846 0331 0B       		.byte	11
+ 847 0332 1B       		.byte	27
+ 848 0333 00       		.byte	0
+ 849 0334 00       		.byte	0
+ 850 0335 00       		.byte	0
+ 851 0336 00       		.byte	0
+ 852 0337 00       		.byte	0
+ 853              		.section	.cywolatch,"a",%progbits
+ 854              		.align	2
+ 855              		.type	cy_meta_wonvl, %object
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 16
+
+
+ 856              		.size	cy_meta_wonvl, 4
+ 857              	cy_meta_wonvl:
+ 858 0000 BC       		.byte	-68
+ 859 0001 90       		.byte	-112
+ 860 0002 AC       		.byte	-84
+ 861 0003 AF       		.byte	-81
+ 862              		.section	.cycustnvl,"a",%progbits
+ 863              		.align	2
+ 864              		.type	cy_meta_custnvl, %object
+ 865              		.size	cy_meta_custnvl, 4
+ 866              	cy_meta_custnvl:
+ 867 0000 00       		.byte	0
+ 868 0001 00       		.byte	0
+ 869 0002 40       		.byte	64
+ 870 0003 05       		.byte	5
+ 871              		.section	.cymeta,"a",%progbits
+ 872              		.align	2
+ 873              		.type	cy_metadata, %object
+ 874              		.size	cy_metadata, 12
+ 875              	cy_metadata:
+ 876 0000 00       		.byte	0
+ 877 0001 01       		.byte	1
+ 878 0002 2E       		.byte	46
+ 879 0003 16       		.byte	22
+ 880 0004 10       		.byte	16
+ 881 0005 69       		.byte	105
+ 882 0006 00       		.byte	0
+ 883 0007 01       		.byte	1
+ 884 0008 00       		.byte	0
+ 885 0009 00       		.byte	0
+ 886 000a 00       		.byte	0
+ 887 000b 00       		.byte	0
+ 888              		.section	.cyflashprotect,"a",%progbits
+ 889              		.align	2
+ 890              		.type	cy_meta_flashprotect, %object
+ 891              		.size	cy_meta_flashprotect, 256
+ 892              	cy_meta_flashprotect:
+ 893 0000 00000000 		.space	256
+ 893      00000000 
+ 893      00000000 
+ 893      00000000 
+ 893      00000000 
+ 894              		.text
+ 895              	.Letext0:
+ 896              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 897              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 898              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 899              		.section	.debug_info,"",%progbits
+ 900              	.Ldebug_info0:
+ 901 0000 31010000 		.4byte	0x131
+ 902 0004 0400     		.2byte	0x4
+ 903 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 904 000a 04       		.byte	0x4
+ 905 000b 01       		.uleb128 0x1
+ 906 000c 24000000 		.4byte	.LASF17
+ 907 0010 0C       		.byte	0xc
+ 908 0011 C3010000 		.4byte	.LASF18
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 17
+
+
+ 909 0015 3A010000 		.4byte	.LASF19
+ 910 0019 00000000 		.4byte	.Ldebug_line0
+ 911 001d 02       		.uleb128 0x2
+ 912 001e 01       		.byte	0x1
+ 913 001f 06       		.byte	0x6
+ 914 0020 B7010000 		.4byte	.LASF0
+ 915 0024 03       		.uleb128 0x3
+ 916 0025 00000000 		.4byte	.LASF9
+ 917 0029 01       		.byte	0x1
+ 918 002a 1D       		.byte	0x1d
+ 919 002b 2F000000 		.4byte	0x2f
+ 920 002f 02       		.uleb128 0x2
+ 921 0030 01       		.byte	0x1
+ 922 0031 08       		.byte	0x8
+ 923 0032 16000000 		.4byte	.LASF1
+ 924 0036 02       		.uleb128 0x2
+ 925 0037 02       		.byte	0x2
+ 926 0038 05       		.byte	0x5
+ 927 0039 A4010000 		.4byte	.LASF2
+ 928 003d 02       		.uleb128 0x2
+ 929 003e 02       		.byte	0x2
+ 930 003f 07       		.byte	0x7
+ 931 0040 C4000000 		.4byte	.LASF3
+ 932 0044 02       		.uleb128 0x2
+ 933 0045 04       		.byte	0x4
+ 934 0046 05       		.byte	0x5
+ 935 0047 AE010000 		.4byte	.LASF4
+ 936 004b 02       		.uleb128 0x2
+ 937 004c 04       		.byte	0x4
+ 938 004d 07       		.byte	0x7
+ 939 004e B2000000 		.4byte	.LASF5
+ 940 0052 02       		.uleb128 0x2
+ 941 0053 08       		.byte	0x8
+ 942 0054 05       		.byte	0x5
+ 943 0055 96010000 		.4byte	.LASF6
+ 944 0059 02       		.uleb128 0x2
+ 945 005a 08       		.byte	0x8
+ 946 005b 07       		.byte	0x7
+ 947 005c 1B010000 		.4byte	.LASF7
+ 948 0060 04       		.uleb128 0x4
+ 949 0061 04       		.byte	0x4
+ 950 0062 05       		.byte	0x5
+ 951 0063 696E7400 		.ascii	"int\000"
+ 952 0067 02       		.uleb128 0x2
+ 953 0068 04       		.byte	0x4
+ 954 0069 07       		.byte	0x7
+ 955 006a 0E010000 		.4byte	.LASF8
+ 956 006e 03       		.uleb128 0x3
+ 957 006f 32010000 		.4byte	.LASF10
+ 958 0073 02       		.byte	0x2
+ 959 0074 18       		.byte	0x18
+ 960 0075 24000000 		.4byte	0x24
+ 961 0079 05       		.uleb128 0x5
+ 962 007a 91000000 		.4byte	0x91
+ 963 007e 8A000000 		.4byte	0x8a
+ 964 0082 06       		.uleb128 0x6
+ 965 0083 8A000000 		.4byte	0x8a
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 18
+
+
+ 966 0087 3703     		.2byte	0x337
+ 967 0089 00       		.byte	0
+ 968 008a 02       		.uleb128 0x2
+ 969 008b 04       		.byte	0x4
+ 970 008c 07       		.byte	0x7
+ 971 008d 8D010000 		.4byte	.LASF11
+ 972 0091 07       		.uleb128 0x7
+ 973 0092 6E000000 		.4byte	0x6e
+ 974 0096 08       		.uleb128 0x8
+ 975 0097 E7000000 		.4byte	.LASF12
+ 976 009b 03       		.byte	0x3
+ 977 009c 1F       		.byte	0x1f
+ 978 009d A7000000 		.4byte	0xa7
+ 979 00a1 05       		.uleb128 0x5
+ 980 00a2 03       		.byte	0x3
+ 981 00a3 00000000 		.4byte	cy_meta_configecc
+ 982 00a7 07       		.uleb128 0x7
+ 983 00a8 79000000 		.4byte	0x79
+ 984 00ac 05       		.uleb128 0x5
+ 985 00ad 91000000 		.4byte	0x91
+ 986 00b1 BC000000 		.4byte	0xbc
+ 987 00b5 09       		.uleb128 0x9
+ 988 00b6 8A000000 		.4byte	0x8a
+ 989 00ba 03       		.byte	0x3
+ 990 00bb 00       		.byte	0
+ 991 00bc 08       		.uleb128 0x8
+ 992 00bd D7000000 		.4byte	.LASF13
+ 993 00c1 03       		.byte	0x3
+ 994 00c2 93       		.byte	0x93
+ 995 00c3 CD000000 		.4byte	0xcd
+ 996 00c7 05       		.uleb128 0x5
+ 997 00c8 03       		.byte	0x3
+ 998 00c9 00000000 		.4byte	cy_meta_custnvl
+ 999 00cd 07       		.uleb128 0x7
+ 1000 00ce AC000000 		.4byte	0xac
+ 1001 00d2 08       		.uleb128 0x8
+ 1002 00d3 7F010000 		.4byte	.LASF14
+ 1003 00d7 03       		.byte	0x3
+ 1004 00d8 A1       		.byte	0xa1
+ 1005 00d9 E3000000 		.4byte	0xe3
+ 1006 00dd 05       		.uleb128 0x5
+ 1007 00de 03       		.byte	0x3
+ 1008 00df 00000000 		.4byte	cy_meta_wonvl
+ 1009 00e3 07       		.uleb128 0x7
+ 1010 00e4 AC000000 		.4byte	0xac
+ 1011 00e8 05       		.uleb128 0x5
+ 1012 00e9 91000000 		.4byte	0x91
+ 1013 00ed F8000000 		.4byte	0xf8
+ 1014 00f1 09       		.uleb128 0x9
+ 1015 00f2 8A000000 		.4byte	0x8a
+ 1016 00f6 FF       		.byte	0xff
+ 1017 00f7 00       		.byte	0
+ 1018 00f8 08       		.uleb128 0x8
+ 1019 00f9 F9000000 		.4byte	.LASF15
+ 1020 00fd 03       		.byte	0x3
+ 1021 00fe AF       		.byte	0xaf
+ 1022 00ff 09010000 		.4byte	0x109
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 19
+
+
+ 1023 0103 05       		.uleb128 0x5
+ 1024 0104 03       		.byte	0x3
+ 1025 0105 00000000 		.4byte	cy_meta_flashprotect
+ 1026 0109 07       		.uleb128 0x7
+ 1027 010a E8000000 		.4byte	0xe8
+ 1028 010e 05       		.uleb128 0x5
+ 1029 010f 91000000 		.4byte	0x91
+ 1030 0113 1E010000 		.4byte	0x11e
+ 1031 0117 09       		.uleb128 0x9
+ 1032 0118 8A000000 		.4byte	0x8a
+ 1033 011c 0B       		.byte	0xb
+ 1034 011d 00       		.byte	0
+ 1035 011e 08       		.uleb128 0x8
+ 1036 011f 0A000000 		.4byte	.LASF16
+ 1037 0123 03       		.byte	0x3
+ 1038 0124 DC       		.byte	0xdc
+ 1039 0125 2F010000 		.4byte	0x12f
+ 1040 0129 05       		.uleb128 0x5
+ 1041 012a 03       		.byte	0x3
+ 1042 012b 00000000 		.4byte	cy_metadata
+ 1043 012f 07       		.uleb128 0x7
+ 1044 0130 0E010000 		.4byte	0x10e
+ 1045 0134 00       		.byte	0
+ 1046              		.section	.debug_abbrev,"",%progbits
+ 1047              	.Ldebug_abbrev0:
+ 1048 0000 01       		.uleb128 0x1
+ 1049 0001 11       		.uleb128 0x11
+ 1050 0002 01       		.byte	0x1
+ 1051 0003 25       		.uleb128 0x25
+ 1052 0004 0E       		.uleb128 0xe
+ 1053 0005 13       		.uleb128 0x13
+ 1054 0006 0B       		.uleb128 0xb
+ 1055 0007 03       		.uleb128 0x3
+ 1056 0008 0E       		.uleb128 0xe
+ 1057 0009 1B       		.uleb128 0x1b
+ 1058 000a 0E       		.uleb128 0xe
+ 1059 000b 10       		.uleb128 0x10
+ 1060 000c 17       		.uleb128 0x17
+ 1061 000d 00       		.byte	0
+ 1062 000e 00       		.byte	0
+ 1063 000f 02       		.uleb128 0x2
+ 1064 0010 24       		.uleb128 0x24
+ 1065 0011 00       		.byte	0
+ 1066 0012 0B       		.uleb128 0xb
+ 1067 0013 0B       		.uleb128 0xb
+ 1068 0014 3E       		.uleb128 0x3e
+ 1069 0015 0B       		.uleb128 0xb
+ 1070 0016 03       		.uleb128 0x3
+ 1071 0017 0E       		.uleb128 0xe
+ 1072 0018 00       		.byte	0
+ 1073 0019 00       		.byte	0
+ 1074 001a 03       		.uleb128 0x3
+ 1075 001b 16       		.uleb128 0x16
+ 1076 001c 00       		.byte	0
+ 1077 001d 03       		.uleb128 0x3
+ 1078 001e 0E       		.uleb128 0xe
+ 1079 001f 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 20
+
+
+ 1080 0020 0B       		.uleb128 0xb
+ 1081 0021 3B       		.uleb128 0x3b
+ 1082 0022 0B       		.uleb128 0xb
+ 1083 0023 49       		.uleb128 0x49
+ 1084 0024 13       		.uleb128 0x13
+ 1085 0025 00       		.byte	0
+ 1086 0026 00       		.byte	0
+ 1087 0027 04       		.uleb128 0x4
+ 1088 0028 24       		.uleb128 0x24
+ 1089 0029 00       		.byte	0
+ 1090 002a 0B       		.uleb128 0xb
+ 1091 002b 0B       		.uleb128 0xb
+ 1092 002c 3E       		.uleb128 0x3e
+ 1093 002d 0B       		.uleb128 0xb
+ 1094 002e 03       		.uleb128 0x3
+ 1095 002f 08       		.uleb128 0x8
+ 1096 0030 00       		.byte	0
+ 1097 0031 00       		.byte	0
+ 1098 0032 05       		.uleb128 0x5
+ 1099 0033 01       		.uleb128 0x1
+ 1100 0034 01       		.byte	0x1
+ 1101 0035 49       		.uleb128 0x49
+ 1102 0036 13       		.uleb128 0x13
+ 1103 0037 01       		.uleb128 0x1
+ 1104 0038 13       		.uleb128 0x13
+ 1105 0039 00       		.byte	0
+ 1106 003a 00       		.byte	0
+ 1107 003b 06       		.uleb128 0x6
+ 1108 003c 21       		.uleb128 0x21
+ 1109 003d 00       		.byte	0
+ 1110 003e 49       		.uleb128 0x49
+ 1111 003f 13       		.uleb128 0x13
+ 1112 0040 2F       		.uleb128 0x2f
+ 1113 0041 05       		.uleb128 0x5
+ 1114 0042 00       		.byte	0
+ 1115 0043 00       		.byte	0
+ 1116 0044 07       		.uleb128 0x7
+ 1117 0045 26       		.uleb128 0x26
+ 1118 0046 00       		.byte	0
+ 1119 0047 49       		.uleb128 0x49
+ 1120 0048 13       		.uleb128 0x13
+ 1121 0049 00       		.byte	0
+ 1122 004a 00       		.byte	0
+ 1123 004b 08       		.uleb128 0x8
+ 1124 004c 34       		.uleb128 0x34
+ 1125 004d 00       		.byte	0
+ 1126 004e 03       		.uleb128 0x3
+ 1127 004f 0E       		.uleb128 0xe
+ 1128 0050 3A       		.uleb128 0x3a
+ 1129 0051 0B       		.uleb128 0xb
+ 1130 0052 3B       		.uleb128 0x3b
+ 1131 0053 0B       		.uleb128 0xb
+ 1132 0054 49       		.uleb128 0x49
+ 1133 0055 13       		.uleb128 0x13
+ 1134 0056 3F       		.uleb128 0x3f
+ 1135 0057 19       		.uleb128 0x19
+ 1136 0058 02       		.uleb128 0x2
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 21
+
+
+ 1137 0059 18       		.uleb128 0x18
+ 1138 005a 00       		.byte	0
+ 1139 005b 00       		.byte	0
+ 1140 005c 09       		.uleb128 0x9
+ 1141 005d 21       		.uleb128 0x21
+ 1142 005e 00       		.byte	0
+ 1143 005f 49       		.uleb128 0x49
+ 1144 0060 13       		.uleb128 0x13
+ 1145 0061 2F       		.uleb128 0x2f
+ 1146 0062 0B       		.uleb128 0xb
+ 1147 0063 00       		.byte	0
+ 1148 0064 00       		.byte	0
+ 1149 0065 00       		.byte	0
+ 1150              		.section	.debug_aranges,"",%progbits
+ 1151 0000 14000000 		.4byte	0x14
+ 1152 0004 0200     		.2byte	0x2
+ 1153 0006 00000000 		.4byte	.Ldebug_info0
+ 1154 000a 04       		.byte	0x4
+ 1155 000b 00       		.byte	0
+ 1156 000c 0000     		.2byte	0
+ 1157 000e 0000     		.2byte	0
+ 1158 0010 00000000 		.4byte	0
+ 1159 0014 00000000 		.4byte	0
+ 1160              		.section	.debug_line,"",%progbits
+ 1161              	.Ldebug_line0:
+ 1162 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 1162      02003701 
+ 1162      00000201 
+ 1162      FB0E0D00 
+ 1162      01010101 
+ 1163              	.LASF9:
+ 1164 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 1164      6E74385F 
+ 1164      7400
+ 1165              	.LASF16:
+ 1166 000a 63795F6D 		.ascii	"cy_metadata\000"
+ 1166      65746164 
+ 1166      61746100 
+ 1167              	.LASF1:
+ 1168 0016 756E7369 		.ascii	"unsigned char\000"
+ 1168      676E6564 
+ 1168      20636861 
+ 1168      7200
+ 1169              	.LASF17:
+ 1170 0024 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1170      43313120 
+ 1170      352E342E 
+ 1170      31203230 
+ 1170      31363036 
+ 1171 0057 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1171      20726576 
+ 1171      6973696F 
+ 1171      6E203233 
+ 1171      37373135 
+ 1172 008a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1172      66756E63 
+ 1172      74696F6E 
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 22
+
+
+ 1172      2D736563 
+ 1172      74696F6E 
+ 1173              	.LASF5:
+ 1174 00b2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1174      20756E73 
+ 1174      69676E65 
+ 1174      6420696E 
+ 1174      7400
+ 1175              	.LASF3:
+ 1176 00c4 73686F72 		.ascii	"short unsigned int\000"
+ 1176      7420756E 
+ 1176      7369676E 
+ 1176      65642069 
+ 1176      6E7400
+ 1177              	.LASF13:
+ 1178 00d7 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 1178      6574615F 
+ 1178      63757374 
+ 1178      6E766C00 
+ 1179              	.LASF12:
+ 1180 00e7 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 1180      6574615F 
+ 1180      636F6E66 
+ 1180      69676563 
+ 1180      6300
+ 1181              	.LASF15:
+ 1182 00f9 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 1182      6574615F 
+ 1182      666C6173 
+ 1182      6870726F 
+ 1182      74656374 
+ 1183              	.LASF8:
+ 1184 010e 756E7369 		.ascii	"unsigned int\000"
+ 1184      676E6564 
+ 1184      20696E74 
+ 1184      00
+ 1185              	.LASF7:
+ 1186 011b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1186      206C6F6E 
+ 1186      6720756E 
+ 1186      7369676E 
+ 1186      65642069 
+ 1187              	.LASF10:
+ 1188 0132 75696E74 		.ascii	"uint8_t\000"
+ 1188      385F7400 
+ 1189              	.LASF19:
+ 1190 013a 433A5C55 		.ascii	"C:\\Users\\isaac\\Documents\\PSoC Creator\\P3_ProxS"
+ 1190      73657273 
+ 1190      5C697361 
+ 1190      61635C44 
+ 1190      6F63756D 
+ 1191 0168 656E736F 		.ascii	"ensor\\ProxSensor.cydsn\000"
+ 1191      725C5072 
+ 1191      6F785365 
+ 1191      6E736F72 
+ 1191      2E637964 
+ 1192              	.LASF14:
+ARM GAS  C:\Users\isaac\AppData\Local\Temp\ccXf9Pma.s 			page 23
+
+
+ 1193 017f 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 1193      6574615F 
+ 1193      776F6E76 
+ 1193      6C00
+ 1194              	.LASF11:
+ 1195 018d 73697A65 		.ascii	"sizetype\000"
+ 1195      74797065 
+ 1195      00
+ 1196              	.LASF6:
+ 1197 0196 6C6F6E67 		.ascii	"long long int\000"
+ 1197      206C6F6E 
+ 1197      6720696E 
+ 1197      7400
+ 1198              	.LASF2:
+ 1199 01a4 73686F72 		.ascii	"short int\000"
+ 1199      7420696E 
+ 1199      7400
+ 1200              	.LASF4:
+ 1201 01ae 6C6F6E67 		.ascii	"long int\000"
+ 1201      20696E74 
+ 1201      00
+ 1202              	.LASF0:
+ 1203 01b7 7369676E 		.ascii	"signed char\000"
+ 1203      65642063 
+ 1203      68617200 
+ 1204              	.LASF18:
+ 1205 01c3 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 1205      72617465 
+ 1205      645F536F 
+ 1205      75726365 
+ 1205      5C50536F 
+ 1206              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
